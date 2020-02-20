@@ -63,6 +63,7 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
+        }
         public class Order
         {
             public string Date { get; set; }
