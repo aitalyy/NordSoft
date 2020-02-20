@@ -42,6 +42,7 @@ namespace KinoSoft
             public string SecondName { get; set; }
             
         }
+<<<<<<< HEAD
         //Actor, Producer, Report
         public class Actor
         {
@@ -63,6 +64,12 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
+=======
+        public class Order
+        {
+            public string Date { get; set; }
+            public string Info { get; set; }
+>>>>>>> dd716b89ded447be7eeb92dfb3f807c6b4aac010
         }
     }
 }
