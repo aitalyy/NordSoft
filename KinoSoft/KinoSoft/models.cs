@@ -41,5 +41,10 @@ namespace KinoSoft
             public string SecondName { get; set; }
             
         }
+        public class Order
+        {
+            public string Date { get; set; }
+            public string Info { get; set; }
+        }
     }
 }
