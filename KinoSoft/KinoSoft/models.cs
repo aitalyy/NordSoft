@@ -30,5 +30,16 @@ namespace KinoSoft
             public int Id { get; set; }
             public string Name { get; set; }
         }
+
+        public class Passport
+        {
+            [Key]
+            public int number { get; set; }
+            public int series { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string SecondName { get; set; }
+            
+        }
     }
 }
