@@ -24,8 +24,8 @@ namespace KinoSoft
             public int Id { get; set; }
             public string FirstName { get; set; }
             public string Lastname { get; set; }
-            public string SacondName { get; set; }
-
+            public string SecondName { get; set; }
+            public string PhoneNumber { get; set; }
             public Passport Passport { get; set; }
 
 
