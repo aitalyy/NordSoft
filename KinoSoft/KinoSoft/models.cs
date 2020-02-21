@@ -49,7 +49,9 @@ namespace KinoSoft
             public string LastName { get; set; }
             public string SecondName { get; set; }
             public int ClientId { get; set; }
-            public Client Client { get; set; } 
+            public Client Client { get; set; }
+            public int EmployeeId { get; set; }
+            public Employee Employee { get; set; } 
         }
         public class Order
         {
@@ -96,10 +98,13 @@ namespace KinoSoft
         //JIEXA
         public class Employee
         {
+            [Key]
             public int Id { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public string SecondName { get; set; }
+
+            public Passport Passport { get; set; }
         }
         public class Country
         {
