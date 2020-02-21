@@ -90,7 +90,7 @@ namespace KinoSoft
         }
         public class Country
         {
-            public 
+            public string CountryName { get; set; }
         }
     }
 }
