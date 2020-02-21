@@ -16,6 +16,7 @@ namespace KinoSoft
             [Key]
             public int Id { get; set; }
             public string Name { get; set; }
+            public virtual ICollection<Disk> Disks;
         }
         public class Client
         {
@@ -24,6 +25,10 @@ namespace KinoSoft
             public string FirstName { get; set; }
             public string Lastname { get; set; }
             public string SacondName { get; set; }
+
+            public Passport Passport { get; set; }
+
+
         }
         public class Disk 
         {
@@ -32,6 +37,7 @@ namespace KinoSoft
             [SetLength(1000)]
             public string Name { get; set; }
             public virtual ICollection<Movie> Movies;
+            public virtual ICollection<Order> Orders;
         }
         //BOBA
         public class Passport
@@ -41,14 +47,15 @@ namespace KinoSoft
             public int series { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public string SecondName { get; set; }   
+            public string SecondName { get; set; }
+            public int ClientId { get; set; }
+            public Client Client { get; set; } 
         }
         public class Order
         {
             public string Date { get; set; }
             public string Info { get; set; }
-
-
+            public virtual ICollection<Disk> Disks;
             public int ClientId{get;set;}
             [ForeignKey("ClientId")]
             public Client Client{get;set;}
