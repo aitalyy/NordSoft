@@ -86,6 +86,12 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
+            public string Date { get; set; }
+            public string Text { get; set; }
+
+            public int EmployeetId { get; set; }
+            [ForeignKey("EmployeeId")]
+            public Employee Employee { get; set; }
         }
         //JIEXA
         public class Employee
