@@ -10,6 +10,7 @@ namespace KinoSoft
 {
     class models
     {
+        //A|/|TAJI
         public class Movie
         {
             [Key]
@@ -28,10 +29,11 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
+            [SetLength(1000)]
             public string Name { get; set; }
-            public ICollection<Movie> Movie;
+            public virtual ICollection<Movie> Movies;
         }
-
+        //BOBA
         public class Passport
         {
             [Key]
@@ -39,10 +41,24 @@ namespace KinoSoft
             public int series { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public string SecondName { get; set; }
-            
+            public string SecondName { get; set; }   
         }
-        //Actor, Producer, Report
+        public class Order
+        {
+            public string Date { get; set; }
+            public string Info { get; set; }
+
+
+            public int ClientId{get;set;}
+            [ForeignKey("ClientId")]
+            public Client Client{get;set;}
+        }
+        public class Genre
+        {
+            [Key]
+            public string Genre { get; set; }
+        }
+        //BJIAD
         public class Actor
         {
             [Key]
@@ -64,10 +80,17 @@ namespace KinoSoft
             [Key]
             public int Id { get; set; }
         }
-        public class Order
+        //JIEXA
+        public class Employee
         {
-            public string Date { get; set; }
-            public string Info { get; set; }
+            public int Id { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string SecondName { get; set; }
+        }
+        public class Country
+        {
+            public 
         }
     }
 }
