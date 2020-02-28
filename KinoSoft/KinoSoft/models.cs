@@ -108,6 +108,7 @@ namespace KinoSoft
         }
         public class Country
         {
+            [Key]
             public string CountryName { get; set; }
         }
     }
