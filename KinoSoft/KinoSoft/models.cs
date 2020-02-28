@@ -17,6 +17,7 @@ namespace KinoSoft
             public int Id { get; set; }
             public string Name { get; set; }
             public virtual ICollection<Disk> Disks;
+            public Genre Genre { get; set; }
         }
         public class Client
         {
@@ -24,8 +25,8 @@ namespace KinoSoft
             public int Id { get; set; }
             public string FirstName { get; set; }
             public string Lastname { get; set; }
-            public string SacondName { get; set; }
-
+            public string SecondName { get; set; }
+            public string PhoneNumber { get; set; }
             public Passport Passport { get; set; }
 
 
@@ -34,7 +35,7 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
-            [SetLength(1000)]
+            [StringLength(1000)]
             public string Name { get; set; }
             public virtual ICollection<Movie> Movies;
             public virtual ICollection<Order> Orders;
