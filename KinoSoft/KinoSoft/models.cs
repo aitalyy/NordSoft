@@ -19,7 +19,7 @@ namespace KinoSoft
             public virtual ICollection<Disk> Disks;
             public Genre Genre { get; set; }
         }
-        public class Client
+        public class Client:Person
         {
             [Key]
             public int Id { get; set; }
@@ -27,9 +27,6 @@ namespace KinoSoft
             public string Lastname { get; set; }
             public string SecondName { get; set; }
             public string PhoneNumber { get; set; }
-            public Passport Passport { get; set; }
-
-
         }
         public class Disk 
         {
@@ -40,6 +37,10 @@ namespace KinoSoft
             public virtual ICollection<Movie> Movies;
             public virtual ICollection<Order> Orders;
         }
+        public class Person 
+        {
+            public Passport passport { get; set; }
+        }
         //BOBA
         public class Passport
         {
@@ -48,11 +49,7 @@ namespace KinoSoft
             public int series { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public string SecondName { get; set; }
-            public int ClientId { get; set; }
-            public Client Client { get; set; }
-            public int EmployeeId { get; set; }
-            public Employee Employee { get; set; } 
+            public string SecondName { get; set; } 
         }
         public class Order
         {
@@ -97,7 +94,7 @@ namespace KinoSoft
             public Employee Employee { get; set; }
         }
         //JIEXA
-        public class Employee
+        public class Employee:Person
         {
             [Key]
             public int Id { get; set; }
@@ -106,7 +103,6 @@ namespace KinoSoft
             public string SecondName { get; set; }
             public string Login { get; set; }
             public string Passport { get; set; }
-            public Passport Passport { get; set; }
         }
         public class Country
         {
