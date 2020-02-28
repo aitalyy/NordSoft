@@ -8,25 +8,24 @@ using System.Threading.Tasks;
 
 namespace KinoSoft
 {
-    class models
-    {
+        public enum OrderStatus { Open, Closed, Extended, Expired }
         //A|/|TAJI
         public class Movie
         {
             [Key]
             public int Id { get; set; }
             public string Name { get; set; }
-            public virtual ICollection<Disk> Disks;
-            public Genre Genre { get; set; }
+            public virtual ICollection<Genre> Genres { get; set; }
+            public virtual ICollection<Disk> Disks { get; set; }
+            public virtual ICollection<Producer> Producers { get; set; }
+            public virtual ICollection<Actor> Actors { get; set; }
+            public virtual ICollection<Country> Contries { get; set; }
         }
-        public class Client:Person
+        public class Client : Person
         {
-            [Key]
-            public int Id { get; set; }
-            public string FirstName { get; set; }
-            public string Lastname { get; set; }
-            public string SecondName { get; set; }
             public string PhoneNumber { get; set; }
+            public bool InBalckList { get; set; }
+            public virtual ICollection<Order> Orders { get; set; }
         }
         public class Disk 
         {
@@ -34,28 +33,37 @@ namespace KinoSoft
             public int Id { get; set; }
             [StringLength(1000)]
             public string Name { get; set; }
-            public virtual ICollection<Movie> Movies;
-            public virtual ICollection<Order> Orders;
+            public virtual ICollection<Movie> Movies { get; set; }
+            public virtual ICollection<Order> Orders { get; set; }
         }
         public class Person 
         {
-            public Passport passport { get; set; }
+            public int Id { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string SecondName { get; set; }
+            public int? PassportId { get; set; }
+            [ForeignKey("PasspoerId")]
+            public Passport Passport { get; set; }
         }
         //BOBA
         public class Passport
         {
             [Key]
+            public int Id { get; set; }
+
             public int number { get; set; }
             public int series { get; set; }
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string SecondName { get; set; } 
+            public int PersonId { get; set; }
+            [ForeignKey("PersonId")]
+            public Person Person { get; set; }
         }
         public class Order
         {
-            public string Date { get; set; }
-            public string Info { get; set; }
-            public virtual ICollection<Disk> Disks;
+            public DateTime Date { get; set; }
+            public DateTime EndDate { get; set; }
+            public OrderStatus Status { get; set; }
+            public virtual ICollection<Disk> Disks { get; set; }
             public int ClientId{get;set;}
             [ForeignKey("ClientId")]
             public Client Client{get;set;}
@@ -63,30 +71,24 @@ namespace KinoSoft
         public class Genre
         {
             [Key]
-            public string Genre { get; set; }
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public virtual ICollection<Movie> Movies { get; set; }
         }
         //BJIAD
-        public class Actor
+        public class Actor : Person
         {
-            [Key]
-            public int Id { get; set; }
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string SecondName { get; set; }
+            public virtual ICollection<Movie> Movies { get; set; }
         }
-        public class Producer
+        public class Producer : Person
         {
-            [Key]
-            public int Id { get; set; }
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string SecondName { get; set; }
+            public virtual ICollection<Movie> Movies { get; set; }
         }
         public class Report
         {
             [Key]
             public int Id { get; set; }
-            public string Date { get; set; }
+            public DateTime Date { get; set; }
             public string Text { get; set; }
 
             public int EmployeetId { get; set; }
@@ -96,11 +98,6 @@ namespace KinoSoft
         //JIEXA
         public class Employee:Person
         {
-            [Key]
-            public int Id { get; set; }
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string SecondName { get; set; }
             public string Login { get; set; }
             public string Passport { get; set; }
         }
@@ -108,6 +105,6 @@ namespace KinoSoft
         {
             [Key]
             public string CountryName { get; set; }
+            public virtual ICollection<Movie> Movies { get; set; }
         }
-    }
 }
