@@ -34,7 +34,7 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
-            [SetLength(1000)]
+            [StringLength(1000)]
             public string Name { get; set; }
             public virtual ICollection<Movie> Movies;
             public virtual ICollection<Order> Orders;
