@@ -17,6 +17,7 @@ namespace KinoSoft
             public int Id { get; set; }
             public string Name { get; set; }
             public virtual ICollection<Disk> Disks;
+            public Genre Genre { get; set; }
         }
         public class Client
         {
