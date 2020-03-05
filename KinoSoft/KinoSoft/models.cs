@@ -23,6 +23,9 @@ namespace KinoSoft
         }
         public class MovieActor
         {
+            [Key]
+            public int Id { get; set; }
+
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
             public Movie Movie { get; set; }
@@ -33,6 +36,9 @@ namespace KinoSoft
         }
         public class MovieProducer
         {
+            [Key]
+            public int Id { get; set; }
+
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
             public Movie Movie { get; set; }
@@ -41,8 +47,11 @@ namespace KinoSoft
             [ForeignKey("ProducerId")]
             public Producer Producer { get; set; }
         }
-        public class MovieGenre 
+        public class MovieGenre
         {
+            [Key]
+            public int Id { get; set; }
+
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
             public Movie Movie { get; set; }
@@ -53,6 +62,9 @@ namespace KinoSoft
         }
         public class MovieDisk
         {
+            [Key]
+            public int Id { get; set; }
+
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
             public Movie Movie { get; set; }
@@ -63,6 +75,9 @@ namespace KinoSoft
         }
         public class MovieCountry
         {
+            [Key]
+            public int Id { get; set; }
+
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
             public Movie Movie { get; set; }
@@ -88,6 +103,9 @@ namespace KinoSoft
         }
         public class DiskOrder
         {
+            [Key]
+            public int Id { get; set; }
+
             public int DiskId { get; set; }
             [ForeignKey("DiskId")]
             public Movie Disk { get; set; }
@@ -98,12 +116,14 @@ namespace KinoSoft
         }
         public class Person 
         {
+            [Key]
             public int Id { get; set; }
+
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public string SecondName { get; set; }
             public int? PassportId { get; set; }
-            [ForeignKey("PasspoerId")]
+            [ForeignKey("PassportId")]
             public Passport Passport { get; set; }
         }
         //BOBA
@@ -114,12 +134,14 @@ namespace KinoSoft
 
             public int number { get; set; }
             public int series { get; set; }
-            public int PersonId { get; set; }
+            /*public int PersonId { get; set; }
             [ForeignKey("PersonId")]
-            public Person Person { get; set; }
+            public Person Person { get; set; }*/
         }
         public class Order
         {
+            [Key]
+            public int Id { get; set; }
             public DateTime Date { get; set; }
             public DateTime EndDate { get; set; }
             public OrderStatus Status { get; set; }
@@ -164,6 +186,7 @@ namespace KinoSoft
         public class Country
         {
             [Key]
+            public int Id { get; set; }
             public string CountryName { get; set; }
             public virtual ICollection<MovieCountry> Movies { get; set; }
         }
