@@ -55,7 +55,6 @@ namespace KinoSoft
 
         }
 
-<<<<<<< HEAD
         private void button4_Click(object sender, EventArgs e)
         {
             dataOrder.Visible = false;
@@ -66,11 +65,9 @@ namespace KinoSoft
         {
             dataOrder.Visible = true;
             dataClient.Visible = false;
-=======
+        }
         private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
->>>>>>> 8fc092603db52b577ee0624ac7253198440e1499
         }
     }
 }
