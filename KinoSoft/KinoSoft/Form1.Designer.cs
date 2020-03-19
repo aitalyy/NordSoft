@@ -183,10 +183,9 @@ namespace KinoSoft
             this.button4.TabIndex = 6;
             this.button4.Text = "Список клиентов";
             this.button4.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
+
             this.button4.Click += new System.EventHandler(this.button4_Click);
-=======
->>>>>>> 8fc092603db52b577ee0624ac7253198440e1499
+
             // 
             // button5
             // 
@@ -214,10 +213,8 @@ namespace KinoSoft
             this.button7.TabIndex = 9;
             this.button7.Text = "Список заказов";
             this.button7.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
+
             this.button7.Click += new System.EventHandler(this.button7_Click);
-=======
->>>>>>> 8fc092603db52b577ee0624ac7253198440e1499
             // 
             // dataClient
             // 
@@ -232,11 +229,11 @@ namespace KinoSoft
             this.dataClient.Name = "dataClient";
             this.dataClient.Size = new System.Drawing.Size(756, 373);
             this.dataClient.TabIndex = 10;
-<<<<<<< HEAD
+
             this.dataClient.Visible = false;
-=======
+
             this.dataClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClient_CellContentClick);
->>>>>>> 8fc092603db52b577ee0624ac7253198440e1499
+
             // 
             // dataGridViewTextBoxColumn2
             // 
