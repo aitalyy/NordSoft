@@ -11,6 +11,7 @@ namespace KinoSoft
     public class Contex : DbContext
     {
         public Contex() : base("KinoSoft") { }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Disk> Disks { get; set; }

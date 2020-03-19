@@ -9,12 +9,14 @@ namespace KinoSoft.FormsAutorisation
 {
     class LogicAutorisation
     {
-        Contex My = new Contex();
+        
 
         public static Employee Autorisation(string login, string password)
         {
+            Contex My = new Contex();
             try
             {
+                Employee employee = My.Employees.Where(s => s.Login == login).FirstOrDefault();
                 return null;
             }
             catch

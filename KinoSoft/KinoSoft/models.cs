@@ -186,6 +186,17 @@ namespace KinoSoft
             [Key]
             public string Login { get; set; }
             public string Passport { get; set; }
+
+            public int RoleId { get; set; }
+            [ForeignKey("RoleId")]
+            public Role UserRole { get; set; }
+        }
+        public class Role
+        {
+            [Key]
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public ICollection<Employee> employees { get; set; }
         }
         public class Country
         {
