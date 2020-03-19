@@ -10,7 +10,7 @@ namespace KinoSoft
 {
     public class Contex : DbContext
     {
-        public Contex() : base("KinoSoft2") { }
+        public Contex() : base("KinoSoft") { }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Disk> Disks { get; set; }

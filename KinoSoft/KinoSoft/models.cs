@@ -98,6 +98,7 @@ namespace KinoSoft
             public int Id { get; set; }
             [StringLength(1000)]
             public string Name { get; set; }
+            public int cost { get; set; }
             public virtual ICollection<MovieDisk> Movies { get; set; }
             public virtual ICollection<DiskOrder> Orders { get; set; }
         }
