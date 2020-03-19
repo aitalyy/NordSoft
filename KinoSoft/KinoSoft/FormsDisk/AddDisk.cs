@@ -31,7 +31,12 @@ namespace KinoSoft.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string name = textBox1.Text;
+            string format = comboBox1.Text;
+            int copy = Convert.ToInt32(textBox2.Text);
+            int cost = Convert.ToInt32(textBox3.Text);
+            LogicDisk LD = new LogicDisk();
+            LD.AddDisk(name, format, copy, cost);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +51,7 @@ namespace KinoSoft.Forms
 
         private void AddDisk_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Movies.ToList<Movie>();
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
         }
     }
 }

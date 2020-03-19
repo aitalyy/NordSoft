@@ -61,10 +61,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddDisk.cs">
+    <Compile Include="FormsDisk\AddDisk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddDisk.Designer.cs">
+    <Compile Include="FormsDisk\AddDisk.Designer.cs">
       <DependentUpon>AddDisk.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddMovie.cs">
@@ -76,11 +76,13 @@
     <Compile Include="Forms\EditMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditMovie.Designer.cs" />
-    <Compile Include="LogicDisk.cs" />
-    <Compile Include="Migrations\202003060212407_First.cs" />
-    <Compile Include="Migrations\202003060212407_First.Designer.cs">
-      <DependentUpon>202003060212407_First.cs</DependentUpon>
+    <Compile Include="Forms\EditMovie.Designer.cs">
+      <DependentUpon>EditMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDisk\LogicDisk.cs" />
+    <Compile Include="Migrations\202003190740060_First.cs" />
+    <Compile Include="Migrations\202003190740060_First.designer.cs">
+      <DependentUpon>202003190740060_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
@@ -89,15 +91,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddDisk.resx">
+    <EmbeddedResource Include="FormsDisk\AddDisk.resx">
       <DependentUpon>AddDisk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMovie.resx">
       <DependentUpon>AddMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditMovie.resx" />
-    <EmbeddedResource Include="Migrations\202003060212407_First.resx">
-      <DependentUpon>202003060212407_First.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditMovie.resx">
+      <DependentUpon>EditMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003190740060_First.resx">
+      <DependentUpon>202003190740060_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
