@@ -49,5 +49,10 @@ namespace KinoSoft
             Forms.AddDisk addDisk = new Forms.AddDisk();
             addDisk.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
