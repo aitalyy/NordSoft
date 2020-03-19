@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormsAutorisation\Autorisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAutorisation\Autorisation.Designer.cs">
+      <DependentUpon>Autorisation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contex.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -61,12 +67,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsAutorisation\LogicAutorisation.cs" />
     <Compile Include="FormsClient\AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormsClient\AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsClient\LogicClient.cs" />
     <Compile Include="FormsDisk\AddDisk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +104,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAutorisation\Autorisation.resx">
+      <DependentUpon>Autorisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsClient\AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsDisk\AddDisk.resx">
       <DependentUpon>AddDisk.cs</DependentUpon>
