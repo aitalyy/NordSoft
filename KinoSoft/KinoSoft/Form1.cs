@@ -27,5 +27,21 @@ namespace KinoSoft
             Forms.AddMovie addMovie = new Forms.AddMovie();
             addMovie.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+         /*   try
+            {
+
+                System.IO.File.Delete(listBox1.SelectedIndex.ToString());
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            }
+            catch (Exception err)
+            {
+
+            }
+            */
+        }
     }
 }

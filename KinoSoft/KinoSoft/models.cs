@@ -180,6 +180,7 @@ namespace KinoSoft
         //JIEXA
         public class Employee:Person
         {
+            [Key]
             public string Login { get; set; }
             public string Passport { get; set; }
         }
