@@ -54,5 +54,17 @@ namespace KinoSoft
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataOrder.Visible = false;
+            dataClient.Visible = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            dataOrder.Visible = true;
+            dataClient.Visible = false;
+        }
     }
 }
