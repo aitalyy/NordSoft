@@ -21,7 +21,7 @@ namespace KinoSoft.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,6 +52,16 @@ namespace KinoSoft.Forms
         private void AddDisk_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = My.Disks.ToList<Disk>();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
