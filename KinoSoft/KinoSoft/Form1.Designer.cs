@@ -35,10 +35,6 @@ namespace KinoSoft
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataOrder = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,10 @@ namespace KinoSoft
             this.DataZakaza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zalog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.dataClient = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,42 +128,6 @@ namespace KinoSoft
             this.dataOrder.Size = new System.Drawing.Size(756, 373);
             this.dataOrder.TabIndex = 5;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(294, 36);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Список клиентов";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(407, 36);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Список фильмов";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(520, 36);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(107, 23);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Список дисков";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(181, 36);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(107, 23);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Список заказов";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // id
             // 
             this.id.HeaderText = "Номер заказа";
@@ -211,6 +175,42 @@ namespace KinoSoft
             this.zalog.ReadOnly = true;
             this.zalog.Width = 123;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(294, 36);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(107, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Список клиентов";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(407, 36);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(107, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Список фильмов";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(520, 36);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(107, 23);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Список дисков";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(181, 36);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(107, 23);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Список заказов";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // dataClient
             // 
             this.dataClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -224,6 +224,7 @@ namespace KinoSoft
             this.dataClient.Name = "dataClient";
             this.dataClient.Size = new System.Drawing.Size(756, 373);
             this.dataClient.TabIndex = 10;
+            this.dataClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClient_CellContentClick);
             // 
             // dataGridViewTextBoxColumn2
             // 

@@ -54,5 +54,10 @@ namespace KinoSoft
         {
 
         }
+
+        private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
