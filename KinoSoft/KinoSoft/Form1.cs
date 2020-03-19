@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +24,8 @@ namespace KinoSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Forms.AddMovie addMovie = new Forms.AddMovie();
+            addMovie.Show();
         }
     }
 }
