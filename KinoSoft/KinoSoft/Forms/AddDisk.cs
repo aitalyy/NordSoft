@@ -12,6 +12,8 @@ namespace KinoSoft.Forms
 {
     public partial class AddDisk : Form
     {
+        Contex My = new Contex();
+
         public AddDisk()
         {
             InitializeComponent();
@@ -30,6 +32,21 @@ namespace KinoSoft.Forms
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddDisk_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Movies.ToList<Movie>();
         }
     }
 }
