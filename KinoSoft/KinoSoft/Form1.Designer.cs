@@ -33,7 +33,6 @@ namespace KinoSoft
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataOrder = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +51,14 @@ namespace KinoSoft
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataDisk = new System.Windows.Forms.DataGridView();
+            this.dataMovie = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDisk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMovie)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -65,7 +67,7 @@ namespace KinoSoft
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Добавление фильма";
+            this.button1.Text = "Добавление";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -100,19 +102,9 @@ namespace KinoSoft
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Удалить фильм";
+            this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 94);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Добавление диска";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataOrder
             // 
@@ -195,6 +187,7 @@ namespace KinoSoft
             this.button5.TabIndex = 7;
             this.button5.Text = "Список фильмов";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -265,27 +258,48 @@ namespace KinoSoft
             this.Adress.Name = "Adress";
             this.Adress.ReadOnly = true;
             // 
-            // dataGridView1
+            // dataDisk
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(181, 65);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(756, 373);
-            this.dataGridView1.TabIndex = 11;
+            this.dataDisk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDisk.Location = new System.Drawing.Point(181, 65);
+            this.dataDisk.Name = "dataDisk";
+            this.dataDisk.Size = new System.Drawing.Size(756, 373);
+            this.dataDisk.TabIndex = 11;
+            this.dataDisk.Visible = false;
+            // 
+            // dataMovie
+            // 
+            this.dataMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataMovie.Location = new System.Drawing.Point(181, 65);
+            this.dataMovie.Name = "dataMovie";
+            this.dataMovie.Size = new System.Drawing.Size(756, 373);
+            this.dataMovie.TabIndex = 12;
+            this.dataMovie.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 94);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(151, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Редактирование";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.dataMovie);
+            this.Controls.Add(this.dataDisk);
             this.Controls.Add(this.dataClient);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataOrder);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -297,7 +311,8 @@ namespace KinoSoft
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDisk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMovie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +325,6 @@ namespace KinoSoft
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClient;
@@ -329,7 +343,9 @@ namespace KinoSoft
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Passport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataDisk;
+        private System.Windows.Forms.DataGridView dataMovie;
+        private System.Windows.Forms.Button button3;
     }
 }
 
