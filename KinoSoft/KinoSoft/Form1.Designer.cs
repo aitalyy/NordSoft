@@ -52,9 +52,11 @@ namespace KinoSoft
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -183,9 +185,7 @@ namespace KinoSoft
             this.button4.TabIndex = 6;
             this.button4.Text = "Список клиентов";
             this.button4.UseVisualStyleBackColor = true;
-
             this.button4.Click += new System.EventHandler(this.button4_Click);
-
             // 
             // button5
             // 
@@ -204,6 +204,7 @@ namespace KinoSoft
             this.button6.TabIndex = 8;
             this.button6.Text = "Список дисков";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -213,7 +214,6 @@ namespace KinoSoft
             this.button7.TabIndex = 9;
             this.button7.Text = "Список заказов";
             this.button7.UseVisualStyleBackColor = true;
-
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // dataClient
@@ -229,11 +229,8 @@ namespace KinoSoft
             this.dataClient.Name = "dataClient";
             this.dataClient.Size = new System.Drawing.Size(756, 373);
             this.dataClient.TabIndex = 10;
-
             this.dataClient.Visible = false;
-
             this.dataClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClient_CellContentClick);
-
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -268,11 +265,20 @@ namespace KinoSoft
             this.Adress.Name = "Adress";
             this.Adress.ReadOnly = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(181, 65);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(756, 373);
+            this.dataGridView1.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataClient);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -291,6 +297,7 @@ namespace KinoSoft
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,6 +329,7 @@ namespace KinoSoft
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Passport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

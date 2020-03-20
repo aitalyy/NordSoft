@@ -21,7 +21,14 @@ namespace KinoSoft.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result = MessageBox.Show(
+                    "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+                    "Сообщение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.Yes) Close();
         }
 
         private void label1_Click(object sender, EventArgs e)

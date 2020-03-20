@@ -12,6 +12,7 @@ namespace KinoSoft
 {
     public partial class Form1 : Form
     {
+        Contex My = new Contex();
         public Form1()
         {
             InitializeComponent();
@@ -63,11 +64,17 @@ namespace KinoSoft
 
         private void button7_Click(object sender, EventArgs e)
         {
+           
             dataOrder.Visible = true;
             dataClient.Visible = false;
         }
         private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
         }
     }
 }
