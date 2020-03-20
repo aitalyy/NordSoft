@@ -12,9 +12,10 @@ namespace KinoSoft.Forms
 {
     public partial class EditMovie : Form
     {
-        public EditMovie()
+        public EditMovie(DataGridViewRow row)
         {
             InitializeComponent();
+
         }
 
         private void EditMovie_Load(object sender, EventArgs e)
@@ -25,6 +26,18 @@ namespace KinoSoft.Forms
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                    "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+                    "Сообщение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.Yes) Close();
         }
     }
 }

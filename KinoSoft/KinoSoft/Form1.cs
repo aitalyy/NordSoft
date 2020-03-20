@@ -128,7 +128,7 @@ namespace KinoSoft
             switch (Num)
             {
                 case 3:
-                    Forms.EditMovie editMovie = new Forms.EditMovie();
+                    Forms.EditMovie editMovie = new Forms.EditMovie(dataMovie.SelectedRows[0]);
                     editMovie.Show();
                     break;
                 default:
