@@ -112,11 +112,12 @@ namespace KinoSoft
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            if (dataAll.SelectedRows.Count == 0)
+                return;
+
             switch (Num)
             {
                 case 3:
-                    if (dataAll.SelectedRows.Count == 0)
-                        return;
                     Forms.EditMovie editMovie = new Forms.EditMovie(dataAll.SelectedRows[0]);
                     editMovie.Show();
                     break;

@@ -17,8 +17,7 @@ namespace KinoSoft.Forms
             InitializeComponent();
             using (Contex db = new Contex())
             {
-                foreach (Genre genre in db.Genres)
-                    Genre.Items.Add(genre.Name);
+                Genre.Items.Add(db.Genres.ToList<Genre>());
             }
             //MovieName.Text = (string) row.Cells[1].Value;
         }
