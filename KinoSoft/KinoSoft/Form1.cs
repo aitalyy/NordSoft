@@ -135,20 +135,20 @@ namespace KinoSoft
         private void button8_Click(object sender, EventArgs e)
         {
             dataAll.DataSource = My.Employees.ToList<Employee>();
-            //Employee employee = new Employee
-            //{
-            //    Login = "asd",
-            //    Password = "123",
-            //    RoleId = 1,
-            //};
+            Employee employee = new Employee
+            {
+                Login = "asd",
+                Password = "123",
+                RoleId = 1,
+            };
 
-            ////Role role = new Role
-            ////{
-            ////    Name = "Директор"
-            ////};
-            //My.Employees.Add(employee);
-            //My.Roles.Add(role);
-            //My.SaveChanges();
+            //Role role = new Role
+            //{
+            //    Name = "Директор"
+            //};
+            My.Employees.Add(employee);
+            ////My.Roles.Add(role);
+            My.SaveChanges();
         }
     }
 }
