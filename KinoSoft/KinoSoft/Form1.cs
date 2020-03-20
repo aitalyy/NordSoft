@@ -125,7 +125,22 @@ namespace KinoSoft
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-
+            switch (Num)
+            {
+                case 3:
+                    Forms.EditMovie editMovie = new Forms.EditMovie();
+                    editMovie.Show();
+                    break;
+                default:
+                    DialogResult result = MessageBox.Show(
+                    "В процессе разработки!",
+                    "Сообщение",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+                    break;
+            }
         }
     }
 }
