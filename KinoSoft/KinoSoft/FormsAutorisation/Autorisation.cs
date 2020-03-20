@@ -37,11 +37,6 @@ namespace KinoSoft.Autorisation
             Employee m = LogicAutorisation.Autorisation(login, password);
             if (m == null) MessageBox.Show("Неправильно ввели логин или пароль");
 
-            Employee employee = new Employee
-            {
-                Login = "asd",
-                Password = "123"
-            };
         }
     }
 }

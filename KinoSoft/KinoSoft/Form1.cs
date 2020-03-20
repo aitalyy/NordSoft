@@ -111,7 +111,7 @@ namespace KinoSoft
             dataClient.Visible = false;
             dataDisk.Visible = true;
             dataMovie.Visible = false;
-            //dataDisk.DataSource = My.Disks.ToList<Disk>();
+            dataDisk.DataSource = My.Disks.ToList<Disk>();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -144,6 +144,25 @@ namespace KinoSoft
                     MessageBoxOptions.ServiceNotification);
                     break;
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            dataDisk.DataSource = My.Employees.ToList<Employee>();
+            //Employee employee = new Employee
+            //{
+            //    Login = "asd",
+            //    Password = "123",
+            //    RoleId = 1,
+            //};
+
+            ////Role role = new Role
+            ////{
+            ////    Name = "Директор"
+            ////};
+            //My.Employees.Add(employee);
+            //My.Roles.Add(role);
+            //My.SaveChanges();
         }
     }
 }

@@ -17,17 +17,18 @@ namespace KinoSoft.FormsAutorisation
             try
             {
                 Employee employee = My.Employees.Where(s => s.Login == login).FirstOrDefault();
+
                 int RoleId = employee.RoleId;
+
                 Role role = My.Roles.FirstOrDefault(b => b.Id == RoleId);
-
                 Form1 form1 = new Form1();
-
-                if (employee.Equals(password))
+                if (employee.Password.Equals(password))
                 {
                     form1.Show();
+                    return employee;
                 }
-
-                return null;
+                else return null;
+                
             }
             catch
             {
