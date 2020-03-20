@@ -13,7 +13,7 @@ namespace KinoSoft.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003200500029_First"; }
+            get { return "202003200657039_First"; }
         }
         
         string IMigrationMetadata.Source
