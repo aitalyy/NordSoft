@@ -12,7 +12,7 @@ namespace KinoSoft.Forms
 {
     public partial class EditMovie : Form
     {
-        public EditMovie()
+        public EditMovie(DataGridViewRow row)
         {
             InitializeComponent();
             using (Contex db = new Contex())

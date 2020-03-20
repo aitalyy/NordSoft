@@ -125,10 +125,13 @@ namespace KinoSoft
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            if (dataMovie.SelectedRows == null)
+                return;
+
             switch (Num)
             {
                 case 3:
-                    Forms.EditMovie editMovie = new Forms.EditMovie();
+                    Forms.EditMovie editMovie = new Forms.EditMovie(dataMovie.SelectedRows[0]);
                     editMovie.Show();
                     break;
                 default:
