@@ -33,33 +33,15 @@ namespace KinoSoft
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataOrder = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataZakaza = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zalog = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataClient = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDisk = new System.Windows.Forms.DataGridView();
-            this.dataMovie = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.dataAll = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDisk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAll)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -107,69 +89,6 @@ namespace KinoSoft
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataOrder
-            // 
-            this.dataOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.idClient,
-            this.PhoneNumber,
-            this.OrderStatus,
-            this.DataZakaza,
-            this.DataReturn,
-            this.zalog});
-            this.dataOrder.Location = new System.Drawing.Point(181, 65);
-            this.dataOrder.Name = "dataOrder";
-            this.dataOrder.Size = new System.Drawing.Size(756, 373);
-            this.dataOrder.TabIndex = 5;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Номер заказа";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 60;
-            // 
-            // idClient
-            // 
-            this.idClient.HeaderText = "id Клиента";
-            this.idClient.Name = "idClient";
-            this.idClient.ReadOnly = true;
-            this.idClient.Width = 60;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.HeaderText = "Номер телефона";
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            this.PhoneNumber.Width = 150;
-            // 
-            // OrderStatus
-            // 
-            this.OrderStatus.HeaderText = "Статус Заказа";
-            this.OrderStatus.Name = "OrderStatus";
-            this.OrderStatus.ReadOnly = true;
-            this.OrderStatus.Width = 120;
-            // 
-            // DataZakaza
-            // 
-            this.DataZakaza.HeaderText = "Дата создания заказа";
-            this.DataZakaza.Name = "DataZakaza";
-            this.DataZakaza.ReadOnly = true;
-            // 
-            // DataReturn
-            // 
-            this.DataReturn.HeaderText = "Дата возврата";
-            this.DataReturn.Name = "DataReturn";
-            this.DataReturn.ReadOnly = true;
-            // 
-            // zalog
-            // 
-            this.zalog.HeaderText = "Залог";
-            this.zalog.Name = "zalog";
-            this.zalog.ReadOnly = true;
-            this.zalog.Width = 123;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(294, 36);
@@ -210,73 +129,6 @@ namespace KinoSoft
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // dataClient
-            // 
-            this.dataClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.FIO,
-            this.dataGridViewTextBoxColumn3,
-            this.Passport,
-            this.Adress});
-            this.dataClient.Location = new System.Drawing.Point(181, 65);
-            this.dataClient.Name = "dataClient";
-            this.dataClient.Size = new System.Drawing.Size(756, 373);
-            this.dataClient.TabIndex = 10;
-            this.dataClient.Visible = false;
-            this.dataClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClient_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "id Клиента";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // FIO
-            // 
-            this.FIO.HeaderText = "ФИО";
-            this.FIO.Name = "FIO";
-            this.FIO.ReadOnly = true;
-            this.FIO.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Номер телефона";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // Passport
-            // 
-            this.Passport.HeaderText = "Серия и номер";
-            this.Passport.Name = "Passport";
-            this.Passport.ReadOnly = true;
-            // 
-            // Adress
-            // 
-            this.Adress.HeaderText = "Адресс проживания";
-            this.Adress.Name = "Adress";
-            this.Adress.ReadOnly = true;
-            // 
-            // dataDisk
-            // 
-            this.dataDisk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataDisk.Location = new System.Drawing.Point(181, 65);
-            this.dataDisk.Name = "dataDisk";
-            this.dataDisk.Size = new System.Drawing.Size(756, 373);
-            this.dataDisk.TabIndex = 11;
-            this.dataDisk.Visible = false;
-            // 
-            // dataMovie
-            // 
-            this.dataMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataMovie.Location = new System.Drawing.Point(181, 65);
-            this.dataMovie.Name = "dataMovie";
-            this.dataMovie.Size = new System.Drawing.Size(756, 373);
-            this.dataMovie.TabIndex = 12;
-            this.dataMovie.Visible = false;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(12, 94);
@@ -297,6 +149,14 @@ namespace KinoSoft
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // dataAll
+            // 
+            this.dataAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataAll.Location = new System.Drawing.Point(169, 65);
+            this.dataAll.Name = "dataAll";
+            this.dataAll.Size = new System.Drawing.Size(756, 373);
+            this.dataAll.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,14 +164,11 @@ namespace KinoSoft
             this.ClientSize = new System.Drawing.Size(949, 450);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.dataMovie);
-            this.Controls.Add(this.dataDisk);
-            this.Controls.Add(this.dataClient);
+            this.Controls.Add(this.dataAll);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.dataOrder);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -321,10 +178,7 @@ namespace KinoSoft
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDisk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,28 +191,13 @@ namespace KinoSoft
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataZakaza;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataReturn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zalog;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Passport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
-        private System.Windows.Forms.DataGridView dataDisk;
-        private System.Windows.Forms.DataGridView dataMovie;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridView dataAll;
     }
 }
 

@@ -86,19 +86,13 @@ namespace KinoSoft
         private void button4_Click(object sender, EventArgs e)
         {
             Num = 2;
-            dataOrder.Visible = false;
-            dataClient.Visible = true;
-            dataDisk.Visible = false;
-            dataMovie.Visible = false;
+            dataAll.DataSource = My.Clients.ToList<Client>();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Num = 1;
-            dataDisk.Visible = false;
-            dataOrder.Visible = true;
-            dataClient.Visible = false;
-            dataMovie.Visible = false;
+            dataAll.DataSource = My.Orders.ToList<Order>();
         }
         private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -107,31 +101,24 @@ namespace KinoSoft
         private void button6_Click(object sender, EventArgs e)
         {
             Num = 4;
-            dataOrder.Visible = false;
-            dataClient.Visible = false;
-            dataDisk.Visible = true;
-            dataMovie.Visible = false;
-            dataDisk.DataSource = My.Disks.ToList<Disk>();
+            dataAll.DataSource = My.Disks.ToList<Disk>();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Num = 3;
-            dataOrder.Visible = false;
-            dataClient.Visible = false;
-            dataDisk.Visible = false;
-            dataMovie.Visible = true;
+            dataAll.DataSource = My.Movies.ToList<Movie>();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (dataMovie.SelectedRows.Count == 0)
+            if (dataAll.SelectedRows.Count == 0)
                 return;
 
             switch (Num)
             {
                 case 3:
-                    Forms.EditMovie editMovie = new Forms.EditMovie(dataMovie.SelectedRows[0]);
+                    Forms.EditMovie editMovie = new Forms.EditMovie(dataAll.SelectedRows[0]);
                     editMovie.Show();
                     break;
                 default:
@@ -148,7 +135,7 @@ namespace KinoSoft
 
         private void button8_Click(object sender, EventArgs e)
         {
-            dataDisk.DataSource = My.Employees.ToList<Employee>();
+            dataAll.DataSource = My.Employees.ToList<Employee>();
             //Employee employee = new Employee
             //{
             //    Login = "asd",
