@@ -125,7 +125,7 @@ namespace KinoSoft
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (dataMovie.SelectedRows == null)
+            if (dataMovie.SelectedRows.Count == 0)
                 return;
 
             switch (Num)
