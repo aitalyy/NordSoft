@@ -160,7 +160,6 @@ namespace KinoSoft
             public string Name { get; set; }
             public virtual ICollection<MovieGenre> Movies { get; set; }
         }
-        //BJIAD
         public class Actor : Person
         {
             public virtual ICollection<MovieActor> Movies { get; set; }
@@ -180,12 +179,11 @@ namespace KinoSoft
             [ForeignKey("EmployeeId")]
             public Employee Employee { get; set; }
         }
-        //JIEXA
         public class Employee:Person
         {
             [Key]
             public string Login { get; set; }
-            public string Passport { get; set; }
+            public string Password { get; set; }
 
             public int RoleId { get; set; }
             [ForeignKey("RoleId")]
