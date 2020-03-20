@@ -112,6 +112,7 @@ namespace KinoSoft
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (dataAll.SelectedRows.Count == 0)
                 return;
 
@@ -119,6 +120,14 @@ namespace KinoSoft
             {
                 case 3:
                     Forms.EditMovie editMovie = new Forms.EditMovie(dataAll.SelectedRows[0]);
+=======
+            switch (Num)
+            {
+                case 3:
+                    if (dataMovie.SelectedRows.Count == 0)
+                        return;
+                    Forms.EditMovie editMovie = new Forms.EditMovie(dataMovie.SelectedRows[0]);
+>>>>>>> f355d49ab83974fd687bb90c68c38a332b6280c4
                     editMovie.Show();
                     break;
                 default:
