@@ -85,12 +85,6 @@
             // Genre
             // 
             this.Genre.FormattingEnabled = true;
-            this.Genre.Items.AddRange(new object[] {
-            "Комедия",
-            "Драма",
-            "Хоррор",
-            "Триллер",
-            "Боевик"});
             this.Genre.Location = new System.Drawing.Point(128, 49);
             this.Genre.Name = "Genre";
             this.Genre.Size = new System.Drawing.Size(321, 64);
