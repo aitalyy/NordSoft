@@ -154,6 +154,7 @@ namespace KinoSoft
             this.dataAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataAll.Location = new System.Drawing.Point(169, 65);
             this.dataAll.Name = "dataAll";
+            this.dataAll.ReadOnly = true;
             this.dataAll.Size = new System.Drawing.Size(756, 373);
             this.dataAll.TabIndex = 12;
             // 
@@ -175,6 +176,7 @@ namespace KinoSoft
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
