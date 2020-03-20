@@ -12,10 +12,15 @@ namespace KinoSoft.Forms
 {
     public partial class EditMovie : Form
     {
-        public EditMovie(DataGridViewRow row)
+        public EditMovie()
         {
             InitializeComponent();
-
+            using (Contex db = new Contex())
+            {
+                foreach (Genre genre in db.Genres)
+                    Genre.Items.Add(genre.Name);
+            }
+            //MovieName.Text = (string) row.Cells[1].Value;
         }
 
         private void EditMovie_Load(object sender, EventArgs e)
