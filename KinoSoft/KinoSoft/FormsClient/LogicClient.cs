@@ -25,22 +25,54 @@ namespace KinoSoft.FormsClient
 
             Client client = new Client
             {
+                
                 InBalckList = false,
+                PassportId = id,
                 PhoneNumber = phonenumber,
-                FirstName = firstname,
-                LastName = lastname,
                 SecondName = secondname,
-                PassportId = id
+                LastName = lastname,
+                FirstName = firstname
+
             };
             
             My.Clients.Add(client);
             My.SaveChanges();
 
+            int idCl = client.Id;
+            Client check = CheckedClient(idCl, firstname, lastname, secondname, phonenumber);
+            if (check != null)
+                MessageBox.Show("Пользователь успешно зарегистрирован");
+            else
+                MessageBox.Show("Повторите попытку");
+
         }
 
-        public void EditClient()
+        public static Client CheckedClient(int id, string firstname, string lastname, string secondname, string phonenumber)
         {
+            Contex My = new Contex();
+            try
+            {
+                Client client = My.Clients.Where(a => a.Id == id).FirstOrDefault();
+                if (client.FirstName.Equals(firstname))
+                    if (client.LastName.Equals(lastname))
+                        if (client.SecondName.Equals(secondname))
+                            if (client.PhoneNumber.Equals(phonenumber))
+                                return client;
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
+        public void RemoveClient(int idClient, int idPass)
+        {
+            Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
+            Passport passport = My.Passports.Where(k => k.Id == idPass).FirstOrDefault();
+            My.Passports.Remove(passport);
+            My.Clients.Remove(client);
+            My.SaveChanges();
         }
     }
 }

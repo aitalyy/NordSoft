@@ -35,13 +35,6 @@ namespace KinoSoft.FormsClient
         private void EditClient_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = My.Clients.ToList<Client>();
-            dataGridView1.DataSource = My.Persons.ToList<Person>();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = My.Clients.ToList<Client>();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,14 +42,23 @@ namespace KinoSoft.FormsClient
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Passports.ToList<Passport>();
+            int idClient = Convert.ToInt32(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value);
+            int idPass = Convert.ToInt32(dataGridView1[7, dataGridView1.CurrentCell.RowIndex].Value);
+
+            LogicClient LogClRem = new LogicClient();
+            LogClRem.RemoveClient(idClient, idPass);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void selectionButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Persons.ToList<Person>();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Clients.ToList<Client>();
         }
     }
 }
