@@ -28,10 +28,10 @@ namespace KinoSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            switch(Num)
+            switch (Num)
             {
                 case 3:
-                    Forms.AddMovie addMovie = new Forms.AddMovie();
+                    Forms.AddMovie addMovie = new Forms.AddMovie(null);
                     addMovie.Show();
                 break;
                 case 4:
@@ -48,7 +48,30 @@ namespace KinoSoft
                     MessageBoxOptions.ServiceNotification);
                     break;
             }
-            
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (dataAll.SelectedRows.Count == 0)
+                return;
+
+            switch (Num)
+            {
+                case 3:
+                    Forms.AddMovie editMovie = new Forms.AddMovie(dataAll.SelectedRows[0]);
+                    editMovie.Show();
+                    break;
+                default:
+                    DialogResult result = MessageBox.Show(
+                    "В процессе разработки!",
+                    "Сообщение",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+                    break;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -109,29 +132,6 @@ namespace KinoSoft
         {
             Num = 3;
             dataAll.DataSource = My.Movies.ToList<Movie>();
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            if (dataAll.SelectedRows.Count == 0)
-                return;
-
-            switch (Num)
-            {
-                case 3:
-                    Forms.EditMovie editMovie = new Forms.EditMovie(dataAll.SelectedRows[0]);
-                    editMovie.Show();
-                    break;
-                default:
-                    DialogResult result = MessageBox.Show(
-                    "В процессе разработки!",
-                    "Сообщение",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.ServiceNotification);
-                    break;
-            }
         }
 
         private void button8_Click(object sender, EventArgs e)

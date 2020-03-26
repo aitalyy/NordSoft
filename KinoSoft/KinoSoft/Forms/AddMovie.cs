@@ -12,9 +12,15 @@ namespace KinoSoft.Forms
 {
     public partial class AddMovie : Form
     {
-        public AddMovie()
+        Contex db = new Contex();
+
+        public AddMovie(DataGridViewRow row)
         {
             InitializeComponent();
+            if (row == null)
+                return;
+
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
