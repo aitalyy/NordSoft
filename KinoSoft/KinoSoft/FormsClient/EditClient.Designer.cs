@@ -71,6 +71,7 @@
             this.editButton.TabIndex = 28;
             this.editButton.Text = "Изменить";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // PassSerBox
             // 
@@ -199,16 +200,16 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(9, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 32;
-            this.label8.Text = "Введите Ф || И || О";
+            this.label8.Text = "Введите имя";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(747, 168);
+            this.dataGridView1.Size = new System.Drawing.Size(1058, 168);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -224,7 +225,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(684, 215);
+            this.button4.Location = new System.Drawing.Point(393, 215);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 38;
@@ -234,7 +235,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(603, 215);
+            this.button1.Location = new System.Drawing.Point(312, 215);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 39;
@@ -246,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 508);
+            this.ClientSize = new System.Drawing.Size(1082, 508);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.selectionButton);

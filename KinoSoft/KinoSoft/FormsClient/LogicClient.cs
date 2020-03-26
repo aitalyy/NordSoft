@@ -74,5 +74,26 @@ namespace KinoSoft.FormsClient
             My.Clients.Remove(client);
             My.SaveChanges();
         }
+
+        public void getDataClient(DataGridView asd)
+        {
+            Contex My = new Contex();
+            var result = from a in My.Clients
+                         from b in My.Passports
+                         select new
+                         {
+                             id = a.Id,
+                             Имя = a.FirstName,
+                             Фамилия = a.LastName,
+                             Отчество = a.SecondName,
+                             Номер_телефона = a.PhoneNumber,
+                             Заказ = a.Orders,
+                             Черный_лист = a.InBalckList,
+                             Номер_паспорта = b.number,
+                             Серия_паспорта = b.series,
+                             PassportId = a.PassportId
+                         };
+            asd.DataSource = result.ToList();
+        }
     }
 }

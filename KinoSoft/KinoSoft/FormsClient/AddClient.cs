@@ -32,7 +32,7 @@ namespace KinoSoft.FormsClient
             string FirstName = textBox1.Text;
             string LastName = textBox2.Text;
             string SecondName = textBox4.Text;
-            int NumberPassport = Convert.ToInt16(textBox5.Text);
+            int NumberPassport = Convert.ToInt32(textBox5.Text);
             int seriesPassport = Convert.ToInt16(textBox6.Text);
             string PhoneNumber = textBox3.Text;
 
