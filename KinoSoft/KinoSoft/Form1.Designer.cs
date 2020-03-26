@@ -60,7 +60,7 @@ namespace KinoSoft
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(949, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(938, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -91,9 +91,9 @@ namespace KinoSoft
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(294, 36);
+            this.button4.Location = new System.Drawing.Point(321, 36);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 23);
+            this.button4.Size = new System.Drawing.Size(146, 23);
             this.button4.TabIndex = 6;
             this.button4.Text = "Список клиентов";
             this.button4.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@ namespace KinoSoft
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(407, 36);
+            this.button5.Location = new System.Drawing.Point(473, 36);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 23);
+            this.button5.Size = new System.Drawing.Size(146, 23);
             this.button5.TabIndex = 7;
             this.button5.Text = "Список фильмов";
             this.button5.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@ namespace KinoSoft
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(520, 36);
+            this.button6.Location = new System.Drawing.Point(625, 36);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(107, 23);
+            this.button6.Size = new System.Drawing.Size(146, 23);
             this.button6.TabIndex = 8;
             this.button6.Text = "Список дисков";
             this.button6.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@ namespace KinoSoft
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(181, 36);
+            this.button7.Location = new System.Drawing.Point(169, 36);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(107, 23);
+            this.button7.Size = new System.Drawing.Size(146, 23);
             this.button7.TabIndex = 9;
             this.button7.Text = "Список заказов";
             this.button7.UseVisualStyleBackColor = true;
@@ -141,11 +141,11 @@ namespace KinoSoft
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(633, 36);
+            this.button8.Location = new System.Drawing.Point(777, 36);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 23);
+            this.button8.Size = new System.Drawing.Size(146, 23);
             this.button8.TabIndex = 14;
-            this.button8.Text = "Список клиентов";
+            this.button8.Text = "Список сотрудников";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -155,14 +155,14 @@ namespace KinoSoft
             this.dataAll.Location = new System.Drawing.Point(169, 65);
             this.dataAll.Name = "dataAll";
             this.dataAll.ReadOnly = true;
-            this.dataAll.Size = new System.Drawing.Size(756, 373);
+            this.dataAll.Size = new System.Drawing.Size(754, 373);
             this.dataAll.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 450);
+            this.ClientSize = new System.Drawing.Size(938, 450);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataAll);
