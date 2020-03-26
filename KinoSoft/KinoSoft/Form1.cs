@@ -18,6 +18,7 @@ namespace KinoSoft
         public Form1()
         {
             InitializeComponent();
+            dataAll.DataSource = My.Orders.ToList<Order>();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)

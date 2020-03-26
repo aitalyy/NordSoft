@@ -94,6 +94,7 @@
       <DependentUpon>EditMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsDisk\LogicDisk.cs" />
+    <Compile Include="Forms\LogicMovie.cs" />
     <Compile Include="Migrations\202003200706312_First.cs" />
     <Compile Include="Migrations\202003200706312_First.designer.cs">
       <DependentUpon>202003200706312_First.cs</DependentUpon>

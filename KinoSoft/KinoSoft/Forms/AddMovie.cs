@@ -37,18 +37,42 @@ namespace KinoSoft.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string genrelist="";
-            foreach (var item in Genre.CheckedItems)
-            {
-                genrelist += item.ToString() + ";";
-            }
-            using (Contex db = new Contex())
-            {
-                Movie movie = new Movie
-                {
-                    Name = MovieName.Text,
-                };
-            }
+            string name = MovieName.Text;
+            //DateTime god = Convert.ToDateTime(Data);
+            //string category = Category.Text;
+            //string country = Country.Text;
+            //string producer = Producer.Text;
+            //int cost = Convert.ToInt32(textBox3.Text);
+            LogicMovie LM = new LogicMovie();
+            LM.AddMovie(name);
+            //string genrelist = "";
+            //foreach (var item in Genre.CheckedItems)
+            //{
+            //    genrelist += item.ToString() + ";";
+            //}
+            //using (Contex db = new Contex())
+            //{
+            //    Movie movie = new Movie
+            //    {
+            //        Name = MovieName.Text,
+            //    };
+            //}
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            monthCalendar1.Show();
+            //Data.Text = monthCalendar1.SelectionStart.ToShortDateString().ToString();
+            monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
+           
+            //monthCalendar1.Hide();
+        }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            Data.Text = e.Start.ToShortDateString();
+            monthCalendar1.Hide();
         }
     }
 }
