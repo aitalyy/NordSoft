@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KinoSoft.FormsClient;
 
 namespace KinoSoft
 {
@@ -45,6 +46,10 @@ namespace KinoSoft
                 case Tables.Disk:
                     Forms.AddDisk addDisk = new Forms.AddDisk();
                     addDisk.Show();
+                break;
+                case Tables.Client:
+                    FormsClient.AddClient addClient = new FormsClient.AddClient();
+                    addClient.Show();
                 break;
                 default:
                     DialogResult result = MessageBox.Show(
