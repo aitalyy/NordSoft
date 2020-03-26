@@ -12,29 +12,30 @@ namespace KinoSoft.FormsClient
         Contex My = new Contex();
         public void AddClient(string firstname, string lastname, string secondname, int numbPassp, int serPassp, string phonenumber)
         {
-            Client client = new Client
-            {
-                InBalckList = false,
-                PhoneNumber = phonenumber
-            };
-
-            Person person = new Person
-            {
-                FirstName = firstname,
-                LastName = lastname,
-                SecondName = secondname
-            };
-
             Passport passport = new Passport
             {
                 number = numbPassp,
                 series = serPassp
             };
 
-            My.Clients.Add(client);
-            My.Persons.Add(person);
             My.Passports.Add(passport);
             My.SaveChanges();
+
+            int id = passport.Id;
+
+            Client client = new Client
+            {
+                InBalckList = false,
+                PhoneNumber = phonenumber,
+                FirstName = firstname,
+                LastName = lastname,
+                SecondName = secondname,
+                PassportId = id
+            };
+            
+            My.Clients.Add(client);
+            My.SaveChanges();
+
         }
 
         public void EditClient()
