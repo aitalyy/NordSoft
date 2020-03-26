@@ -49,6 +49,7 @@ namespace KinoSoft.Forms
             this.Category = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -249,11 +250,22 @@ namespace KinoSoft.Forms
             this.monthCalendar1.Visible = false;
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(335, 448);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(117, 38);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Изменить";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 498);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.Category);
@@ -305,5 +317,6 @@ namespace KinoSoft.Forms
         private System.Windows.Forms.ComboBox Category;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Button button4;
     }
 }

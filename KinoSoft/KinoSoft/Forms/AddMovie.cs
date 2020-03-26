@@ -18,8 +18,12 @@ namespace KinoSoft.Forms
         {
             InitializeComponent();
             if (row == null)
+            {
+                button4.Visible = false;
                 return;
+            }
 
+            button2.Visible = false;
 
         }
 
@@ -41,7 +45,8 @@ namespace KinoSoft.Forms
                 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Добавление
+        private void button2_Click(object sender, EventArgs e) 
         {
             string name = MovieName.Text;
             //DateTime god = Convert.ToDateTime(Data);
@@ -79,6 +84,12 @@ namespace KinoSoft.Forms
         {
             Data.Text = e.Start.ToShortDateString();
             monthCalendar1.Hide();
+        }
+
+        //Редактирование
+        private void button4_Click(object sender, EventArgs e) 
+        {
+
         }
     }
 }
