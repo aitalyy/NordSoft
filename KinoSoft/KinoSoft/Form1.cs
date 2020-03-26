@@ -12,7 +12,15 @@ namespace KinoSoft
 {
     public partial class Form1 : Form
     {
-        int Num=1;
+        public enum Tables
+        {
+            Order = 1,
+            Client,
+            Movie,
+            Disk
+        }
+
+        Tables table = Tables.Disk;
         //1)-Список заказов 2)-Список клиентов 3)-Список фильмов 4)-Список дисков
         Contex My = new Contex();
         public Form1()
@@ -28,13 +36,13 @@ namespace KinoSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            switch (Num)
+            switch (table)
             {
-                case 3:
+                case Tables.Movie:
                     Forms.AddMovie addMovie = new Forms.AddMovie(null);
                     addMovie.Show();
                 break;
-                case 4:
+                case Tables.Disk:
                     Forms.AddDisk addDisk = new Forms.AddDisk();
                     addDisk.Show();
                 break;
@@ -56,10 +64,10 @@ namespace KinoSoft
             if (dataAll.SelectedRows.Count == 0)
                 return;
 
-            switch (Num)
+            switch (table)
             {
-                case 3:
-                    Movie movie = dataAll.SelectedRows[0].DataBoundItem as Movie;
+                case Tables.Movie:
+                    Movie movie = dataAll.SelectedRows[0].DataBoundItem as Movie; // вытаскиваем фильм из таблицы
                     if (movie == null)
                         return;
 
@@ -114,13 +122,13 @@ namespace KinoSoft
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Num = 2;
+            table = Tables.Client;
             dataAll.DataSource = My.Clients.ToList<Client>();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Num = 1;
+            table = Tables.Order;
             dataAll.DataSource = My.Orders.ToList<Order>();
         }
         private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -129,13 +137,13 @@ namespace KinoSoft
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Num = 4;
+            table = Tables.Disk;
             dataAll.DataSource = My.Disks.ToList<Disk>();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Num = 3;
+            table = Tables.Movie;
             dataAll.DataSource = My.Movies.ToList<Movie>();
         }
 

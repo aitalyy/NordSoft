@@ -12,7 +12,8 @@ namespace KinoSoft.Forms
 {
     public partial class AddMovie : Form
     {
-        Contex db = new Contex();
+        private Contex db = new Contex();
+        private Movie movie = null;
 
         public AddMovie(Movie movie)
         {
@@ -25,6 +26,7 @@ namespace KinoSoft.Forms
 
             button2.Visible = false;
             FillFields(movie);
+            this.movie = db.Movies.Find(movie.Id);
 
         }
 
@@ -96,7 +98,10 @@ namespace KinoSoft.Forms
         //Редактирование
         private void button4_Click(object sender, EventArgs e) 
         {
+            movie.Name = MovieName.Text;
+            // ...
 
+            db.SaveChanges();
         }
     }
 }
