@@ -14,17 +14,24 @@ namespace KinoSoft.Forms
     {
         Contex db = new Contex();
 
-        public AddMovie(DataGridViewRow row)
+        public AddMovie(Movie movie)
         {
             InitializeComponent();
-            if (row == null)
+            if (movie == null)
             {
                 button4.Visible = false;
                 return;
             }
 
             button2.Visible = false;
+            FillFields(movie);
 
+        }
+
+        private void FillFields(Movie movie)
+        {
+            MovieName.Text = movie.Name;
+            // ...
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

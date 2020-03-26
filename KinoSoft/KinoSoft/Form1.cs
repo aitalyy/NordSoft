@@ -59,9 +59,14 @@ namespace KinoSoft
             switch (Num)
             {
                 case 3:
-                    Forms.AddMovie editMovie = new Forms.AddMovie(dataAll.SelectedRows[0]);
+                    Movie movie = dataAll.SelectedRows[0].DataBoundItem as Movie;
+                    if (movie == null)
+                        return;
+
+                    Forms.AddMovie editMovie = new Forms.AddMovie(movie);
                     editMovie.Show();
                     break;
+
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",
