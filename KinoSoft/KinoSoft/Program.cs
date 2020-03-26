@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoSoft.FormsAutorisation;
+using KinoSoft.FormsClient;
+
 namespace KinoSoft
 {
     static class Program
@@ -17,7 +19,8 @@ namespace KinoSoft
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Autorisation.Autorisation() /*Form1()*/);
+            //Application.Run(new Autorisation.Autorisation() /*Form1()*/);
+            Application.Run(new EditClient());
         }
     }
 }

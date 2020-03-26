@@ -36,6 +36,12 @@ namespace KinoSoft.FormsClient
             string PhoneNumber = textBox3.Text;
 
             logicClient.AddClient(FirstName, LastName, SecondName, NumberPassport, seriesPassport, PhoneNumber);
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

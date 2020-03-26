@@ -74,6 +74,12 @@
     <Compile Include="FormsClient\AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsClient\EditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsClient\EditClient.Designer.cs">
+      <DependentUpon>EditClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsClient\LogicClient.cs" />
     <Compile Include="FormsDisk\AddDisk.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsClient\AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsClient\EditClient.resx">
+      <DependentUpon>EditClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsDisk\AddDisk.resx">
       <DependentUpon>AddDisk.cs</DependentUpon>

@@ -175,5 +175,10 @@ namespace KinoSoft
         {
             Application.Exit();
         }
+
+        private void dataAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

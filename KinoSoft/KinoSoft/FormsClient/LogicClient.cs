@@ -36,5 +36,10 @@ namespace KinoSoft.FormsClient
             My.Passports.Add(passport);
             My.SaveChanges();
         }
+
+        public void EditClient()
+        {
+
+        }
     }
 }

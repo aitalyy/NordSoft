@@ -157,6 +157,7 @@ namespace KinoSoft
             this.dataAll.ReadOnly = true;
             this.dataAll.Size = new System.Drawing.Size(754, 373);
             this.dataAll.TabIndex = 12;
+            this.dataAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAll_CellContentClick);
             // 
             // Form1
             // 
