@@ -218,7 +218,7 @@ namespace KinoSoft
             [Key]
             public string Login { get; set; }
             public string Password { get; set; }
-
+            public string PhoneNumber { get; set; }
             public int RoleId { get; set; }
             [ForeignKey("RoleId")]
             public Role UserRole { get; set; }
