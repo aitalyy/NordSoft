@@ -99,10 +99,6 @@ namespace KinoSoft
                     editMovie.Show();
                     break;
                 case Tables.Client:
-                    Client client = dataAll.SelectedRows[0].DataBoundItem as Client; // вытаскиваем фильм из таблицы
-                    if (client == null)
-                        return;
-
                     FormsClient.EditClient editClient = new FormsClient.EditClient();
                     editClient.Show();
                     break;
