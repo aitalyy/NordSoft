@@ -20,8 +20,17 @@ namespace KinoSoft
             public virtual ICollection<MovieProducer> Producers { get; set; }
             public virtual ICollection<MovieActor> Actors { get; set; }
             public virtual ICollection<MovieCountry> Contries { get; set; }
+
+            public int DescriptionId { get; set; }
+            [ForeignKey("DescriptionId")]
             public virtual MovieDescription Description { get; set; }
+            
+            public int DateId { get; set; }
+            [ForeignKey("DateId")]
             public virtual MovieDate Date { get; set; }
+
+            public int CategoryId { get; set; }
+            [ForeignKey("CategoryId")]
             public virtual MovieCategory Category { get; set; }
             
         }
@@ -29,20 +38,21 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
-            public string category { get; set; }   
-            public virtual Movie Movie { get; set; }
+            public string Category { get; set; }   
         }
         public class MovieDate
         {
             //[ForeignKey("Movie")]
-            public DateTime date { get; set; }
-            public virtual Movie Movie { get; set; }
+            [Key]
+            public int Id { get; set; }
+            public DateTime Date { get; set; }
         }
         public class MovieDescription
         {
             //[ForeignKey("Movie")]
+            [Key]
+            public int Id { get; set; }
             public string Description { get; set; }
-            public virtual Movie Movie { get; set; }
 
         }
         public class MovieActor
@@ -215,8 +225,10 @@ namespace KinoSoft
         }
         public class Role
         {
+            [Key]
+            public int RoleId { get; set; }
             public string Name { get; set; }
-            public ICollection<Employee> employees { get; set; }
+            public ICollection<Employee> Employees { get; set; }
         }
         public class Country
         {

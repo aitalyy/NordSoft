@@ -101,9 +101,9 @@
     </Compile>
     <Compile Include="FormsDisk\LogicDisk.cs" />
     <Compile Include="Forms\LogicMovie.cs" />
-    <Compile Include="Migrations\202003200706312_First.cs" />
-    <Compile Include="Migrations\202003200706312_First.designer.cs">
-      <DependentUpon>202003200706312_First.cs</DependentUpon>
+    <Compile Include="Migrations\202003270819451_First.cs" />
+    <Compile Include="Migrations\202003270819451_First.designer.cs">
+      <DependentUpon>202003270819451_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
@@ -130,8 +130,8 @@
     <EmbeddedResource Include="Forms\EditMovie.resx">
       <DependentUpon>EditMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003200706312_First.resx">
-      <DependentUpon>202003200706312_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003270819451_First.resx">
+      <DependentUpon>202003270819451_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

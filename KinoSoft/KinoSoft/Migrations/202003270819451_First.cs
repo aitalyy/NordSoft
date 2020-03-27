@@ -49,6 +49,24 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        DescriptionId = c.Int(nullable: false),
+                        DateId = c.Int(nullable: false),
+                        CategoryId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.MovieCategory", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.MovieDate", t => t.DateId, cascadeDelete: true)
+                .ForeignKey("dbo.MovieDescription", t => t.DescriptionId, cascadeDelete: true)
+                .Index(t => t.DescriptionId)
+                .Index(t => t.DateId)
+                .Index(t => t.CategoryId);
+            
+            CreateTable(
+                "dbo.MovieCategory",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Category = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -72,6 +90,24 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         CountryName = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.MovieDate",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Date = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.MovieDescription",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -181,10 +217,10 @@
                 "dbo.Role",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        RoleId = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.RoleId);
             
             CreateTable(
                 "dbo.Report",
@@ -216,8 +252,11 @@
             DropForeignKey("dbo.Order", "ClientId", "dbo.Person");
             DropForeignKey("dbo.DiskOrder", "DiskId", "dbo.Movie");
             DropForeignKey("dbo.MovieDisk", "DiskId", "dbo.Disk");
+            DropForeignKey("dbo.Movie", "DescriptionId", "dbo.MovieDescription");
+            DropForeignKey("dbo.Movie", "DateId", "dbo.MovieDate");
             DropForeignKey("dbo.MovieCountry", "MovieId", "dbo.Movie");
             DropForeignKey("dbo.MovieCountry", "CountryId", "dbo.Country");
+            DropForeignKey("dbo.Movie", "CategoryId", "dbo.MovieCategory");
             DropForeignKey("dbo.MovieActor", "MovieId", "dbo.Movie");
             DropForeignKey("dbo.MovieActor", "ActorId", "dbo.Person");
             DropIndex("dbo.Report", new[] { "EmployeeId" });
@@ -232,6 +271,9 @@
             DropIndex("dbo.MovieDisk", new[] { "MovieId" });
             DropIndex("dbo.MovieCountry", new[] { "CountryId" });
             DropIndex("dbo.MovieCountry", new[] { "MovieId" });
+            DropIndex("dbo.Movie", new[] { "CategoryId" });
+            DropIndex("dbo.Movie", new[] { "DateId" });
+            DropIndex("dbo.Movie", new[] { "DescriptionId" });
             DropIndex("dbo.MovieActor", new[] { "ActorId" });
             DropIndex("dbo.MovieActor", new[] { "MovieId" });
             DropIndex("dbo.Person", new[] { "RoleId" });
@@ -246,8 +288,11 @@
             DropTable("dbo.DiskOrder");
             DropTable("dbo.Disk");
             DropTable("dbo.MovieDisk");
+            DropTable("dbo.MovieDescription");
+            DropTable("dbo.MovieDate");
             DropTable("dbo.Country");
             DropTable("dbo.MovieCountry");
+            DropTable("dbo.MovieCategory");
             DropTable("dbo.Movie");
             DropTable("dbo.MovieActor");
             DropTable("dbo.Person");

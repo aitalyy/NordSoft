@@ -20,7 +20,7 @@ namespace KinoSoft.FormsAutorisation
 
                 int RoleId = employee.RoleId;
 
-                Role role = My.Roles.FirstOrDefault(b => b.Id == RoleId);
+                Role role = My.Roles.FirstOrDefault(b => b.RoleId == RoleId);
                 Form1 form1 = new Form1();
                 if (employee.Password.Equals(password))
                 {
