@@ -11,19 +11,19 @@ using KinoSoft.FormsClient;
 
 namespace KinoSoft
 {
+    public enum Tables
+    {
+        Order = 1,
+        Client,
+        Movie,
+        Disk
+    }
+
     public partial class Form1 : Form
     {
-        public enum Tables
-        {
-            Order = 1,
-            Client,
-            Movie,
-            Disk
-        }
-
         Tables table = Tables.Order;
-        //1)-Список заказов 2)-Список клиентов 3)-Список фильмов 4)-Список дисков
         Contex My = new Contex();
+
         public Form1()
         {
             InitializeComponent();
