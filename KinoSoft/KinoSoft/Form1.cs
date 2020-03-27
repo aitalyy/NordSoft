@@ -21,7 +21,7 @@ namespace KinoSoft
             Disk
         }
 
-        Tables table = Tables.Disk;
+        Tables table = Tables.Order;
         //1)-Список заказов 2)-Список клиентов 3)-Список фильмов 4)-Список дисков
         Contex My = new Contex();
         public Form1()
@@ -94,24 +94,39 @@ namespace KinoSoft
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                   "В процессе разработки!",
-                   "Сообщение",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Information,
-                   MessageBoxDefaultButton.Button1,
-                   MessageBoxOptions.ServiceNotification);
-            /*   try
-               {
+            if (dataAll.SelectedRows.Count == 0)
+                return;
 
-                   System.IO.File.Delete(listBox1.SelectedIndex.ToString());
-                   listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-               }
-               catch (Exception err)
-               {
+            switch (table)
+            {
+                case Tables.Movie:
+                    DialogResult result = MessageBox.Show(
+                    "Вы уверены в этом?",
+                    "Сообщение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+                    if (result == DialogResult.Yes)
+                    {
+                        foreach(DataGridViewRow row in dataAll.SelectedRows)
+                        {
+                            Movie movie = row.DataBoundItem as Movie;
+                            if (movie == null)
+                                continue;
+                            Movie dbMovie = My.Movies.Find(movie.Id);
+                            My.Movies.Remove(dbMovie);
+                        }
+                        My.SaveChanges();
+                    }
 
-               }
-               */
+                    //Forms.AddMovie editMovie = new Forms.AddMovie(movie);
+                    //editMovie.Show();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

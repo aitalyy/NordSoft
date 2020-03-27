@@ -102,6 +102,7 @@ namespace KinoSoft.Forms
             // ...
 
             db.SaveChanges();
+            this.Close();
         }
     }
 }
