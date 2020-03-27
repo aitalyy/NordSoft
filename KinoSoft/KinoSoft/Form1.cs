@@ -116,16 +116,17 @@ namespace KinoSoft
             if (dataAll.SelectedRows.Count == 0)
                 return;
 
-            switch (table)
-            {
-                case Tables.Movie:
-                    DialogResult result = MessageBox.Show(
+            DialogResult result = MessageBox.Show(
                     "Вы уверены в этом?",
                     "Сообщение",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.ServiceNotification);
+
+            switch (table)
+            {
+                case Tables.Movie:
                     if (result == DialogResult.Yes)
                     {
                         foreach(DataGridViewRow row in dataAll.SelectedRows)
@@ -139,9 +140,6 @@ namespace KinoSoft
                         My.SaveChanges();
                         UpdateTable();
                     }
-
-                    //Forms.AddMovie editMovie = new Forms.AddMovie(movie);
-                    //editMovie.Show();
                     break;
 
                 default:
