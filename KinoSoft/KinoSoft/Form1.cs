@@ -27,7 +27,26 @@ namespace KinoSoft
         public Form1()
         {
             InitializeComponent();
-            dataAll.DataSource = My.Orders.ToList<Order>();
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            switch (table)
+            {
+                case Tables.Client:
+                    dataAll.DataSource = My.Clients.ToList<Client>();
+                    break;
+                case Tables.Disk:
+                    dataAll.DataSource = My.Disks.ToList<Disk>();
+                    break;
+                case Tables.Movie:
+                    dataAll.DataSource = My.Movies.ToList<Movie>();
+                    break;
+                case Tables.Order:
+                    dataAll.DataSource = My.Orders.ToList<Order>();
+                    break;
+            }
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,6 +137,7 @@ namespace KinoSoft
                             My.Movies.Remove(dbMovie);
                         }
                         My.SaveChanges();
+                        UpdateTable();
                     }
 
                     //Forms.AddMovie editMovie = new Forms.AddMovie(movie);
@@ -143,13 +163,13 @@ namespace KinoSoft
         private void button4_Click(object sender, EventArgs e)
         {
             table = Tables.Client;
-            dataAll.DataSource = My.Clients.ToList<Client>();
+            UpdateTable();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             table = Tables.Order;
-            dataAll.DataSource = My.Orders.ToList<Order>();
+            UpdateTable();
         }
         private void dataClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -158,13 +178,13 @@ namespace KinoSoft
         private void button6_Click(object sender, EventArgs e)
         {
             table = Tables.Disk;
-            dataAll.DataSource = My.Disks.ToList<Disk>();
+            UpdateTable();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             table = Tables.Movie;
-            dataAll.DataSource = My.Movies.ToList<Movie>();
+            UpdateTable();
         }
 
         private void button8_Click(object sender, EventArgs e)
