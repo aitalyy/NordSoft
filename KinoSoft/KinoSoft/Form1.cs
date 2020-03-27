@@ -140,10 +140,39 @@ namespace KinoSoft
                         My.SaveChanges();
                         UpdateTable();
                     }
-                    break;
-
+                break;
+                case Tables.Client:
+                    if (result == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in dataAll.SelectedRows)
+                        {
+                            Client client = row.DataBoundItem as Client;
+                            if (client == null)
+                                continue;
+                            Client dbClient = My.Clients.Find(client.Id);
+                            My.Clients.Remove(dbClient);
+                        }
+                        My.SaveChanges();
+                        UpdateTable();
+                    }
+                break;
+                case Tables.Disk:
+                    if (result == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in dataAll.SelectedRows)
+                        {
+                            Disk disk = row.DataBoundItem as Disk;
+                            if (disk == null)
+                                continue;
+                            Disk dbDisk = My.Disks.Find(disk.Id);
+                            My.Disks.Remove(dbDisk);
+                        }
+                        My.SaveChanges();
+                        UpdateTable();
+                    }
+                break;
                 default:
-                    break;
+                break;
             }
         }
 

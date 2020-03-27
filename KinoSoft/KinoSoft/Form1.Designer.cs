@@ -44,10 +44,17 @@ namespace KinoSoft
             this.dataAll = new System.Windows.Forms.DataGridView();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAll)).BeginInit();
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button1
             // 
@@ -86,9 +93,9 @@ namespace KinoSoft
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 141);
+            this.button2.Location = new System.Drawing.Point(12, 138);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 23);
+            this.button2.Size = new System.Drawing.Size(165, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = true;
@@ -136,7 +143,7 @@ namespace KinoSoft
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 103);
+            this.button3.Location = new System.Drawing.Point(12, 101);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 13;
@@ -166,30 +173,35 @@ namespace KinoSoft
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(13, 176);
+            this.monthCalendar1.Location = new System.Drawing.Point(12, 248);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 347);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(54, 212);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(80, 24);
             this.label1.TabIndex = 16;
             this.label1.Text = "00:00:00";
             // 
-            // timer1
+            // button9
             // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.button9.Location = new System.Drawing.Point(12, 176);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(164, 23);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "Поиск";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 450);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.button8);
@@ -231,6 +243,7 @@ namespace KinoSoft
         private System.Windows.Forms.DataGridView dataAll;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button9;
     }
 }
 
