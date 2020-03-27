@@ -29,26 +29,19 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
-
-            public string category { get; set; }
-            public int MovieId { get; set; }
-            [ForeignKey("MovieId")]
+            public string category { get; set; }   
             public virtual Movie Movie { get; set; }
         }
         public class MovieDate
         {
-            [Key]
+            //[ForeignKey("Movie")]
             public DateTime date { get; set; }
-            public int MovieId { get; set; }
-            [ForeignKey("MovieId")]
             public virtual Movie Movie { get; set; }
         }
         public class MovieDescription
         {
-            [Key]
+            //[ForeignKey("Movie")]
             public string Description { get; set; }
-            public int MovieId { get; set; }
-            [ForeignKey("MovieId")]
             public virtual Movie Movie { get; set; }
 
         }
