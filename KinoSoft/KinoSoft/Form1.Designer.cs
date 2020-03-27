@@ -28,6 +28,8 @@ namespace KinoSoft
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Timer timer1;
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +42,9 @@ namespace KinoSoft
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.dataAll = new System.Windows.Forms.DataGridView();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label1 = new System.Windows.Forms.Label();
+            timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAll)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +53,7 @@ namespace KinoSoft
             // 
             this.button1.Location = new System.Drawing.Point(12, 65);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 23);
+            this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавление";
             this.button1.UseVisualStyleBackColor = true;
@@ -60,7 +65,7 @@ namespace KinoSoft
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(938, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(955, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,9 +86,9 @@ namespace KinoSoft
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 123);
+            this.button2.Location = new System.Drawing.Point(13, 141);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 23);
+            this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = true;
@@ -91,7 +96,7 @@ namespace KinoSoft
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(321, 36);
+            this.button4.Location = new System.Drawing.Point(341, 36);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 23);
             this.button4.TabIndex = 6;
@@ -101,7 +106,7 @@ namespace KinoSoft
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(473, 36);
+            this.button5.Location = new System.Drawing.Point(493, 36);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(146, 23);
             this.button5.TabIndex = 7;
@@ -111,7 +116,7 @@ namespace KinoSoft
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(625, 36);
+            this.button6.Location = new System.Drawing.Point(645, 36);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(146, 23);
             this.button6.TabIndex = 8;
@@ -121,7 +126,7 @@ namespace KinoSoft
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(169, 36);
+            this.button7.Location = new System.Drawing.Point(189, 36);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(146, 23);
             this.button7.TabIndex = 9;
@@ -131,9 +136,9 @@ namespace KinoSoft
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 94);
+            this.button3.Location = new System.Drawing.Point(12, 103);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 23);
+            this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 13;
             this.button3.Text = "Редактирование";
             this.button3.UseVisualStyleBackColor = true;
@@ -141,7 +146,7 @@ namespace KinoSoft
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(777, 36);
+            this.button8.Location = new System.Drawing.Point(797, 36);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(146, 23);
             this.button8.TabIndex = 14;
@@ -152,18 +157,41 @@ namespace KinoSoft
             // dataAll
             // 
             this.dataAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataAll.Location = new System.Drawing.Point(169, 65);
+            this.dataAll.Location = new System.Drawing.Point(189, 65);
             this.dataAll.Name = "dataAll";
             this.dataAll.ReadOnly = true;
             this.dataAll.Size = new System.Drawing.Size(754, 373);
             this.dataAll.TabIndex = 12;
             this.dataAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAll_CellContentClick);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(13, 176);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(71, 347);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "00:00:00";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 450);
+            this.ClientSize = new System.Drawing.Size(955, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataAll);
@@ -201,6 +229,8 @@ namespace KinoSoft
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView dataAll;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
