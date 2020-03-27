@@ -18,6 +18,7 @@ namespace KinoSoft.FormsClient
         public EditClient()
         {
             InitializeComponent();
+            LogCl.getDataClient(dataGridView1);
         }
 
         private void back_Click(object sender, EventArgs e)
@@ -71,7 +72,7 @@ namespace KinoSoft.FormsClient
 
         private void selectionButton_Click(object sender, EventArgs e)
         {
-            PhoneNumBox.Text = Convert.ToString(dataGridView1[4, dataGridView1.CurrentCell.RowIndex].Value);
+            maskedTextBox1.Text = Convert.ToString(dataGridView1[4, dataGridView1.CurrentCell.RowIndex].Value);
             FirstNameBox.Text = Convert.ToString(dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value);
             LastNameBox.Text = Convert.ToString(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
             SecondNameBox.Text = Convert.ToString(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value);
@@ -90,7 +91,7 @@ namespace KinoSoft.FormsClient
 
             Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
 
-            client.PhoneNumber = PhoneNumBox.Text;
+            client.PhoneNumber = maskedTextBox1.Text;
             client.FirstName = FirstNameBox.Text;
             client.LastName = LastNameBox.Text;
             client.SecondName = SecondNameBox.Text;
@@ -102,7 +103,7 @@ namespace KinoSoft.FormsClient
 
             My.SaveChanges();
 
-            PhoneNumBox.Text = null;
+            maskedTextBox1.Text = null;
             FirstNameBox.Text = null;
             LastNameBox.Text = null;
             SecondNameBox.Text = null;

@@ -67,7 +67,7 @@ namespace KinoSoft
                     addDisk.Show();
                 break;
                 case Tables.Client:
-                    FormsClient.AddClient addClient = new FormsClient.AddClient();
+                    FormsClient.AddClient addClient = new FormsClient.AddClient(null);
                     addClient.Show();
                 break;
                 default:
@@ -98,7 +98,14 @@ namespace KinoSoft
                     Forms.AddMovie editMovie = new Forms.AddMovie(movie);
                     editMovie.Show();
                     break;
+                case Tables.Client:
+                    Client client = dataAll.SelectedRows[0].DataBoundItem as Client; // вытаскиваем фильм из таблицы
+                    if (client == null)
+                        return;
 
+                    FormsClient.AddClient editClient = new FormsClient.AddClient(client);
+                    editClient.Show();
+                    break;
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",

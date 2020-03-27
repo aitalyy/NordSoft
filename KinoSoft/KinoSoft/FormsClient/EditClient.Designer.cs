@@ -38,7 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PassNumBox = new System.Windows.Forms.TextBox();
             this.SecondNameBox = new System.Windows.Forms.TextBox();
-            this.PhoneNumBox = new System.Windows.Forms.TextBox();
             this.LastNameBox = new System.Windows.Forms.TextBox();
             this.FirstNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.selectionButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,13 +138,6 @@
             this.SecondNameBox.Name = "SecondNameBox";
             this.SecondNameBox.Size = new System.Drawing.Size(100, 20);
             this.SecondNameBox.TabIndex = 20;
-            // 
-            // PhoneNumBox
-            // 
-            this.PhoneNumBox.Location = new System.Drawing.Point(130, 342);
-            this.PhoneNumBox.Name = "PhoneNumBox";
-            this.PhoneNumBox.Size = new System.Drawing.Size(100, 20);
-            this.PhoneNumBox.TabIndex = 19;
             // 
             // LastNameBox
             // 
@@ -243,11 +236,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(130, 342);
+            this.maskedTextBox1.Mask = "+7 (900) 000-00-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 40;
+            // 
             // EditClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 508);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.selectionButton);
@@ -265,7 +267,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.PassNumBox);
             this.Controls.Add(this.SecondNameBox);
-            this.Controls.Add(this.PhoneNumBox);
             this.Controls.Add(this.LastNameBox);
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.label2);
@@ -291,7 +292,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PassNumBox;
         private System.Windows.Forms.TextBox SecondNameBox;
-        private System.Windows.Forms.TextBox PhoneNumBox;
         private System.Windows.Forms.TextBox LastNameBox;
         private System.Windows.Forms.TextBox FirstNameBox;
         private System.Windows.Forms.Label label2;
@@ -303,5 +303,6 @@
         private System.Windows.Forms.Button selectionButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
