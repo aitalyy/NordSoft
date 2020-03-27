@@ -13,32 +13,10 @@ namespace KinoSoft.FormsClient
     public partial class AddClient : Form
     {
         Contex My = new Contex();
-        private Client client = null;
-        public AddClient(Client client)
+        public AddClient()
         {
             InitializeComponent();
-            if (client == null)
-            {
-                button3.Visible = false;
-                return;
-            }
-            else
-            {
-                button1.Visible = false;
-                FillFields(client);
-                this.client = My.Clients.Find(client.Id);
-            }
         }
-        private void FillFields(Client client)
-        {
-            maskedTextBox1.Text = client.PhoneNumber;
-            textBox1.Text = client.FirstName;
-            textBox2.Text = client.SecondName;
-            textBox4.Text = client.LastName;
-            //textBox6.Text = client.Passport.series.ToString();
-            //textBox5.Text = client.Passport.number.ToString();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -115,22 +93,6 @@ namespace KinoSoft.FormsClient
             {
                 e.Handled = true;
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            client.PhoneNumber = maskedTextBox1.Text;
-            client.FirstName = textBox1.Text;
-            client.LastName = textBox4.Text;
-            client.SecondName = textBox2.Text;
-
-            int? idPass = client.PassportId;
-            Passport passport = My.Passports.Where(k => k.Id == idPass).FirstOrDefault();
-            //passport.number = Convert.ToInt32(textBox5.Text);
-            //passport.series = Convert.ToInt16(textBox6.Text);
-
-            My.SaveChanges();
-            this.Close();
         }
     }
 }

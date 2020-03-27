@@ -67,7 +67,7 @@ namespace KinoSoft
                     addDisk.Show();
                 break;
                 case Tables.Client:
-                    FormsClient.AddClient addClient = new FormsClient.AddClient(null);
+                    FormsClient.AddClient addClient = new FormsClient.AddClient();
                     addClient.Show();
                 break;
                 default:
@@ -103,7 +103,7 @@ namespace KinoSoft
                     if (client == null)
                         return;
 
-                    FormsClient.AddClient editClient = new FormsClient.AddClient(client);
+                    FormsClient.EditClient editClient = new FormsClient.EditClient();
                     editClient.Show();
                     break;
                 default:
