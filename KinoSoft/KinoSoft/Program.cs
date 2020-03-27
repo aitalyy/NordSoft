@@ -20,7 +20,7 @@ namespace KinoSoft
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Autorisation.Autorisation() /*Form1()*/);
-            Application.Run(new EditClient());
+            Application.Run(new AddClient());
         }
     }
 }

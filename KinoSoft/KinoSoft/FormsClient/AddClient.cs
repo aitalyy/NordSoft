@@ -21,7 +21,14 @@ namespace KinoSoft.FormsClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result = MessageBox.Show(
+                   "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+                   "Сообщение",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Information,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.Yes) Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,7 +41,7 @@ namespace KinoSoft.FormsClient
             string SecondName = textBox4.Text;
             int NumberPassport = Convert.ToInt32(textBox5.Text);
             int seriesPassport = Convert.ToInt16(textBox6.Text);
-            string PhoneNumber = textBox3.Text;
+            string PhoneNumber = maskedTextBox1.Text;
 
             logicClient.AddClient(FirstName, LastName, SecondName, NumberPassport, seriesPassport, PhoneNumber);
 
