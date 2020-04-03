@@ -149,15 +149,10 @@ namespace KinoSoft
                 case Tables.Client:
                     if (result == DialogResult.Yes)
                     {
-                        foreach (DataGridViewRow row in dataAll.SelectedRows)
-                        {
-                            Client client = row.DataBoundItem as Client;
-                            if (client == null)
-                                continue;
-                            Client dbClient = My.Clients.Find(client.Id);
-                            My.Clients.Remove(dbClient);
-                        }
-                        My.SaveChanges();
+                        LogicClient LogCl = new LogicClient();
+                        int idClient = Convert.ToInt32(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
+                        int idPass = Convert.ToInt32(dataAll[9, dataAll.CurrentCell.RowIndex].Value);
+                        LogCl.RemoveClient(idClient, idPass);
                         UpdateTable();
                     }
                 break;
@@ -245,7 +240,7 @@ namespace KinoSoft
 
         private void dataAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            My.SaveChanges();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

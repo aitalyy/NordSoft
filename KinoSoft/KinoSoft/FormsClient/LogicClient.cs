@@ -78,7 +78,7 @@ namespace KinoSoft.FormsClient
         public void getDataClient(DataGridView asd)
         {
             var result = from a in My.Clients
-                         from b in My.Passports
+                         join b in My.Passports on a.PassportId equals b.Id
                          select new
                          {
                              id = a.Id,
@@ -102,7 +102,7 @@ namespace KinoSoft.FormsClient
             int? idPass = client.PassportId;
 
             var result = from a in My.Clients.Where(s => s.FirstName == name)
-                         from b in My.Passports.Where(k => k.Id == idPass)
+                         join b in My.Passports.Where(k => k.Id == idPass) on a.PassportId equals b.Id
                          select new
                          {
                              id = a.Id,

@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="FormsDisk\LogicDisk.cs" />
     <Compile Include="Forms\LogicMovie.cs" />
+    <Compile Include="LogicForm.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
     <Compile Include="Program.cs" />

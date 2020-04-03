@@ -166,7 +166,6 @@ namespace KinoSoft
             this.dataAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataAll.Location = new System.Drawing.Point(189, 65);
             this.dataAll.Name = "dataAll";
-            this.dataAll.ReadOnly = true;
             this.dataAll.Size = new System.Drawing.Size(754, 373);
             this.dataAll.TabIndex = 12;
             this.dataAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAll_CellContentClick);
