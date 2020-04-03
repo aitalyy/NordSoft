@@ -29,26 +29,7 @@ namespace KinoSoft.FormsClient
         private void searchButton_Click(object sender, EventArgs e)
         {
             string name = searchBox.Text;
-            Client client = My.Clients.Where(s => s.FirstName == name).FirstOrDefault();
-
-            int? idPass = client.PassportId;
-
-            var result = from a in My.Clients.Where(s => s.FirstName == name)
-                         from b in My.Passports.Where(k => k.Id == idPass)
-                         select new
-                         {
-                             id = a.Id,
-                             Имя = a.FirstName,
-                             Фамилия = a.LastName,
-                             Отчество = a.SecondName,
-                             Номер_телефона = a.PhoneNumber,
-                             Заказ = a.Orders,
-                             Черный_лист = a.InBalckList,
-                             Номер_паспорта = b.number,
-                             Серия_паспорта = b.series,
-                             PassportId = a.PassportId
-                         };
-            dataGridView1.DataSource = result.ToList();
+            LogCl.getDataClientSearch(dataGridView1, name);
 
         }
 

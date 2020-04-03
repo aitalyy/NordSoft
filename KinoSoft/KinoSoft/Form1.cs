@@ -35,7 +35,9 @@ namespace KinoSoft
             switch (table)
             {
                 case Tables.Client:
-                    dataAll.DataSource = My.Clients.ToList<Client>();
+                    //dataAll.DataSource = My.Clients.ToList<Client>();
+                    LogicClient logicCl = new LogicClient();
+                    logicCl.getDataClient(dataAll);
                     break;
                 case Tables.Disk:
                     dataAll.DataSource = My.Disks.ToList<Disk>();
