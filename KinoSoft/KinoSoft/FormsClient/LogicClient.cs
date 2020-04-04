@@ -35,6 +35,7 @@ namespace KinoSoft.FormsClient
 
             };
             
+            
             My.Clients.Add(client);
             My.SaveChanges();
 

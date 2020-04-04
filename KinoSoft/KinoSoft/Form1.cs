@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoSoft.FormsClient;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using KinoSoft.Employees;
 
 namespace KinoSoft
 {
@@ -16,7 +21,8 @@ namespace KinoSoft
         Order = 1,
         Client,
         Movie,
-        Disk
+        Disk,
+        Employee
     }
 
     public partial class Form1 : Form
@@ -36,6 +42,7 @@ namespace KinoSoft
             {
                 case Tables.Client:
                     //dataAll.DataSource = My.Clients.ToList<Client>();
+
                     LogicClient logicCl = new LogicClient();
                     logicCl.getDataClient(dataAll);
                     break;
@@ -47,6 +54,18 @@ namespace KinoSoft
                     break;
                 case Tables.Order:
                     dataAll.DataSource = My.Orders.ToList<Order>();
+                    break;
+                case Tables.Employee:
+                    dataAll.DataSource = My.Employees.ToList<Employee>();
+                    break;
+                default:
+                    DialogResult result = MessageBox.Show(
+                    "В процессе разработки!",
+                    "Сообщение",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
                     break;
             }
         }
@@ -71,6 +90,10 @@ namespace KinoSoft
                 case Tables.Client:
                     FormsClient.AddClient addClient = new FormsClient.AddClient();
                     addClient.Show();
+                break;
+                case Tables.Employee:
+                    AddEmployee formEmployee = new AddEmployee();
+                    formEmployee.Show();
                 break;
                 default:
                     DialogResult result = MessageBox.Show(
@@ -154,8 +177,13 @@ namespace KinoSoft
                         int idPass = Convert.ToInt32(dataAll[9, dataAll.CurrentCell.RowIndex].Value);
                         LogCl.RemoveClient(idClient, idPass);
                         UpdateTable();
+
+                        //ObjectContext objectContext = (new Contex() as IObjectContextAdapter).ObjectContext;
+                        //SqlConnection connection = new SqlConnection(@"Data source=.\SQLEXPRESS;InitialCatalog=Kinosoft4");
+                        //ObjectQuery<DbDataRecord> disk = objectContext.CreateQuery<DbDataRecord>("SELECT * FROM Client, Passport");
+                        //dataAll.DataSource = disk.ToList();
                     }
-                break;
+                    break;
                 case Tables.Disk:
                     if (result == DialogResult.Yes)
                     {
@@ -171,6 +199,21 @@ namespace KinoSoft
                         UpdateTable();
                     }
                 break;
+                case Tables.Employee: //не работает(потом исправлю)
+                    if (result == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in dataAll.SelectedRows)
+                        {
+                            Employee employee = new Employee();
+                            if (employee == null)
+                                continue;
+                            Employee dbEmployee = My.Employees.Find(employee.Id);
+                            My.Employees.Remove(dbEmployee);
+                        }
+                        My.SaveChanges();
+                        UpdateTable();
+                    }
+                    break;
                 default:
                 break;
             }
@@ -216,7 +259,9 @@ namespace KinoSoft
 
         private void button8_Click(object sender, EventArgs e)
         {
-            dataAll.DataSource = My.Employees.ToList<Employee>();
+            //dataAll.DataSource = My.Employees.ToList<Employee>();
+            table = Tables.Employee;
+            UpdateTable();
             //Employee employee = new Employee
             //{
             //    Login = "asd",

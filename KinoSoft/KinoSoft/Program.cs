@@ -22,6 +22,7 @@ namespace KinoSoft
             //Application.Run(new Autorisation.Autorisation() /*Form1()*/);
             //Application.Run(new EditClient());
             Application.Run(new Form1());
+            //Application.Run(new Employees.AddEmployee());
         }
     }
 }
