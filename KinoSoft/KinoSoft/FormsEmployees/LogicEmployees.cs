@@ -13,7 +13,6 @@ namespace KinoSoft.Employees
 
         public void AddEmployee(string firstname, string lastname, string secondname, string phonenumber, string login, string password, int roleId, int passSer, int passNum)
         {
-            MessageBox.Show(Convert.ToString(roleId));
             Passport passport = new Passport
             {
                 number = passNum,
@@ -59,8 +58,29 @@ namespace KinoSoft.Employees
                          join c in My.Roles on a.RoleId equals c.RoleId
                          select new
                          {
-
+                             id = a.Id,
+                             login = a.Login,
+                             Password = a.Password,
+                             Имя = a.FirstName,
+                             Фамилия = a.LastName,
+                             Отчество = a.SecondName,
+                             Id_role = a.RoleId,
+                             Должность = c.Name,
+                             id_passport = b.Id,
+                             Номер_телефона = a.PhoneNumber,
+                             Номер_паспорта = b.number,
+                             Серия_паспорта = b.series
                          };
+            asd.DataSource = result.ToList();
+        }
+
+        public void RemoveEmployee(int idEmp, int idPass)
+        {
+            Employee emp = My.Employees.Where(k => k.Id == idEmp).FirstOrDefault();
+            Passport pass = My.Passports.Where(s => s.Id == idPass).FirstOrDefault();
+            My.Employees.Remove(emp);
+            My.Passports.Remove(pass);
+            My.SaveChanges();
         }
     }
 }

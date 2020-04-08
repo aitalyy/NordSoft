@@ -7,11 +7,14 @@ using System.Windows.Forms;
 
 namespace KinoSoft.FormsAutorisation
 {
+    static class Admin
+    {
+        public static bool admin;
+    }
+
     class LogicAutorisation
     {
-        
-
-        public static Employee Autorisation(string login, string password)
+        public string Autorisation(string login, string password)
         {
             Contex My = new Contex();
             try
@@ -22,11 +25,11 @@ namespace KinoSoft.FormsAutorisation
 
 
                 Role role = My.Roles.FirstOrDefault(b => b.RoleId == RoleId);
-                Form1 form1 = new Form1();
                 if (employee.Password.Equals(password))
                 {
-                    form1.Show();
-                    return employee;
+                    if (role.Name == "Директор")
+                        return "admin";
+                    return "user";
                 }
                 else return null;
                 
@@ -36,5 +39,6 @@ namespace KinoSoft.FormsAutorisation
                 return null;
             }
         }
+        
     }
 }

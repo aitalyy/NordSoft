@@ -37,14 +37,17 @@ namespace KinoSoft.Employees
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                Role role = new Role();
-                if (role == null)
-                    continue;
-                Role dbrole = My.Roles.Find(role.RoleId);
-                My.Roles.Remove(dbrole);
-            }
+            //foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            //{
+            //    Role role = new Role();
+            //    if (role == null)
+            //        continue;
+            //    Role dbrole = My.Roles.Find(role.RoleId);
+            //    My.Roles.Remove(dbrole);
+            //}
+            int roleId = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);
+            Role role = My.Roles.Where(k => k.RoleId == roleId).FirstOrDefault();
+            My.Roles.Remove(role);
             My.SaveChanges();
             Role_Load(sender, e);
         }

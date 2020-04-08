@@ -34,9 +34,28 @@ namespace KinoSoft.Autorisation
         {
             string login = textBox1.Text;
             string password = textBox2.Text;
-            Employee m = LogicAutorisation.Autorisation(login, password);
+            //Employee m = LogicAutorisation.Autorisation(login, password);
+            LogicAutorisation logAu = new LogicAutorisation();
+            string m = logAu.Autorisation(login, password);
             if (m == null) MessageBox.Show("Неправильно ввели логин или пароль");
-            else this.Hide();
+            else
+            {
+                Form1 form1 = new Form1();
+                if (m == "admin")
+                {
+                    Admin.admin = true;
+                    this.Hide();
+                    form1.Show();
+                }
+                if (m == "user")
+                {
+                    Admin.admin = false;
+                    this.Hide();
+                    form1.Show();
+                }
+                
+            }
+            
         }
     }
 }

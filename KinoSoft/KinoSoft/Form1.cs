@@ -56,7 +56,9 @@ namespace KinoSoft
                     dataAll.DataSource = My.Orders.ToList<Order>();
                     break;
                 case Tables.Employee:
-                    dataAll.DataSource = My.Employees.ToList<Employee>();
+                    //dataAll.DataSource = My.Employees.ToList<Employee>();
+                    LogicEmployees logicEmp = new LogicEmployees();
+                    logicEmp.getDataEmployee(dataAll);
                     break;
                 default:
                     DialogResult result = MessageBox.Show(
@@ -143,15 +145,16 @@ namespace KinoSoft
         {
             if (dataAll.SelectedRows.Count == 0)
                 return;
-
+            Form1 from1 = new Form1();
             DialogResult result = MessageBox.Show(
                     "Вы уверены в этом?",
                     "Сообщение",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.ServiceNotification);
-
+                    MessageBoxOptions.ServiceNotification
+                    );
+            from1.MaximizeBox = true;
             switch (table)
             {
                 case Tables.Movie:
@@ -174,8 +177,8 @@ namespace KinoSoft
                     {
                         LogicClient LogCl = new LogicClient();
                         int idClient = Convert.ToInt32(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
-                        int idPass = Convert.ToInt32(dataAll[9, dataAll.CurrentCell.RowIndex].Value);
-                        LogCl.RemoveClient(idClient, idPass);
+                        int idPassCL = Convert.ToInt32(dataAll[9, dataAll.CurrentCell.RowIndex].Value);
+                        LogCl.RemoveClient(idClient, idPassCL);
                         UpdateTable();
 
                         //ObjectContext objectContext = (new Contex() as IObjectContextAdapter).ObjectContext;
@@ -199,20 +202,26 @@ namespace KinoSoft
                         UpdateTable();
                     }
                 break;
-                case Tables.Employee: //не работает(потом исправлю)
-                    if (result == DialogResult.Yes)
-                    {
-                        foreach (DataGridViewRow row in dataAll.SelectedRows)
-                        {
-                            Employee employee = new Employee();
-                            if (employee == null)
-                                continue;
-                            Employee dbEmployee = My.Employees.Find(employee.Id);
-                            My.Employees.Remove(dbEmployee);
-                        }
-                        My.SaveChanges();
-                        UpdateTable();
-                    }
+                case Tables.Employee:
+                    LogicEmployees logEmp = new LogicEmployees();
+                    int idEmployee = Convert.ToInt16(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
+                    int idPassEmp = Convert.ToInt16(dataAll[8, dataAll.CurrentCell.RowIndex].Value);
+                    logEmp.RemoveEmployee(idEmployee, idPassEmp);
+                    UpdateTable();
+
+                    //if (result == DialogResult.Yes)
+                    //{
+                    //    foreach (DataGridViewRow row in dataAll.SelectedRows)
+                    //    {
+                    //        Employee employee = new Employee();
+                    //        if (employee == null)
+                    //            continue;
+                    //        Employee dbEmployee = My.Employees.Find(employee.Id);
+                    //        My.Employees.Remove(dbEmployee);
+                    //    }
+                    //    My.SaveChanges();
+                    //    UpdateTable();
+                    //}
                     break;
                 default:
                 break;
@@ -227,7 +236,8 @@ namespace KinoSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (FormsAutorisation.Admin.admin == true)
+                button8.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -291,6 +301,11 @@ namespace KinoSoft
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.Hour.ToString("00") + ":" + DateTime.Now.Minute.ToString("00") + ":" + DateTime.Now.Second.ToString("00");
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
