@@ -33,8 +33,24 @@ namespace KinoSoft.Employees
                 RoleId = roleId,
                 PassportId = id
             });
-
             My.SaveChanges();
+            Employee employee = My.Employees.Where(k => k.Login == login).FirstOrDefault();
+            Employee check = CheckedEmployee(employee, firstname, lastname, secondname, phonenumber, login, password, roleId, passNum, passSer);
+            if (check != null)
+                MessageBox.Show("Пользователь успешно зарегистрирован");
+            else
+            {
+                try
+                {
+                    Passport pass = My.Passports.Where(k => k.Id == employee.PassportId).FirstOrDefault();
+                    RemoveEmployee(employee.Id, pass.Id);
+                }
+                catch
+                {
+                    
+                }
+                MessageBox.Show("Повторите попытку");
+            }
         }
 
         public void AddRole(string name)
@@ -44,11 +60,6 @@ namespace KinoSoft.Employees
                 Name = name,
             });
             My.SaveChanges();
-        }
-        public void RemoveRole(int Roleid)
-        {
-            //My.Roles.Remove(My.Roles.Where(k => k.RoleId == Roleid).FirstOrDefault());
-            //My.SaveChanges();
         }
 
         public void getDataEmployee(DataGridView asd)
@@ -81,6 +92,30 @@ namespace KinoSoft.Employees
             My.Employees.Remove(emp);
             My.Passports.Remove(pass);
             My.SaveChanges();
+        }
+
+        public static Employee CheckedEmployee(Employee emp, string firstname, string lastname, string secondname, string phonenumber, string login, string password, int roleId, int passSer, int passNum)
+        {
+            Contex My = new Contex();
+            try
+            {
+                Passport pass = My.Passports.Where(k => k.Id == emp.PassportId).FirstOrDefault();
+                if (emp.FirstName.Equals(firstname))
+                    if (emp.LastName.Equals(lastname))
+                        if (emp.SecondName.Equals(secondname))
+                            if (emp.PhoneNumber.Equals(phonenumber))
+                                if (emp.Login.Equals(login))
+                                    if (emp.Password.Equals(password))
+                                        if (emp.RoleId.Equals(roleId))
+                                            if (pass.number.Equals(passNum))
+                                                if (pass.series.Equals(passSer))
+                                                    return emp;
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

@@ -34,18 +34,29 @@ namespace KinoSoft.FormsClient
                 FirstName = firstname
 
             };
-            
-            
-            My.Clients.Add(client);
+
             My.SaveChanges();
+            My.Clients.Add(client);
+            
 
             int idCl = client.Id;
+            Client checkRe = My.Clients.Where(k => k.PassportId == id).FirstOrDefault();
             Client check = CheckedClient(idCl, firstname, lastname, secondname, phonenumber);
             if (check != null)
                 MessageBox.Show("Пользователь успешно зарегистрирован");
             else
-                MessageBox.Show("Повторите попытку");
+            {
+                try
+                {
+                    Passport pass = My.Passports.Where(k => k.Id == checkRe.PassportId).FirstOrDefault();
+                    RemoveClient(checkRe.Id, pass.Id);
+                }
+                catch
+                {
 
+                }
+                MessageBox.Show("Повторите попытку");
+            }
         }
 
         public static Client CheckedClient(int id, string firstname, string lastname, string secondname, string phonenumber)

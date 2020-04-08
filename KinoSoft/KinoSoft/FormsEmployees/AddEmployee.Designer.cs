@@ -49,6 +49,7 @@
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.checkLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -92,6 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(12, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
@@ -196,10 +198,12 @@
             // 
             // loginBox
             // 
+            this.loginBox.BackColor = System.Drawing.SystemColors.Window;
             this.loginBox.Location = new System.Drawing.Point(107, 169);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(100, 20);
             this.loginBox.TabIndex = 18;
+            this.loginBox.Click += new System.EventHandler(this.loginBox_Click);
             // 
             // passwordBox
             // 
@@ -228,11 +232,21 @@
             this.roleComboBox.SelectedIndexChanged += new System.EventHandler(this.roleComboBox_SelectedIndexChanged);
             this.roleComboBox.Click += new System.EventHandler(this.roleComboBox_Click);
             // 
-            // FormEmployee
+            // checkLogin
+            // 
+            this.checkLogin.AutoSize = true;
+            this.checkLogin.ForeColor = System.Drawing.Color.Red;
+            this.checkLogin.Location = new System.Drawing.Point(213, 172);
+            this.checkLogin.Name = "checkLogin";
+            this.checkLogin.Size = new System.Drawing.Size(0, 13);
+            this.checkLogin.TabIndex = 22;
+            // 
+            // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 246);
+            this.Controls.Add(this.checkLogin);
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.passwordBox);
@@ -254,7 +268,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "FormEmployee";
+            this.Name = "AddEmployee";
             this.Text = "FormEmployee";
             this.Load += new System.EventHandler(this.FormEmployee_Load);
             this.ResumeLayout(false);
@@ -285,5 +299,6 @@
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox roleComboBox;
+        private System.Windows.Forms.Label checkLogin;
     }
 }
