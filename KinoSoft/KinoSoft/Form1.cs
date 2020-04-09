@@ -22,7 +22,11 @@ namespace KinoSoft
         Client,
         Movie,
         Disk,
-        Employee
+        Employee,
+        Genre,
+        Country,
+        Actor,
+        Producer
     }
 
     public partial class Form1 : Form
