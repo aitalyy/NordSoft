@@ -9,11 +9,17 @@ namespace KinoSoft.Forms
     class LogicMovie
     {
         Contex My = new Contex();
-        public void AddMovie(string name)
+        public void AddMovie(string name, DateTime god, string category, string country, string producer, string actor, string genre)
         {
             Movie disk = new Movie
             {
-                Name = name
+                Name = name,
+                Genres = genre,
+                Producers = producer,
+                Date = god,
+                Category = category,
+                Contries = country,
+                Actors = actor           
             };
 
             My.Movies.Add(disk);
