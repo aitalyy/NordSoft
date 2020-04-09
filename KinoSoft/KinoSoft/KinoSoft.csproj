@@ -66,12 +66,6 @@
     <Compile Include="FormsEmployees\AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsEmployees\EditEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormsEmployees\EditEmployee.Designer.cs">
-      <DependentUpon>EditEmployee.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormsEmployees\LogicEmployees.cs" />
     <Compile Include="FormsEmployees\FormRole.cs">
       <SubType>Form</SubType>
@@ -127,6 +121,10 @@
     <Compile Include="FormsDisk\LogicDisk.cs" />
     <Compile Include="Forms\LogicMovie.cs" />
     <Compile Include="LogicForm.cs" />
+    <Compile Include="Migrations\202003270835166_First1.cs" />
+    <Compile Include="Migrations\202003270835166_First1.Designer.cs">
+      <DependentUpon>202003270835166_First1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
     <Compile Include="Program.cs" />
@@ -160,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditMovie.resx">
       <DependentUpon>EditMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003270835166_First1.resx">
+      <DependentUpon>202003270835166_First1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
