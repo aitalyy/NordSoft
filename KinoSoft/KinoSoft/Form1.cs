@@ -307,5 +307,11 @@ namespace KinoSoft
         {
 
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            FormInfo.Info asd = new FormInfo.Info();
+            asd.Show();
+        }
     }
 }
