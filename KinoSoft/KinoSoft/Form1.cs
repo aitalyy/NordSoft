@@ -94,6 +94,7 @@ namespace KinoSoft
                     addClient.Show();
                 break;
                 case Tables.Employee:
+                    EditEmployee.editEmployee = false;
                     AddEmployee formEmployee = new AddEmployee();
                     formEmployee.Show();
                 break;
@@ -129,6 +130,13 @@ namespace KinoSoft
                     FormsClient.EditClient editClient = new FormsClient.EditClient();
                     editClient.Show();
                     break;
+                case Tables.Employee:
+                    EditEmployee.editEmployee = true;
+                    AddEmployee addEmployee = new AddEmployee();
+                    int idEmployee = Convert.ToInt16(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
+                    EditEmployee.idEmployee = idEmployee;
+                    addEmployee.Show();
+                    break;  
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",

@@ -7,6 +7,12 @@ using System.Windows.Forms;
 
 namespace KinoSoft.Employees
 {
+    static class EditEmployee
+    {
+        public static bool editEmployee;
+        public static int idEmployee;
+    }
+
     class LogicEmployees
     {
         Contex My = new Contex();

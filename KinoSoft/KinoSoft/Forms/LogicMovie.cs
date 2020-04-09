@@ -13,13 +13,13 @@ namespace KinoSoft.Forms
         {
             Movie disk = new Movie
             {
-                Name = name,
-                Genres = genre,
-                Producers = producer,
-                Date = god,
-                Category = category,
-                Contries = country,
-                Actors = actor           
+                //Name = name,
+                //Genres = genre,
+                //Producers = producer,
+                //Date = god,
+                //Category = category,
+                //Contries = country,
+                //Actors = actor
             };
 
             My.Movies.Add(disk);
