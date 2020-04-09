@@ -18,9 +18,11 @@ namespace KinoSoft
         public SearchForm(Tables table)
         {
             InitializeComponent();
+            this.table = table;
+            UpdateTable();
         }
 
-        public void UpdateTable()
+        private void UpdateTable()
         {
             switch (table)
             {
