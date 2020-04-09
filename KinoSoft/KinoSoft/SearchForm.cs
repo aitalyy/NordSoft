@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KinoSoft
 {
-    public partial class Form2 : Form
+    public partial class SearchForm : Form
     {
-        public Form2()
+        public SearchForm()
         {
             InitializeComponent();
         }
