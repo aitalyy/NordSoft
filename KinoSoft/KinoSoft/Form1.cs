@@ -22,7 +22,11 @@ namespace KinoSoft
         Client,
         Movie,
         Disk,
-        Employee
+        Employee,
+        Genre,
+        Country,
+        Actor,
+        Producer
     }
 
     public partial class Form1 : Form
@@ -314,6 +318,12 @@ namespace KinoSoft
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            FormInfo.Info asd = new FormInfo.Info();
+            asd.Show();
         }
     }
 }

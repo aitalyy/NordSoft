@@ -45,6 +45,7 @@ namespace KinoSoft
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAll)).BeginInit();
@@ -58,7 +59,7 @@ namespace KinoSoft
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 65);
+            this.button1.Location = new System.Drawing.Point(12, 94);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 0;
@@ -94,7 +95,7 @@ namespace KinoSoft
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 138);
+            this.button2.Location = new System.Drawing.Point(12, 167);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(165, 23);
             this.button2.TabIndex = 3;
@@ -144,7 +145,7 @@ namespace KinoSoft
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 101);
+            this.button3.Location = new System.Drawing.Point(12, 130);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 13;
@@ -174,7 +175,7 @@ namespace KinoSoft
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 248);
+            this.monthCalendar1.Location = new System.Drawing.Point(12, 277);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 15;
             // 
@@ -182,7 +183,7 @@ namespace KinoSoft
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(54, 212);
+            this.label1.Location = new System.Drawing.Point(54, 241);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 24);
             this.label1.TabIndex = 16;
@@ -190,18 +191,32 @@ namespace KinoSoft
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(12, 176);
+            this.button9.Location = new System.Drawing.Point(12, 205);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(164, 23);
             this.button9.TabIndex = 17;
             this.button9.Text = "Поиск";
             this.button9.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            this.button10.BackgroundImage = global::KinoSoft.Properties.Resources.KINO1;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(12, 33);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(164, 52);
+            this.button10.TabIndex = 18;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 450);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
@@ -245,6 +260,7 @@ namespace KinoSoft
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 
