@@ -8,6 +8,7 @@ using KinoSoft.FormsClient;
 
 namespace KinoSoft
 {
+
     class LogicForm
     {
 

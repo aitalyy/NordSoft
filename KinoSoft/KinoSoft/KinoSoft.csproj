@@ -106,6 +106,18 @@
     <Compile Include="FormsDisk\AddDisk.Designer.cs">
       <DependentUpon>AddDisk.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsOrder\AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsOrder\AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsOrder\EditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsOrder\EditOrder.Designer.cs">
+      <DependentUpon>EditOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddMovie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     <EmbeddedResource Include="FormsDisk\AddDisk.resx">
       <DependentUpon>AddDisk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormsOrder\AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsOrder\EditOrder.resx">
+      <DependentUpon>EditOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMovie.resx">
       <DependentUpon>AddMovie.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +196,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -13,7 +13,7 @@ namespace KinoSoft.Forms
     public partial class AddDisk : Form
     {
         Contex My = new Contex();
-
+        Tables table;
         public AddDisk()
         {
             InitializeComponent();
@@ -69,6 +69,13 @@ namespace KinoSoft.Forms
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            table = Tables.Movie;
+            SearchForm formP = new SearchForm(table);
+            formP.Show();
         }
     }
 }

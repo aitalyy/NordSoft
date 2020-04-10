@@ -62,6 +62,7 @@
             this.dataAll.Name = "dataAll";
             this.dataAll.Size = new System.Drawing.Size(381, 373);
             this.dataAll.TabIndex = 13;
+            this.dataAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAll_CellContentClick);
             // 
             // addButton
             // 

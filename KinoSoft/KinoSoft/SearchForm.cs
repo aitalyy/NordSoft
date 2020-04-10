@@ -38,6 +38,9 @@ namespace KinoSoft
                 case Tables.Genre:
                     dataAll.DataSource = db.Genres.ToList<Genre>();
                     break;
+                case Tables.Movie:
+                    dataAll.DataSource = db.Movies.ToList<Movie>();
+                    break;
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",
@@ -56,6 +59,11 @@ namespace KinoSoft
         }
 
         private void SearchForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataAll_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
