@@ -26,5 +26,13 @@ namespace KinoSoft.Forms
             My.Movies.Add(disk);
             My.SaveChanges();
         }
+        public void addGenre(string name)
+        {
+            My.Genres.Add(new KinoSoft.Genre
+            {
+                Name = name,
+            });
+            My.SaveChanges();
+        }
     }
 }

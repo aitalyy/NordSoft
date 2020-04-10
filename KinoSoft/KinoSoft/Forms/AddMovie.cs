@@ -28,6 +28,7 @@ namespace KinoSoft.Forms
             FillFields(movie);
             this.movie = db.Movies.Find(movie.Id);
 
+            
         }
 
         private void FillFields(Movie movie)
@@ -109,6 +110,21 @@ namespace KinoSoft.Forms
 
             db.SaveChanges();
             this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Forms.AddGenre asd = new Forms.AddGenre();
+            asd.Show();
+        }
+
+        private void AddMovie_Load(object sender, EventArgs e)
+        {
+            var genres = db.Genres.ToList();
+            foreach (var item in genres)
+            {
+                Genre.Items.Add(item.Name.ToString());
+            }
         }
     }
 }
