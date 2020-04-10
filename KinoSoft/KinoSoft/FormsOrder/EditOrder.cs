@@ -16,5 +16,22 @@ namespace KinoSoft.FormsOrder
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormsClient.AddClient addClient = new FormsClient.AddClient();
+            addClient.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormsClient.EditClient editClient = new FormsClient.EditClient();
+            editClient.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -102,6 +102,10 @@ namespace KinoSoft
                     AddEmployee formEmployee = new AddEmployee();
                     formEmployee.Show();
                 break;
+                case Tables.Order:
+                    FormsOrder.AddOrder addOrder = new FormsOrder.AddOrder();
+                    addOrder.Show();
+                break;
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",
