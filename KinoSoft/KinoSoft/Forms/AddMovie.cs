@@ -57,27 +57,32 @@ namespace KinoSoft.Forms
         // Добавление
         private void button2_Click(object sender, EventArgs e) 
         {
-            string genre = "";
-            string name = MovieName.Text;
-            DateTime god = Convert.ToDateTime(Data);
-            string category = Category.Text;
-            string country = Country.Text;
-            string producer = Producer.Text;
-            string actor = Actors.Text;
-            foreach (var item in Genre.CheckedItems)
-            {
-               genre += item.ToString() + ";";
-            }
-            LogicMovie LM = new LogicMovie();
-            LM.AddMovie(name, god, category, country, producer, actor, genre);
-            
-            //using (Contex db = new Contex())
+            //string genre = "";
+            //string name = MovieName.Text;
+            //DateTime god = Convert.ToDateTime(Data.Text);
+            //string category = Category.Text;
+            //string country = Country.Text;
+            //string producer = Producer.Text;
+            //string actor = Actors.Text;
+            //foreach (var item in Genre.CheckedItems)
             //{
-            //    Movie movie = new Movie
-            //    {
-            //        Name = MovieName.Text,
-            //    };
+            //   genre += item.ToString() + ";";
             //}
+            //LogicMovie LM = new LogicMovie();
+            //LM.AddMovie(name, god, category, country, producer, actor, genre);
+
+            using (Contex db = new Contex())
+            {
+                Movie movie = new Movie();
+                //movie.Date = Convert.ToDateTime(Data.Text);
+                foreach (var item in Genre.CheckedItems)
+                {
+                //   movie.Genres = item.ToString();
+                }
+                movie.Name = MovieName.Text;
+                //movie.Category = Category.Text;
+                //movie.Contries = Country.Text;
+            }
             this.Close();
         }
 
