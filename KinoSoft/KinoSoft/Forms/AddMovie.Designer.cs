@@ -257,9 +257,9 @@ namespace KinoSoft.Forms
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(458, 66);
+            this.button5.Location = new System.Drawing.Point(12, 49);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(164, 23);
+            this.button5.Size = new System.Drawing.Size(80, 25);
             this.button5.TabIndex = 30;
             this.button5.Text = "Добавить Жанр";
             this.button5.UseVisualStyleBackColor = true;
