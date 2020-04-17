@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoSoft.FormsAutorisation;
 using KinoSoft.FormsClient;
+using KinoSoft.Forms;
 
 namespace KinoSoft
 {
@@ -21,8 +22,9 @@ namespace KinoSoft
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new /*Autorisation.Autorisation()*/ /*Form1()*/);
             //Application.Run(new EditClient());
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
             //Application.Run(new Employees.AddEmployee());
+            Application.Run(new AddDisk());
         }
     }
 }

@@ -7,20 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft
 {
+    static class Id_all
+    {
+        public static int id;
+    }
+
     public partial class SearchForm : Form
     {
         private Contex db = new Contex();
         private Tables table = Tables.Actor;
         private Movie movie = null;
 
-        public SearchForm(Tables table, Movie movie)
+        public SearchForm(Tables table/*, Movie movie*/)
         {
             InitializeComponent();
-            this.table = table;
-            this.movie = db.Movies.Find(movie.Id);
+            //this.table = table;
+            //this.movie = db.Movies.Find(movie.Id);
             UpdateTable();
         }
 
@@ -30,17 +38,17 @@ namespace KinoSoft
             {
                 case Tables.Actor:
                     dataAll.DataSource = db.Actors.ToList<Actor>();
-                    foreach (MovieActor actor in movie.Actors)
-                    {
-                        for (int i = 0; i < dataAll.Rows.Count; i++)
-                        {
-                            Actor dataActor = dataAll.Rows[i].DataBoundItem as Actor;
-                            if (actor.ActorId == dataActor.Id)
-                            {
-                                dataAll.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                            }
-                        }
-                    }
+                    //foreach (MovieActor actor in movie.Actors)
+                    //{
+                    //    for (int i = 0; i < dataAll.Rows.Count; i++)
+                    //    {
+                    //        Actor dataActor = dataAll.Rows[i].DataBoundItem as Actor;
+                    //        if (actor.ActorId == dataActor.Id)
+                    //        {
+                    //            dataAll.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    //        }
+                    //    }
+                    //}
                     break;
                 case Tables.Producer:
                     dataAll.DataSource = db.Producers.ToList<Producer>();
@@ -89,21 +97,21 @@ namespace KinoSoft
 
         }
 
-            private void saveButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             switch (table)
             {
                 case Tables.Genre:
-                    movie.Genres.Clear();
+                    //movie.Genres.Clear();
                     break;
                 case Tables.Country:
-                    movie.Contries.Clear();
+                    //movie.Contries.Clear();
                     break;
                 case Tables.Actor:
-                    movie.Actors.Clear();
+                    //movie.Actors.Clear();
                     break;
                 case Tables.Producer:
-                    movie.Producers.Clear();
+                    //movie.Producers.Clear();
                     break;
                 default:
                     break;
@@ -115,22 +123,36 @@ namespace KinoSoft
                     switch (table)
                     {
                         case Tables.Genre:
-                            movie.Genres.Add(dataAll.Rows[i].DataBoundItem as Genre);
+                            //movie.Genres.Add(dataAll.Rows[i].DataBoundItem as Genre);
                             break;
                         case Tables.Country:
-                            Countrys.Add(dataAll.Rows[i].DataBoundItem as Country);
+                            //Countrys.Add(dataAll.Rows[i].DataBoundItem as Country);
                             break;
                         case Tables.Actor:
-                            Actors.Add(dataAll.Rows[i].DataBoundItem as Actor);
+                            //Actors.Add(dataAll.Rows[i].DataBoundItem as Actor);
                             break;
                         case Tables.Producer:
-                            Producers.Add(dataAll.Rows[i].DataBoundItem as Producer);
+                            //Producers.Add(dataAll.Rows[i].DataBoundItem as Producer);
                             break;
                         default:
                             break;
                     }
                 }
             }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            if (dataAll.SelectedRows.Count == 0)
+                return;
+            int id = Convert.ToInt32(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
+            MessageBox.Show(Convert.ToString(id));
+            Movie mov = db.Movies.Where(k => k.Id == id).FirstOrDefault();
+            if (addText == null)
+                addText.Text = mov.Name;
+            else
+                addText.Text = "," + mov.Name;
+            Disk disk = db.Disks.Where(k => k.Id == id).FirstOrDefault();
         }
     }
 }

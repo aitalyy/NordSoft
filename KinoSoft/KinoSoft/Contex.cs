@@ -15,6 +15,7 @@ namespace KinoSoft
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Disk> Disks { get; set; }
+        public DbSet<DiskOrder> DiskOrders { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Passport> Passports { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -24,6 +25,15 @@ namespace KinoSoft
         public DbSet<Report> Reports { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Country> Countrys { get; set; }
+        public DbSet<MovieActor> MovieActors { get; set; }
+        public DbSet<MovieCategory> MovieCategory { get; set; }
+        public DbSet<MovieCountry> MovieCountry { get; set; }
+        public DbSet<MovieDisk> MovieDisks { get; set; }
+        public DbSet<MovieDate> MovieDate { get; set; }
+        public DbSet<MovieDescription> MovieDescription { get; set; }
+        public DbSet<MovieGenre> MovieGenre { get; set; }
+        public DbSet<MovieProducer> MoviMovieProducere { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
