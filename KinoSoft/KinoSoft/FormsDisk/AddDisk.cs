@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KinoSoft.FormsSearch;
 
 namespace KinoSoft.Forms
 {
@@ -73,6 +74,8 @@ namespace KinoSoft.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Disk disk = My.Disks.Where(k => k.Name == textBox1.Text).FirstOrDefault();
+            Id_all.id_all = disk.Id;
             table = Tables.Movie;
             SearchForm formP = new SearchForm(table);
             formP.Show();
