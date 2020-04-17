@@ -29,8 +29,6 @@ namespace KinoSoft
         public DbSet<MovieCategory> MovieCategory { get; set; }
         public DbSet<MovieCountry> MovieCountry { get; set; }
         public DbSet<MovieDisk> MovieDisks { get; set; }
-        public DbSet<MovieDate> MovieDate { get; set; }
-        public DbSet<MovieDescription> MovieDescription { get; set; }
         public DbSet<MovieGenre> MovieGenre { get; set; }
         public DbSet<MovieProducer> MoviMovieProducere { get; set; }
 
