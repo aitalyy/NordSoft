@@ -37,10 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.Data = new System.Windows.Forms.TextBox();
+            this.Data2 = new System.Windows.Forms.TextBox();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +79,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(641, 399);
+            this.label6.Location = new System.Drawing.Point(41, 495);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 14;
@@ -126,23 +130,9 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Номер заказа";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(162, 312);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 18;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(508, 313);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 19;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(268, 311);
+            this.button3.Location = new System.Drawing.Point(310, 309);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(24, 23);
             this.button3.TabIndex = 20;
@@ -152,22 +142,80 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(614, 312);
+            this.button4.Location = new System.Drawing.Point(651, 309);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(24, 23);
             this.button4.TabIndex = 21;
             this.button4.Text = "...";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(570, 528);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "Отмена";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(686, 528);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 23;
+            this.button6.Text = "Принять";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(147, 346);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 33;
+            this.monthCalendar1.Visible = false;
+            // 
+            // Data
+            // 
+            this.Data.Location = new System.Drawing.Point(147, 311);
+            this.Data.Multiline = true;
+            this.Data.Name = "Data";
+            this.Data.Size = new System.Drawing.Size(151, 23);
+            this.Data.TabIndex = 32;
+            this.Data.Text = "дд/мм/гггг";
+            this.Data.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Data2
+            // 
+            this.Data2.Location = new System.Drawing.Point(494, 311);
+            this.Data2.Multiline = true;
+            this.Data2.Name = "Data2";
+            this.Data2.Size = new System.Drawing.Size(151, 23);
+            this.Data2.TabIndex = 34;
+            this.Data2.Text = "дд/мм/гггг";
+            this.Data2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // monthCalendar2
+            // 
+            this.monthCalendar2.Location = new System.Drawing.Point(494, 346);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 35;
+            this.monthCalendar2.Visible = false;
             // 
             // EditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 563);
+            this.Controls.Add(this.monthCalendar2);
+            this.Controls.Add(this.Data2);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.Data);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -196,9 +244,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.TextBox Data;
+        private System.Windows.Forms.TextBox Data2;
+        private System.Windows.Forms.MonthCalendar monthCalendar2;
     }
 }
