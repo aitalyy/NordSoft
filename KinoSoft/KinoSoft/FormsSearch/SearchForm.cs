@@ -139,26 +139,6 @@ namespace KinoSoft
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (dataAll.SelectedRows.Count == 0)
-                return;
-            switch (table)
-            {
-                case Tables.Movie:
-                    addMovieDisk();
-                    break;
-                case Tables.Genre:
-                    break;
-                case Tables.Country:
-                    break;
-                case Tables.Actor:
-                    break;
-                case Tables.Producer:
-                    break;
-                default:
-                    break;
-
-            }
-            
         }
         private void addMovieDisk()
         {
