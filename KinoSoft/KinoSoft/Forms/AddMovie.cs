@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -74,14 +75,15 @@ namespace KinoSoft.Forms
 
             using (Contex My = new Contex())
             {
-                Movie movie = new Movie();
+                var movie = new Movie();
                 Name = MovieName.Text;
                 //Date = Convert.ToDateTime(Data.Text);
+                movie.Genres = new Collection<MovieGenre>();
                 foreach (var item in Genre.CheckedItems)
                 {
                     string Genres = item.ToString();
                     MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
-                    movie.Genres = (ICollection<KinoSoft.MovieGenre>)genre1; 
+                    movie.Genres.Add(genre1);
                 }
                 //movie.Category = Category.Text;
                 //movie.Contries = Country.Text;
