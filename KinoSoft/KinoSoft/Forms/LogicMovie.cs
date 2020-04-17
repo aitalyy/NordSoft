@@ -34,5 +34,11 @@ namespace KinoSoft.Forms
             });
             My.SaveChanges();
         }
+        public void RemoveGenre(int id)
+        {
+            Genre genre = My.Genres.Where(k => k.Id == id).FirstOrDefault();
+            My.Genres.Remove(genre);
+            My.SaveChanges();
+        }
     }
 }

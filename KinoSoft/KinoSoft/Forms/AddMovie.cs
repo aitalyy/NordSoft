@@ -115,11 +115,21 @@ namespace KinoSoft.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             Forms.AddGenre asd = new Forms.AddGenre();
-            asd.Show();
+            asd.ShowDialog();
         }
 
         private void AddMovie_Load(object sender, EventArgs e)
         {
+            //var genres = db.Genres.ToList();
+            //foreach (var item in genres)
+            //{
+            //    Genre.Items.Add(item.Name.ToString());
+            //}
+        }
+
+        private void AddMovie_Activated(object sender, EventArgs e)
+        {
+            Genre.Items.Clear();
             var genres = db.Genres.ToList();
             foreach (var item in genres)
             {

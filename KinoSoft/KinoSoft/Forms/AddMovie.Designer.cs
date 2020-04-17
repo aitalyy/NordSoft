@@ -257,9 +257,9 @@ namespace KinoSoft.Forms
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 49);
+            this.button5.Location = new System.Drawing.Point(9, 44);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(80, 25);
+            this.button5.Size = new System.Drawing.Size(80, 26);
             this.button5.TabIndex = 30;
             this.button5.Text = "Добавить Жанр";
             this.button5.UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@ namespace KinoSoft.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 498);
+            this.ClientSize = new System.Drawing.Size(463, 498);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.monthCalendar1);
@@ -295,6 +295,7 @@ namespace KinoSoft.Forms
             this.Controls.Add(this.label1);
             this.Name = "AddMovie";
             this.Text = "Добавление фильма";
+            this.Activated += new System.EventHandler(this.AddMovie_Activated);
             this.Load += new System.EventHandler(this.AddMovie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
