@@ -41,7 +41,7 @@ namespace KinoSoft.FormsClient
 
             int idCl = client.Id;
             Client checkRe = My.Clients.Where(k => k.PassportId == id).FirstOrDefault();
-            Client check = CheckedClient(idCl, firstname, lastname, secondname, phonenumber);
+            Client check = CheckedClient(checkRe, firstname, lastname, secondname, phonenumber);
             if (check != null)
                 MessageBox.Show("Пользователь успешно зарегистрирован");
             else
@@ -59,12 +59,11 @@ namespace KinoSoft.FormsClient
             }
         }
 
-        public static Client CheckedClient(int id, string firstname, string lastname, string secondname, string phonenumber)
+        public static Client CheckedClient(Client client, string firstname, string lastname, string secondname, string phonenumber)
         {
             Contex My = new Contex();
             try
             {
-                Client client = My.Clients.Where(a => a.Id == id).FirstOrDefault();
                 if (client.FirstName.Equals(firstname))
                     if (client.LastName.Equals(lastname))
                         if (client.SecondName.Equals(secondname))
