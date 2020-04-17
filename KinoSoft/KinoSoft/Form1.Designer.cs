@@ -47,6 +47,7 @@ namespace KinoSoft
             this.label1 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.Report = new System.Windows.Forms.ToolStripTextBox();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAll)).BeginInit();
@@ -82,7 +83,8 @@ namespace KinoSoft
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quitToolStripMenuItem});
+            this.quitToolStripMenuItem,
+            this.Report});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -90,7 +92,7 @@ namespace KinoSoft
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -212,6 +214,14 @@ namespace KinoSoft
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // Report
+            // 
+            this.Report.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(100, 23);
+            this.Report.Text = "Report";
+            this.Report.Click += new System.EventHandler(this.Report_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +273,7 @@ namespace KinoSoft
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ToolStripTextBox Report;
     }
 }
 

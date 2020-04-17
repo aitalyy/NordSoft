@@ -329,5 +329,10 @@ namespace KinoSoft
             FormInfo.Info asd = new FormInfo.Info();
             asd.Show();
         }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
