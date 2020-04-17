@@ -10,14 +10,10 @@ using System.Windows.Forms;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Collections.ObjectModel;
+using KinoSoft.FormsSearch;
 
 namespace KinoSoft
 {
-    static class Id_all
-    {
-        public static int id;
-    }
-
     public partial class SearchForm : Form
     {
         private Contex db = new Contex();
@@ -143,16 +139,33 @@ namespace KinoSoft
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (dataAll.SelectedRows.Count == 0)
-                return;
+        }
+        private void addMovieDisk()
+        {
             int id = Convert.ToInt32(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
             MessageBox.Show(Convert.ToString(id));
+            
             Movie mov = db.Movies.Where(k => k.Id == id).FirstOrDefault();
+            Disk disk = db.Disks.Where(k => k.Id == Id_all.id_all).FirstOrDefault();
+
+            MovieDisk movieDisk = new MovieDisk
+            {
+                MovieId = mov.Id,
+                Movie = mov,
+                DiskId = id,
+                Disk = disk
+            };
+            db.MovieDisks.Add(movieDisk);
+
             if (addText == null)
                 addText.Text = mov.Name;
             else
                 addText.Text = "," + mov.Name;
-            Disk disk = db.Disks.Where(k => k.Id == id).FirstOrDefault();
+
+            var disk2 = new Disk();
+            disk2.Movies = new Collection<MovieDisk>();
+            disk2.Movies.Add(movieDisk);
+            db.SaveChanges();
         }
     }
 }
