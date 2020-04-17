@@ -12,7 +12,7 @@ namespace KinoSoft.Forms
 {
     public partial class AddMovie : Form
     {
-        private Contex db = new Contex();
+        private Contex My = new Contex();
         private Movie movie = null;
 
         public AddMovie(Movie movie)
@@ -26,7 +26,7 @@ namespace KinoSoft.Forms
 
             button2.Visible = false;
             FillFields(movie);
-            this.movie = db.Movies.Find(movie.Id);
+            this.movie = My.Movies.Find(movie.Id);
 
             
         }
@@ -72,17 +72,20 @@ namespace KinoSoft.Forms
             //LogicMovie LM = new LogicMovie();
             //LM.AddMovie(name, god, category, country, producer, actor, genre);
 
-            using (Contex db = new Contex())
+            using (Contex My = new Contex())
             {
                 Movie movie = new Movie();
-                //movie.Date = Convert.ToDateTime(Data.Text);
+                Name = MovieName.Text;
+                //Date = Convert.ToDateTime(Data.Text);
                 foreach (var item in Genre.CheckedItems)
                 {
-                //   movie.Genres = item.ToString();
+                    string Genres = item.ToString();
+                    MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
+                    movie.Genres = (ICollection<KinoSoft.MovieGenre>)genre1; 
                 }
-                movie.Name = MovieName.Text;
                 //movie.Category = Category.Text;
                 //movie.Contries = Country.Text;
+                My.SaveChanges();
             }
             this.Close();
         }
@@ -108,7 +111,7 @@ namespace KinoSoft.Forms
             movie.Name = MovieName.Text;
             // ...
 
-            db.SaveChanges();
+            My.SaveChanges();
             this.Close();
         }
 
@@ -120,17 +123,12 @@ namespace KinoSoft.Forms
 
         private void AddMovie_Load(object sender, EventArgs e)
         {
-            //var genres = db.Genres.ToList();
-            //foreach (var item in genres)
-            //{
-            //    Genre.Items.Add(item.Name.ToString());
-            //}
         }
 
         private void AddMovie_Activated(object sender, EventArgs e)
         {
             Genre.Items.Clear();
-            var genres = db.Genres.ToList();
+            var genres = My.Genres.ToList();
             foreach (var item in genres)
             {
                 Genre.Items.Add(item.Name.ToString());

@@ -11,7 +11,7 @@ namespace KinoSoft.Forms
         Contex My = new Contex();
         public void AddMovie(string name, DateTime god, string category, string country, string producer, string actor, string genre)
         {
-            Movie disk = new Movie
+            Movie movie = new Movie
             {
                 //Name = name,
                 //Genres = genre,
@@ -23,7 +23,7 @@ namespace KinoSoft.Forms
                 //Actors = actor
             };
 
-            My.Movies.Add(disk);
+            My.Movies.Add(movie);
             My.SaveChanges();
         }
         public void addGenre(string name)
