@@ -10,31 +10,19 @@ using System.Windows.Forms;
 
 namespace KinoSoft.Forms
 {
-    public partial class AddGenre : Form
+    public partial class AddCategory : Form
     {
         Contex My = new Contex();
         LogicMovie logMovie = new LogicMovie();
-        public AddGenre()
+        public AddCategory()
         {
             InitializeComponent();
-            dataGridView1.DataSource = My.Genres.ToList();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            logMovie.addGenre(textBox1.Text);
-            update();
+            dataGridView1.DataSource = My.MovieCategory.ToList();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            My.SaveChanges();
-            update();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -48,7 +36,7 @@ namespace KinoSoft.Forms
             catch
             {
                 DialogResult result = MessageBox.Show(
-                     "Ошибка! \n Вы не выбрали жанр для удаления.",
+                     "Ошибка! \n Вы не выбрали  для удаления.",
                      "Сообщение",
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information,
@@ -56,16 +44,17 @@ namespace KinoSoft.Forms
                      MessageBoxOptions.ServiceNotification);
                 if (result == DialogResult.OK) Close();
             }
-            
+
         }
         public void update()
         {
-            dataGridView1.DataSource = My.Genres.ToList();
+            dataGridView1.DataSource = My.MovieCategory.ToList();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            logMovie.addCategory(textBox1.Text);
+            update();
         }
     }
 }

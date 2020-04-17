@@ -7,13 +7,13 @@ namespace KinoSoft.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class first1 : IMigrationMetadata
+    public sealed partial class First1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(first1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(First1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004170201569_first1"; }
+            get { return "202004170506485_First1"; }
         }
         
         string IMigrationMetadata.Source

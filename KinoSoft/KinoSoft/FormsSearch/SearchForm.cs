@@ -139,6 +139,7 @@ namespace KinoSoft
 
         private void addButton_Click(object sender, EventArgs e)
         {
+
         }
         private void addMovieDisk()
         {

@@ -59,10 +59,17 @@ namespace KinoSoft.Forms
         // Добавление
         private void button2_Click(object sender, EventArgs e) 
         {
-            //string genre = "";
-            //string name = MovieName.Text;
-            //DateTime god = Convert.ToDateTime(Data.Text);
-            //string category = Category.Text;
+            var genre = new Collection<MovieGenre>();
+            foreach (var item in Genre.CheckedItems)
+            {
+                string Genres = item.ToString();
+                MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
+                genre.Add(genre1);
+            }
+            string name = MovieName.Text;
+            DateTime god = Convert.ToDateTime(Data.Text);
+            string category = Category.Text;
+            MovieCategory asd = My.MovieCategory.Where(k => k.Category == category).FirstOrDefault();
             //string country = Country.Text;
             //string producer = Producer.Text;
             //string actor = Actors.Text;
@@ -70,25 +77,25 @@ namespace KinoSoft.Forms
             //{
             //   genre += item.ToString() + ";";
             //}
-            //LogicMovie LM = new LogicMovie();
-            //LM.AddMovie(name, god, category, country, producer, actor, genre);
+            LogicMovie LM = new LogicMovie();
+            LM.AddMovie(name, god, asd,/* country, producer, actor,*/ genre);
 
-            using (Contex My = new Contex())
-            {
-                var movie = new Movie();
-                Name = MovieName.Text;
-                //Date = Convert.ToDateTime(Data.Text);
-                movie.Genres = new Collection<MovieGenre>();
-                foreach (var item in Genre.CheckedItems)
-                {
-                    string Genres = item.ToString();
-                    MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
-                    movie.Genres.Add(genre1);
-                }
-                //movie.Category = Category.Text;
-                //movie.Contries = Country.Text;
-                My.SaveChanges();
-            }
+            //using (Contex My = new Contex())
+            //{
+            //    var movie = new Movie();
+            //    Name = MovieName.Text;
+            //    //Date = Convert.ToDateTime(Data.Text);
+            //    var genre = new Collection<MovieGenre>();
+            //    foreach (var item in Genre.CheckedItems)
+            //    {
+            //        string Genres = item.ToString();
+            //        MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
+            //        movie.Genres.Add(genre1);
+            //    }
+            //    //movie.Category = Category.Text;
+            //    //movie.Contries = Country.Text;
+            //    My.SaveChanges();
+            //}
             this.Close();
         }
 
@@ -130,11 +137,23 @@ namespace KinoSoft.Forms
         private void AddMovie_Activated(object sender, EventArgs e)
         {
             Genre.Items.Clear();
+            Category.Items.Clear();
             var genres = My.Genres.ToList();
             foreach (var item in genres)
             {
                 Genre.Items.Add(item.Name.ToString());
+            }   
+            var category = My.MovieCategory.ToList();
+            foreach (var item in category)
+            {
+                Category.Items.Add(item.Category.ToString());
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Forms.AddCategory asd = new Forms.AddCategory();
+            asd.ShowDialog();
         }
     }
 }

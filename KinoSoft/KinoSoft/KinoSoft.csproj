@@ -122,6 +122,12 @@
       <DependentUpon>EditOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsSearch\LogicSearch.cs" />
+    <Compile Include="Forms\AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddGenre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,9 +149,9 @@
     <Compile Include="FormsDisk\LogicDisk.cs" />
     <Compile Include="Forms\LogicMovie.cs" />
     <Compile Include="LogicForm.cs" />
-    <Compile Include="Migrations\202004170201569_first1.cs" />
-    <Compile Include="Migrations\202004170201569_first1.designer.cs">
-      <DependentUpon>202004170201569_first1.cs</DependentUpon>
+    <Compile Include="Migrations\202004170506485_First1.cs" />
+    <Compile Include="Migrations\202004170506485_First1.designer.cs">
+      <DependentUpon>202004170506485_First1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
@@ -187,6 +193,9 @@
     <EmbeddedResource Include="FormsOrder\EditOrder.resx">
       <DependentUpon>EditOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddGenre.resx">
       <DependentUpon>AddGenre.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,8 +205,8 @@
     <EmbeddedResource Include="Forms\EditMovie.resx">
       <DependentUpon>EditMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004170201569_first1.resx">
-      <DependentUpon>202004170201569_first1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004170506485_First1.resx">
+      <DependentUpon>202004170506485_First1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

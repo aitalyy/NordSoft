@@ -9,15 +9,15 @@ namespace KinoSoft.Forms
     class LogicMovie
     {
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, string category, string country, string producer, string actor, string genre)
+        public void AddMovie(string name, DateTime god, MovieCategory category/*, string country, string producer, string actor*/, ICollection<KinoSoft.MovieGenre> genre)
         {
             Movie movie = new Movie
             {
-                //Name = name,
-                //Genres = genre,
+                Name = name,
+                Genres = genre,
                 //Producers = producer,
-                //Date = god,
-                //Category = category,
+                Date = god,
+                Category = category,
                 //Contries = country,
                 //Actors = actor           
                 //Actors = actor
@@ -31,6 +31,14 @@ namespace KinoSoft.Forms
             My.Genres.Add(new KinoSoft.Genre
             {
                 Name = name,
+            });
+            My.SaveChanges();
+        }
+        public void addCategory(string name)
+        {
+            My.MovieCategory.Add(new KinoSoft.MovieCategory
+            {
+                Category = name,
             });
             My.SaveChanges();
         }

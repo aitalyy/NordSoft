@@ -51,6 +51,7 @@ namespace KinoSoft.Forms
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -265,11 +266,22 @@ namespace KinoSoft.Forms
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(9, 185);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(71, 26);
+            this.button6.TabIndex = 31;
+            this.button6.Text = "Добавить Жанр";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 498);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.monthCalendar1);
@@ -327,5 +339,6 @@ namespace KinoSoft.Forms
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

@@ -45,7 +45,7 @@ namespace KinoSoft
             switch (table)
             {
                 case Tables.Client:
-                    //dataAll.DataSource = My.Clients.ToList<Client>();
+                    dataAll.DataSource = My.Clients.ToList<Client>();
 
                     LogicClient logicCl = new LogicClient();
                     logicCl.getDataClient(dataAll);
@@ -60,7 +60,7 @@ namespace KinoSoft
                     dataAll.DataSource = My.Orders.ToList<Order>();
                     break;
                 case Tables.Employee:
-                    //dataAll.DataSource = My.Employees.ToList<Employee>();
+                    dataAll.DataSource = My.Employees.ToList<Employee>();
                     LogicEmployees logicEmp = new LogicEmployees();
                     logicEmp.getDataEmployee(dataAll);
                     break;
