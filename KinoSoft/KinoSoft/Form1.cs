@@ -31,6 +31,7 @@ namespace KinoSoft
 
     public partial class Form1 : Form
     {
+        ReportPDF report;
         Tables table = Tables.Order;
         Contex My = new Contex();
 
@@ -38,6 +39,7 @@ namespace KinoSoft
         {
             InitializeComponent();
             UpdateTable();
+            report = new ReportPDF();
         }
 
         public void UpdateTable()
@@ -332,7 +334,7 @@ namespace KinoSoft
 
         private void Report_Click(object sender, EventArgs e)
         {
-
+            report.Save();
         }
     }
 }

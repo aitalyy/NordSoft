@@ -163,6 +163,7 @@
     <Compile Include="FormsSearch\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportPDF.cs" />
     <EmbeddedResource Include="FormInfo\Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>

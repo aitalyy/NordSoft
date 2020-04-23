@@ -139,7 +139,52 @@ namespace KinoSoft
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            string[] text = addText.Text.Split(' ');
+            string[] FIO = new string[3];
 
+            for(int i = 0; i < text.Length; ++i)
+            {
+                FIO[i] = text[i];
+            }
+
+            switch (table)
+            {
+                case Tables.Genre:
+                    Genre genre = new Genre()
+                    {
+                        Name = addText.Text
+                    };
+                    db.Genres.Add(genre);
+                    break;
+                case Tables.Country:
+                    Country country = new Country()
+                    {
+                        CountryName = addText.Text
+                    };
+                    db.Countrys.Add(country);
+                    break;
+                case Tables.Actor:
+                    Actor actor = new Actor()
+                    {
+                        FirstName = FIO[1],
+                        LastName = FIO[2],
+                        SecondName = FIO[3]
+                    };
+                    db.Actors.Add(actor);
+                    break;
+                case Tables.Producer:
+                    Producer producer = new Producer()
+                    {
+                        FirstName = FIO[1],
+                        LastName = FIO[2],
+                        SecondName = FIO[3]
+                    };
+                    db.Producers.Add(producer);
+                    break;
+                default:
+                    break;
+            }
+            db.SaveChanges();
         }
         private void addMovieDisk()
         {
