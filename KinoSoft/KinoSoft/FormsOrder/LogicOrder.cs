@@ -9,7 +9,8 @@ namespace KinoSoft.FormsOrder
     class LogicOrder
     {
         Contex My = new Contex();
-        void AddOrder(DateTime date, DateTime endDate, OrderStatus status)
+
+        public void AddOrder(DateTime date, DateTime endDate)
         {
             var lastId = My.Clients.OrderByDescending(k => k.Id).FirstOrDefault();
             Client client = My.Clients.Where(k => k.Id == lastId.Id).FirstOrDefault();
@@ -20,7 +21,7 @@ namespace KinoSoft.FormsOrder
                 ClientId = lastId.Id,
                 Date = date,
                 EndDate = endDate,
-                Status = status
+                Status = OrderStatus.Open
             });
 
             My.SaveChanges();

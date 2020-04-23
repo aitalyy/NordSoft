@@ -239,6 +239,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddOrder";
             this.Text = "Добавление заказа";
+            this.Activated += new System.EventHandler(this.AddOrder_Activated);
             this.Load += new System.EventHandler(this.AddOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -13,6 +13,8 @@ namespace KinoSoft.FormsOrder
     public partial class AddOrder : Form
     {
         Contex My = new Contex();
+        private bool checkClient = false;
+
         public AddOrder()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace KinoSoft.FormsOrder
         {
             FormsClient.AddClient addClient = new FormsClient.AddClient();
             addClient.Show();
+            checkClient = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,11 +82,22 @@ namespace KinoSoft.FormsOrder
             dataGridView1.DataSource = My.Orders.ToList<Order>();
             var lastId = My.Employees.OrderByDescending(k=>k.Id).FirstOrDefault();
             textBox1.Text = Convert.ToString(lastId.Id + 1);
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddOrder_Activated(object sender, EventArgs e)
+        {
+            if (checkClient == true)
+            {
+                LogicOrder logOr = new LogicOrder();
+                logOr.AddOrder(Convert.ToDateTime(Data), Convert.ToDateTime(Data2));
+                checkClient = false;
+            }
         }
     }
 }
