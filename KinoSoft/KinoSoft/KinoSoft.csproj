@@ -140,6 +140,12 @@
     <Compile Include="Forms\AddMovie.Designer.cs">
       <DependentUpon>AddMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddProducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddProducer.Designer.cs">
+      <DependentUpon>AddProducer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditMovie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMovie.resx">
       <DependentUpon>AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddProducer.resx">
+      <DependentUpon>AddProducer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditMovie.resx">
       <DependentUpon>EditMovie.cs</DependentUpon>
