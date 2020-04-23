@@ -12,6 +12,7 @@ namespace KinoSoft.FormsOrder
 {
     public partial class AddOrder : Form
     {
+        Contex My = new Contex();
         public AddOrder()
         {
             InitializeComponent();
@@ -61,6 +62,29 @@ namespace KinoSoft.FormsOrder
             monthCalendar2.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateSelected);
 
             //monthCalendar1.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddOrder_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Orders.ToList<Order>();
+            var lastId = My.Employees.OrderByDescending(k=>k.Id).FirstOrDefault();
+
+            textBox1.Text = Convert.ToString(lastId.Id + 1);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

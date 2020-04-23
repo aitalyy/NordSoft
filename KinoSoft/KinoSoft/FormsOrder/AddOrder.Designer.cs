@@ -45,13 +45,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.Data2 = new System.Windows.Forms.TextBox();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 38);
+            this.label1.Location = new System.Drawing.Point(31, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 0;
@@ -61,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 82);
+            this.label2.Location = new System.Drawing.Point(31, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 13);
             this.label2.TabIndex = 1;
@@ -105,7 +106,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(36, 111);
+            this.button1.Location = new System.Drawing.Point(34, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 23);
             this.button1.TabIndex = 6;
@@ -120,10 +121,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(697, 101);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(183, 111);
+            this.button2.Location = new System.Drawing.Point(158, 62);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 23);
             this.button2.TabIndex = 8;
@@ -148,6 +150,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Принять";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // monthCalendar1
             // 
@@ -203,11 +206,20 @@
             this.monthCalendar2.TabIndex = 34;
             this.monthCalendar2.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(117, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 35;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // AddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.monthCalendar2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.Data2);
@@ -227,6 +239,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddOrder";
             this.Text = "Добавление заказа";
+            this.Load += new System.EventHandler(this.AddOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,5 +265,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox Data2;
         private System.Windows.Forms.MonthCalendar monthCalendar2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -121,6 +121,7 @@
     <Compile Include="FormsOrder\EditOrder.Designer.cs">
       <DependentUpon>EditOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsOrder\LogicOrder.cs" />
     <Compile Include="FormsSearch\LogicSearch.cs" />
     <Compile Include="Forms\AddCategory.cs">
       <SubType>Form</SubType>
