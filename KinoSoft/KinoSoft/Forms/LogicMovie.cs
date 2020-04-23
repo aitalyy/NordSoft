@@ -9,7 +9,7 @@ namespace KinoSoft.Forms
     class LogicMovie
     {
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, MovieCategory category/*, string country, string producer, string actor*/, ICollection<KinoSoft.MovieGenre> genre)
+        public void AddMovie(string name, DateTime god, /*MovieCategory category,/* MovieCountry country MovieProducer producer, string actor*/ ICollection<KinoSoft.MovieGenre> genre)
         {
             Movie movie = new Movie
             {
@@ -17,7 +17,7 @@ namespace KinoSoft.Forms
                 Genres = genre,
                 //Producers = producer,
                 Date = god,
-                Category = category,
+                //Category = category,
                 //Contries = country,
                 //Actors = actor           
                 //Actors = actor
@@ -47,6 +47,10 @@ namespace KinoSoft.Forms
             Genre genre = My.Genres.Where(k => k.Id == id).FirstOrDefault();
             My.Genres.Remove(genre);
             My.SaveChanges();
+        }
+        public void addProducer(string name, string family, string ot4)
+        {
+            
         }
     }
 }
