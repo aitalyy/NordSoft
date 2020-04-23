@@ -78,7 +78,6 @@ namespace KinoSoft.FormsOrder
         {
             dataGridView1.DataSource = My.Orders.ToList<Order>();
             var lastId = My.Employees.OrderByDescending(k=>k.Id).FirstOrDefault();
-
             textBox1.Text = Convert.ToString(lastId.Id + 1);
         }
 
