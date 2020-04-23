@@ -81,7 +81,7 @@ namespace KinoSoft.Forms
             //string[] mystring = Country.Text.Split(',');
             //for (int i = 0; i < mystring.Length; i++)
             //{
-            //    MovieProducer prod = My.MoviMovieProducere.Where(k=>k.Producer;
+            //    My.Producers.Add(new Producer { SecondName = mystring[i], FirstName = mystring[i+1], LastName = mystring});
             //    producers.Add(prod);
             //}
             //string actor = Actors.Text;
@@ -171,6 +171,12 @@ namespace KinoSoft.Forms
         private void button7_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Forms.AddProducer asd = new Forms.AddProducer();
+            asd.ShowDialog();
         }
     }
 }

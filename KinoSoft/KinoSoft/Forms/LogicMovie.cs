@@ -50,7 +50,14 @@ namespace KinoSoft.Forms
         }
         public void addProducer(string name, string family, string ot4)
         {
-            
+            My.Producers.Add(new Producer { FirstName = name, SecondName = family, LastName = ot4 });
+            My.SaveChanges();
+        }
+        public void RemoveProducer(int id)
+        {
+            Producer producer = My.Producers.Where(k => k.Id == id).FirstOrDefault();
+            My.Producers.Remove(producer);
+            My.SaveChanges();
         }
     }
 }
