@@ -10,21 +10,20 @@ namespace KinoSoft.Forms
     {
         public class ProducerAdd
         {
-            public static string FIO { get; set; }
+            public static int FIO { get; set; }
         }
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, /*MovieCategory category,/* MovieCountry country MovieProducer producer, string actor*/ ICollection<KinoSoft.MovieGenre> genre)
+        public void AddMovie(string name, DateTime god, /*MovieCategory category,/* MovieCountry country */ICollection<KinoSoft.MovieProducer> producer,/* string actor*/ ICollection<KinoSoft.MovieGenre> genre)
         {
             Movie movie = new Movie
             {
                 Name = name,
                 Genres = genre,
-                //Producers = producer,
+                Producers = producer,
                 Date = god,
                 //Category = category,
                 //Contries = country,
                 //Actors = actor           
-                //Actors = actor
             };
 
             My.Movies.Add(movie);

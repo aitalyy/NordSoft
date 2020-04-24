@@ -19,7 +19,6 @@ namespace KinoSoft.Forms
         public AddMovie(Movie movie)
         {
             InitializeComponent();
-            LogicMovie.ProducerAdd.FIO = null;
             if (movie == null)
             {
                 button4.Visible = false;
@@ -66,31 +65,24 @@ namespace KinoSoft.Forms
                 MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
                 genre.Add(genre1);
             }
+            //---------------------------------------------------------------------------------------------
             string name = MovieName.Text;
+            //---------------------------------------------------------------------------------------------
             DateTime god = Convert.ToDateTime(Data.Text);
+            //---------------------------------------------------------------------------------------------
             string category = Category.Text;
             MovieCategory MCat = My.MovieCategory.Where(k => k.Category == category).FirstOrDefault();
-            //var country = new Collection<KinoSoft.MovieCountry>();
-            //string[] mystring = Country.Text.Split(',');
-            //for (int i = 0; i<mystring.Length;i++)
-            //{
-            //    MovieCountry country1 = KinoSoft.Country;
-            //    country.Add(country1);
-            //}
-            //var producers = new Collection<MovieProducer>();
-            //string[] mystring = Country.Text.Split(',');
-            //for (int i = 0; i < mystring.Length; i++)
-            //{
-            //    My.Producers.Add(new Producer { SecondName = mystring[i], FirstName = mystring[i+1], LastName = mystring});
-            //    producers.Add(prod);
-            //}
-            //string actor = Actors.Text;
-            //foreach (var item in Genre.CheckedItems)
-            //{
-            //   genre += item.ToString() + ";";
-            //}
+            //---------------------------------------------------------------------------------------------
+            var producers = new Collection<KinoSoft.MovieProducer>();
+            string[] producerstr = Producer.Text.Split(';');
+            for (int i = 0; i < producerstr.Length; i++)
+            {
+                int proId = Convert.ToInt32(producerstr[i]);
+                MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
+            }
+            //---------------------------------------------------------------------------------------------
             LogicMovie LM = new LogicMovie();
-            LM.AddMovie(name, god, /*MCat /*country, producer, /*actor*/ genre);
+            LM.AddMovie(name, god, /*MCat ,country*/ producers, /*actor*/ genre);
 
             //using (Contex My = new Contex())
             //{
@@ -161,7 +153,6 @@ namespace KinoSoft.Forms
                 Category.Items.Add(item.Category.ToString());
             }
             Producer.Text += LogicMovie.ProducerAdd.FIO;
-            LogicMovie.ProducerAdd.FIO = null;
         }
 
         private void button6_Click(object sender, EventArgs e)
