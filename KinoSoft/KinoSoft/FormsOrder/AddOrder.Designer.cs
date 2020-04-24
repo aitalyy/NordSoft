@@ -132,7 +132,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(539, 465);
+            this.button3.Location = new System.Drawing.Point(539, 515);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
@@ -141,7 +141,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(656, 465);
+            this.button4.Location = new System.Drawing.Point(656, 515);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 10;
@@ -238,7 +238,7 @@
             // 
             // buttonDisk
             // 
-            this.buttonDisk.Location = new System.Drawing.Point(656, 278);
+            this.buttonDisk.Location = new System.Drawing.Point(656, 279);
             this.buttonDisk.Name = "buttonDisk";
             this.buttonDisk.Size = new System.Drawing.Size(75, 23);
             this.buttonDisk.TabIndex = 39;
@@ -280,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(800, 586);
             this.Controls.Add(this.ClientSelect);
             this.Controls.Add(this.RemDiskBut);
             this.Controls.Add(this.buttonListDisk);

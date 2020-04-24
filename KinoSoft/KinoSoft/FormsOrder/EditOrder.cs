@@ -7,11 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft.FormsOrder
 {
     public partial class EditOrder : Form
     {
+        Contex My = new Contex();
+        private int costDiskAll = 0;
+        private ArrayList arrayDisk = new ArrayList();
+        private int idOrder;
+        private int idClient;
+        private int idRows;
+
+        private enum TablesOrder
+        {
+            Client,
+            Disk
+        }
+
+        TablesOrder table;
+
         public EditOrder()
         {
             InitializeComponent();
@@ -61,5 +78,18 @@ namespace KinoSoft.FormsOrder
             monthCalendar2.Hide();
         }
 
+        private void buttonListDisk_Click(object sender, EventArgs e)
+        {
+            ListDisk();
+        }
+
+        private void ListDisk()
+        {
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
+            textDatagrid.Text = "Список дисков";
+            buttonDisk.Visible = true;
+            RemDiskBut.Visible = true;
+            table = TablesOrder.Disk;
+        }
     }
 }
