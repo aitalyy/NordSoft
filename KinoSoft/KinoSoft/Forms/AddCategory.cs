@@ -14,17 +14,18 @@ namespace KinoSoft.Forms
     {
         Contex My = new Contex();
         LogicMovie logMovie = new LogicMovie();
+        //--------------------------------------------------------------------------------------------- /Инициализация
         public AddCategory()
         {
             InitializeComponent();
             dataGridView1.DataSource = My.MovieCategory.ToList();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка закрытия
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка удаления
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -44,13 +45,13 @@ namespace KinoSoft.Forms
                      MessageBoxOptions.ServiceNotification);
                 if (result == DialogResult.OK) Close();
             }
-
         }
+        //--------------------------------------------------------------------------------------------- /Функция обновления таблицы
         public void update()
         {
             dataGridView1.DataSource = My.MovieCategory.ToList();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка добавления
         private void button2_Click(object sender, EventArgs e)
         {
             logMovie.addCategory(textBox1.Text);

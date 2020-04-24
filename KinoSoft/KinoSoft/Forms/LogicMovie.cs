@@ -8,19 +8,26 @@ namespace KinoSoft.Forms
 {
     class LogicMovie
     {
+        public class ProducerAdd
+        {
+            public static int FIO { get; set; }
+        }
+        public class ActorAdd
+        {
+            public static int FIO { get; set; }
+        }
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, /*MovieCategory category,/* MovieCountry country MovieProducer producer, string actor*/ ICollection<KinoSoft.MovieGenre> genre)
+        public void AddMovie(string name, DateTime god, MovieCategory category,/* MovieCountry country */ICollection<KinoSoft.MovieProducer> producer, ICollection<KinoSoft.MovieActor> actor, ICollection<KinoSoft.MovieGenre> genre)
         {
             Movie movie = new Movie
             {
                 Name = name,
                 Genres = genre,
-                //Producers = producer,
+                Producers = producer,
                 Date = god,
-                //Category = category,
+                Category = category,
                 //Contries = country,
-                //Actors = actor           
-                //Actors = actor
+                Actors = actor           
             };
 
             My.Movies.Add(movie);
@@ -51,6 +58,11 @@ namespace KinoSoft.Forms
         public void addProducer(string name, string family, string ot4)
         {
             My.Producers.Add(new Producer { FirstName = name, SecondName = family, LastName = ot4 });
+            My.SaveChanges();
+        }
+        public void addActor(string name, string family, string ot4)
+        {
+            My.Actors.Add(new Actor { FirstName = name, SecondName = family, LastName = ot4 });
             My.SaveChanges();
         }
         public void RemoveProducer(int id)
