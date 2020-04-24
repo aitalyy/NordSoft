@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -46,6 +45,13 @@
             this.Data2 = new System.Windows.Forms.TextBox();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.CostOrder = new System.Windows.Forms.TextBox();
+            this.textDatagrid = new System.Windows.Forms.Label();
+            this.buttonDisk = new System.Windows.Forms.Button();
+            this.buttonListDisk = new System.Windows.Forms.Button();
+            this.RemDiskBut = new System.Windows.Forms.Button();
+            this.ClientSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 280);
+            this.label3.Location = new System.Drawing.Point(33, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 13);
             this.label3.TabIndex = 2;
@@ -80,25 +86,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(389, 280);
+            this.label4.Location = new System.Drawing.Point(391, 313);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Дата окончания";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 355);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Фильмы";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 449);
+            this.label6.Location = new System.Drawing.Point(31, 465);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 5;
@@ -117,9 +114,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 140);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 118);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(697, 101);
+            this.dataGridView1.Size = new System.Drawing.Size(697, 154);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -154,14 +151,14 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(137, 300);
+            this.monthCalendar1.Location = new System.Drawing.Point(139, 333);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 31;
             this.monthCalendar1.Visible = false;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(137, 275);
+            this.button6.Location = new System.Drawing.Point(139, 308);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(83, 23);
             this.button6.TabIndex = 30;
@@ -171,7 +168,7 @@
             // 
             // Data
             // 
-            this.Data.Location = new System.Drawing.Point(226, 275);
+            this.Data.Location = new System.Drawing.Point(228, 308);
             this.Data.Multiline = true;
             this.Data.Name = "Data";
             this.Data.Size = new System.Drawing.Size(151, 23);
@@ -181,7 +178,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(484, 275);
+            this.button5.Location = new System.Drawing.Point(486, 308);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(83, 23);
             this.button5.TabIndex = 33;
@@ -191,7 +188,7 @@
             // 
             // Data2
             // 
-            this.Data2.Location = new System.Drawing.Point(573, 275);
+            this.Data2.Location = new System.Drawing.Point(575, 308);
             this.Data2.Multiline = true;
             this.Data2.Name = "Data2";
             this.Data2.Size = new System.Drawing.Size(151, 23);
@@ -201,7 +198,7 @@
             // 
             // monthCalendar2
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(484, 300);
+            this.monthCalendar2.Location = new System.Drawing.Point(486, 333);
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 34;
             this.monthCalendar2.Visible = false;
@@ -214,11 +211,83 @@
             this.textBox1.TabIndex = 35;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(619, 62);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(112, 23);
+            this.button7.TabIndex = 36;
+            this.button7.Text = "Список заказов";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // CostOrder
+            // 
+            this.CostOrder.Location = new System.Drawing.Point(137, 462);
+            this.CostOrder.Name = "CostOrder";
+            this.CostOrder.Size = new System.Drawing.Size(90, 20);
+            this.CostOrder.TabIndex = 37;
+            // 
+            // textDatagrid
+            // 
+            this.textDatagrid.AutoSize = true;
+            this.textDatagrid.Location = new System.Drawing.Point(33, 102);
+            this.textDatagrid.Name = "textDatagrid";
+            this.textDatagrid.Size = new System.Drawing.Size(0, 13);
+            this.textDatagrid.TabIndex = 38;
+            // 
+            // buttonDisk
+            // 
+            this.buttonDisk.Location = new System.Drawing.Point(656, 278);
+            this.buttonDisk.Name = "buttonDisk";
+            this.buttonDisk.Size = new System.Drawing.Size(75, 23);
+            this.buttonDisk.TabIndex = 39;
+            this.buttonDisk.Text = "Выбрать";
+            this.buttonDisk.UseVisualStyleBackColor = true;
+            this.buttonDisk.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // buttonListDisk
+            // 
+            this.buttonListDisk.Location = new System.Drawing.Point(501, 62);
+            this.buttonListDisk.Name = "buttonListDisk";
+            this.buttonListDisk.Size = new System.Drawing.Size(112, 23);
+            this.buttonListDisk.TabIndex = 40;
+            this.buttonListDisk.Text = "Список дисков";
+            this.buttonListDisk.UseVisualStyleBackColor = true;
+            this.buttonListDisk.Click += new System.EventHandler(this.buttonListDisk_Click);
+            // 
+            // RemDiskBut
+            // 
+            this.RemDiskBut.Location = new System.Drawing.Point(524, 279);
+            this.RemDiskBut.Name = "RemDiskBut";
+            this.RemDiskBut.Size = new System.Drawing.Size(126, 23);
+            this.RemDiskBut.TabIndex = 41;
+            this.RemDiskBut.Text = "Удалить из списка";
+            this.RemDiskBut.UseVisualStyleBackColor = true;
+            this.RemDiskBut.Click += new System.EventHandler(this.RemDiskBut_Click);
+            // 
+            // ClientSelect
+            // 
+            this.ClientSelect.Location = new System.Drawing.Point(382, 62);
+            this.ClientSelect.Name = "ClientSelect";
+            this.ClientSelect.Size = new System.Drawing.Size(113, 23);
+            this.ClientSelect.TabIndex = 42;
+            this.ClientSelect.Text = "Список клиентов";
+            this.ClientSelect.UseVisualStyleBackColor = true;
+            this.ClientSelect.Click += new System.EventHandler(this.ClientSelect_Click);
+            // 
             // AddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.ClientSelect);
+            this.Controls.Add(this.RemDiskBut);
+            this.Controls.Add(this.buttonListDisk);
+            this.Controls.Add(this.buttonDisk);
+            this.Controls.Add(this.textDatagrid);
+            this.Controls.Add(this.CostOrder);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.monthCalendar2);
             this.Controls.Add(this.button5);
@@ -232,7 +301,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -253,7 +321,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -267,5 +334,12 @@
         private System.Windows.Forms.TextBox Data2;
         private System.Windows.Forms.MonthCalendar monthCalendar2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox CostOrder;
+        private System.Windows.Forms.Label textDatagrid;
+        private System.Windows.Forms.Button buttonDisk;
+        private System.Windows.Forms.Button buttonListDisk;
+        private System.Windows.Forms.Button RemDiskBut;
+        private System.Windows.Forms.Button ClientSelect;
     }
 }

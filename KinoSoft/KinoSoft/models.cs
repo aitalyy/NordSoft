@@ -126,7 +126,7 @@ namespace KinoSoft
 
             public int DiskId { get; set; }
             [ForeignKey("DiskId")]
-            public Movie Disk { get; set; }
+            public Disk Disk { get; set; }
 
             public int OrderId { get; set; }
             [ForeignKey("OrderId")]
@@ -167,6 +167,7 @@ namespace KinoSoft
             public int ClientId{get;set;}
             [ForeignKey("ClientId")]
             public Client Client{get;set;}
+            public int Cost { get; set; }
         }
         public class Genre
         {

@@ -35,9 +35,9 @@ namespace KinoSoft.FormsClient
 
             };
 
-            My.SaveChanges();
-            My.Clients.Add(client);
             
+            My.Clients.Add(client);
+            My.SaveChanges();
 
             int idCl = client.Id;
             Client checkRe = My.Clients.Where(k => k.PassportId == id).FirstOrDefault();

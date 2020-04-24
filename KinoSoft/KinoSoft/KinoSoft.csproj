@@ -160,6 +160,10 @@
     <Compile Include="Migrations\202004170506485_First1.designer.cs">
       <DependentUpon>202004170506485_First1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004240740527_First11.cs" />
+    <Compile Include="Migrations\202004240740527_First11.designer.cs">
+      <DependentUpon>202004240740527_First11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
     <Compile Include="Program.cs" />
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004170506485_First1.resx">
       <DependentUpon>202004170506485_First1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004240740527_First11.resx">
+      <DependentUpon>202004240740527_First11.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

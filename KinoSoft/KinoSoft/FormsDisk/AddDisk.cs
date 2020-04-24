@@ -64,7 +64,7 @@ namespace KinoSoft.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

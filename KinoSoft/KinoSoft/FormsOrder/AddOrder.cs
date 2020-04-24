@@ -7,13 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft.FormsOrder
 {
     public partial class AddOrder : Form
     {
         Contex My = new Contex();
-        private bool checkClient = false;
+        private int costDiskAll = 0;
+        private ArrayList arrayDisk = new ArrayList();
+        private int idOrder;
+        private int idClient;
+        private int idRows;
+
+        private enum TablesOrder
+        {
+            Client,
+            Disk
+        }
+
+        TablesOrder table;
 
         public AddOrder()
         {
@@ -29,7 +43,6 @@ namespace KinoSoft.FormsOrder
         {
             FormsClient.AddClient addClient = new FormsClient.AddClient();
             addClient.Show();
-            checkClient = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -46,7 +59,10 @@ namespace KinoSoft.FormsOrder
 
         private void button6_Click(object sender, EventArgs e)
         {
-            monthCalendar1.Show();
+            if (monthCalendar1.Visible == true)
+                monthCalendar1.Visible = false;
+            else
+                monthCalendar1.Show();
             //Data.Text = monthCalendar1.SelectionStart.ToShortDateString().ToString();
             monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
 
@@ -60,16 +76,26 @@ namespace KinoSoft.FormsOrder
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            monthCalendar2.Show();
+            if (monthCalendar2.Visible == true)
+                monthCalendar2.Visible = false;
+            else
+                monthCalendar2.Show();
             //Data.Text = monthCalendar1.SelectionStart.ToShortDateString().ToString();
             monthCalendar2.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateSelected);
-
+            
+            
             //monthCalendar1.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            LogicOrder logOr = new LogicOrder();
 
+            var arrayDisk1 = new Collection<DiskOrder>();
+
+
+
+            logOr.AddOrder(Convert.ToDateTime(Data.Text), Convert.ToDateTime(Data2.Text), arrayDisk, idClient, idOrder, costDiskAll);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -79,9 +105,18 @@ namespace KinoSoft.FormsOrder
 
         private void AddOrder_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Orders.ToList<Order>();
-            var lastId = My.Employees.OrderByDescending(k=>k.Id).FirstOrDefault();
-            textBox1.Text = Convert.ToString(lastId.Id + 1);
+            ListClient();
+            try
+            {
+                var lastId = My.Orders.OrderByDescending(k => k.Id).FirstOrDefault();
+                idOrder = lastId.Id + 1;
+                textBox1.Text = Convert.ToString(idOrder);
+            }
+            catch
+            {
+                idOrder = 0;
+                textBox1.Text = Convert.ToString(idOrder);
+            }
             
         }
 
@@ -92,12 +127,107 @@ namespace KinoSoft.FormsOrder
 
         private void AddOrder_Activated(object sender, EventArgs e)
         {
-            if (checkClient == true)
+            //if (checkClient == true)
+            //{
+            //    LogicOrder logOr = new LogicOrder();
+            //    logOr.AddOrder(Convert.ToDateTime(Data), Convert.ToDateTime(Data2));
+            //    checkClient = false;
+            //}
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //dataGridView1.DataSource = My.Orders.ToList<Order>();
+            LogicOrder logOr = new LogicOrder();
+            logOr.GetListOrder(dataGridView1);
+            textDatagrid.Text = "Список заказов";
+            buttonDisk.Visible = false;
+            RemDiskBut.Visible = false;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            switch (table)
             {
-                LogicOrder logOr = new LogicOrder();
-                logOr.AddOrder(Convert.ToDateTime(Data), Convert.ToDateTime(Data2));
-                checkClient = false;
+                case TablesOrder.Disk:
+                    int idDisk = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);//айди диска
+
+                    int CostDisk = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value); //сумма стоимости заказа
+                    costDiskAll += CostDisk;
+                    CostOrder.Text = Convert.ToString(costDiskAll);
+
+                    dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;//изменение цвета выбронного поля
+                    arrayDisk.Add(idDisk);
+                    
+                    break;
+                case TablesOrder.Client:
+                    if (idClient == Convert.ToInt32(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value))
+                    {
+                        dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;//изменение цвета выбронного поля
+                        idRows = dataGridView1.CurrentRow.Index;
+                    }
+                    else
+                    {
+                        dataGridView1.Rows[idRows].DefaultCellStyle.BackColor = Color.White;
+                        dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;//изменение цвета выбронного поля
+                        idRows = dataGridView1.CurrentRow.Index;
+                    }
+                    idClient = Convert.ToInt32(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value);//айди кдиента
+                    break;
+                default:
+                    break;
             }
+            
+        }
+
+        private void buttonListDisk_Click(object sender, EventArgs e)
+        {
+            ListDisk();
+        }
+
+        private void ListDisk()
+        {
+            dataGridView1.DataSource = My.Disks.ToList<Disk>();
+            textDatagrid.Text = "Список дисков";
+            buttonDisk.Visible = true;
+            RemDiskBut.Visible = true;
+            table = TablesOrder.Disk;
+        }
+
+        private void RemDiskBut_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            int idDisk = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);//айди диска
+
+            int CostDisk = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
+            costDiskAll -= CostDisk;
+            CostOrder.Text = Convert.ToString(costDiskAll);
+
+            dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+
+            arrayDisk.Remove(idDisk);
+        }
+
+        private void ClientSelect_Click(object sender, EventArgs e)
+        {
+            ListClient();
+        }
+
+        private void ListClient()
+        {
+            dataGridView1.DataSource = My.Clients.ToList<Client>();
+            textDatagrid.Text = "Список клиентов";
+            buttonDisk.Visible = true;
+            RemDiskBut.Visible = false;
+            table = TablesOrder.Client;
         }
     }
 }
