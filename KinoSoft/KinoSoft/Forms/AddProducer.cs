@@ -56,5 +56,13 @@ namespace KinoSoft.Forms
         {
             dataGridView1.DataSource = My.Producers.ToList();
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
+            textBox2.Text = Convert.ToString(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value);
+            textBox3.Text = Convert.ToString(dataGridView1[4, dataGridView1.CurrentCell.RowIndex].Value);
+            LogicMovie.ProducerAdd.FIO = textBox1.Text + " " + textBox2.Text + " " + textBox3.Text + "; ";
+        }
     }
 }

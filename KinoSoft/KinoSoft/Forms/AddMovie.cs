@@ -19,6 +19,7 @@ namespace KinoSoft.Forms
         public AddMovie(Movie movie)
         {
             InitializeComponent();
+            LogicMovie.ProducerAdd.FIO = null;
             if (movie == null)
             {
                 button4.Visible = false;
@@ -55,7 +56,6 @@ namespace KinoSoft.Forms
             if (result == DialogResult.Yes) Close();
                 
         }
-
         // Добавление
         private void button2_Click(object sender, EventArgs e) 
         {
@@ -160,6 +160,8 @@ namespace KinoSoft.Forms
             {
                 Category.Items.Add(item.Category.ToString());
             }
+            Producer.Text += LogicMovie.ProducerAdd.FIO;
+            LogicMovie.ProducerAdd.FIO = null;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -176,7 +178,7 @@ namespace KinoSoft.Forms
         private void button8_Click(object sender, EventArgs e)
         {
             Forms.AddProducer asd = new Forms.AddProducer();
-            asd.ShowDialog();
+            asd.Show();
         }
     }
 }

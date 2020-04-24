@@ -8,6 +8,10 @@ namespace KinoSoft.Forms
 {
     class LogicMovie
     {
+        public class ProducerAdd
+        {
+            public static string FIO { get; set; }
+        }
         Contex My = new Contex();
         public void AddMovie(string name, DateTime god, /*MovieCategory category,/* MovieCountry country MovieProducer producer, string actor*/ ICollection<KinoSoft.MovieGenre> genre)
         {
