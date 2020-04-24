@@ -14,29 +14,30 @@ namespace KinoSoft.Forms
     {
         Contex My = new Contex();
         LogicMovie logMovie = new LogicMovie();
+        //--------------------------------------------------------------------------------------------- /Инициализация
         public AddGenre()
         {
             InitializeComponent();
             dataGridView1.DataSource = My.Genres.ToList();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка добавления
         private void button2_Click(object sender, EventArgs e)
         {
             logMovie.addGenre(textBox1.Text);
             update();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка закрытия
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кажется ещё одна функция для обновления, но с сохранением
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             My.SaveChanges();
             update();
         }
-
+        //--------------------------------------------------------------------------------------------- /Кнопка удаления
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -58,6 +59,7 @@ namespace KinoSoft.Forms
             }
             
         }
+        //--------------------------------------------------------------------------------------------- /Функция обновления таблицы
         public void update()
         {
             dataGridView1.DataSource = My.Genres.ToList();

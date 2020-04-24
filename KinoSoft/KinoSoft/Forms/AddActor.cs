@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace KinoSoft.Forms
 {
-    public partial class AddProducer : Form
+    public partial class AddActor : Form
     {
         LogicMovie lm = new LogicMovie();
         Contex My = new Contex();
         //--------------------------------------------------------------------------------------------- /Инициализация
-        public AddProducer()
+        public AddActor()
         {
             InitializeComponent();
             update();
@@ -24,12 +24,6 @@ namespace KinoSoft.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        //--------------------------------------------------------------------------------------------- /Кнопка добавления режиссёра
-        private void button3_Click(object sender, EventArgs e)
-        {
-            lm.addProducer(textBox1.Text, textBox2.Text, textBox3.Text);
-            update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка удаления
         private void button2_Click(object sender, EventArgs e)
@@ -43,7 +37,7 @@ namespace KinoSoft.Forms
             catch
             {
                 DialogResult result = MessageBox.Show(
-                     "Ошибка! \n Вы не выбрали жанр для удаления.",
+                     "Ошибка! \n Вы не выбрали строку для удаления.",
                      "Сообщение",
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information,
@@ -51,7 +45,12 @@ namespace KinoSoft.Forms
                      MessageBoxOptions.ServiceNotification);
                 if (result == DialogResult.OK) Close();
             }
-
+        }
+        //--------------------------------------------------------------------------------------------- /Кнопка добавления актёра
+        private void button3_Click(object sender, EventArgs e)
+        {
+            lm.addActor(textBox1.Text, textBox2.Text, textBox3.Text);
+            update();
         }
         //--------------------------------------------------------------------------------------------- /Функция обновления таблицы
         public void update()
@@ -66,7 +65,7 @@ namespace KinoSoft.Forms
             textBox2.Text = Convert.ToString(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value);
             textBox3.Text = Convert.ToString(dataGridView1[4, dataGridView1.CurrentCell.RowIndex].Value);
             //--------------------------------------------------------------------------------------------- //Отправка id родительскому окну
-            LogicMovie.ProducerAdd.FIO = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value);
+            LogicMovie.ActorAdd.FIO = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value);
         }
     }
 }
