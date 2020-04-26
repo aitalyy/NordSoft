@@ -33,7 +33,7 @@ namespace KinoSoft.FormsOrder
 
             
 
-            for (int i=0; i<arrayDisk.Count; i++)
+            for (int i=0; i<2; i++)
             {
                 int diskId = Convert.ToInt32(arrayDisk[i]);
                 Disk disk = My.Disks.Where(k => k.Id == diskId).FirstOrDefault();

@@ -52,6 +52,7 @@
             this.buttonListDisk = new System.Windows.Forms.Button();
             this.RemDiskBut = new System.Windows.Forms.Button();
             this.ClientSelect = new System.Windows.Forms.Button();
+            this.textButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +96,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 465);
+            this.label6.Location = new System.Drawing.Point(33, 517);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 5;
@@ -132,7 +133,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(539, 515);
+            this.button3.Location = new System.Drawing.Point(570, 512);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
@@ -141,7 +142,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(656, 515);
+            this.button4.Location = new System.Drawing.Point(651, 512);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 10;
@@ -223,9 +224,9 @@
             // 
             // CostOrder
             // 
-            this.CostOrder.Location = new System.Drawing.Point(137, 462);
+            this.CostOrder.Location = new System.Drawing.Point(139, 514);
             this.CostOrder.Name = "CostOrder";
-            this.CostOrder.Size = new System.Drawing.Size(90, 20);
+            this.CostOrder.Size = new System.Drawing.Size(83, 20);
             this.CostOrder.TabIndex = 37;
             // 
             // textDatagrid
@@ -276,11 +277,22 @@
             this.ClientSelect.UseVisualStyleBackColor = true;
             this.ClientSelect.Click += new System.EventHandler(this.ClientSelect_Click);
             // 
+            // textButton
+            // 
+            this.textButton.Location = new System.Drawing.Point(713, 12);
+            this.textButton.Name = "textButton";
+            this.textButton.Size = new System.Drawing.Size(75, 23);
+            this.textButton.TabIndex = 43;
+            this.textButton.Text = "test_button";
+            this.textButton.UseVisualStyleBackColor = true;
+            this.textButton.Click += new System.EventHandler(this.textButton_Click);
+            // 
             // AddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 586);
+            this.Controls.Add(this.textButton);
             this.Controls.Add(this.ClientSelect);
             this.Controls.Add(this.RemDiskBut);
             this.Controls.Add(this.buttonListDisk);
@@ -341,5 +353,6 @@
         private System.Windows.Forms.Button buttonListDisk;
         private System.Windows.Forms.Button RemDiskBut;
         private System.Windows.Forms.Button ClientSelect;
+        private System.Windows.Forms.Button textButton;
     }
 }

@@ -165,7 +165,8 @@ namespace KinoSoft.FormsOrder
 
                     dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;//изменение цвета выбронного поля
                     arrayDisk.Add(idDisk);
-                    
+
+                    MessageBox.Show(Convert.ToString(arrayDisk[0]));
                     break;
                 case TablesOrder.Client:
                     if (idClient == Convert.ToInt32(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value))
@@ -228,6 +229,13 @@ namespace KinoSoft.FormsOrder
             buttonDisk.Visible = true;
             RemDiskBut.Visible = false;
             table = TablesOrder.Client;
+        }
+
+        private void textButton_Click(object sender, EventArgs e)
+        {
+            //dataGridView1.DataSource = My.Orders.ToList<Order>();
+            var diskorder = My.DiskOrders.ToList();
+            dataGridView1.DataSource = diskorder;
         }
     }
 }

@@ -24,10 +24,10 @@ namespace KinoSoft
             //Application.Run(new Autorisation.Autorisation());
             //Application.Run(new EditClient());
             //Application.Run(new Form1());
-            Application.Run(new Forms.AddMovie(null));
+            //Application.Run(new Forms.AddMovie(null));
             //Application.Run(new Employees.AddEmployee());
             //Application.Run(new AddDisk());
-            //Application.Run(new AddOrder());
+            Application.Run(new AddOrder());
         }
     }
 }

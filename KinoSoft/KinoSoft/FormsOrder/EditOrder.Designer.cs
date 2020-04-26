@@ -52,6 +52,7 @@
             this.buttonListDisk = new System.Windows.Forms.Button();
             this.buttonDisk = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.textDatagrid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -270,11 +271,20 @@
             this.button7.Text = "Список заказов";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // textDatagrid
+            // 
+            this.textDatagrid.AutoSize = true;
+            this.textDatagrid.Location = new System.Drawing.Point(33, 102);
+            this.textDatagrid.Name = "textDatagrid";
+            this.textDatagrid.Size = new System.Drawing.Size(0, 13);
+            this.textDatagrid.TabIndex = 48;
+            // 
             // EditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 586);
+            this.Controls.Add(this.textDatagrid);
             this.Controls.Add(this.ClientSelect);
             this.Controls.Add(this.RemDiskBut);
             this.Controls.Add(this.buttonListDisk);
@@ -333,5 +343,6 @@
         private System.Windows.Forms.Button buttonListDisk;
         private System.Windows.Forms.Button buttonDisk;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label textDatagrid;
     }
 }
