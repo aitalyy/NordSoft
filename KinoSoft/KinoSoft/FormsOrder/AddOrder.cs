@@ -91,8 +91,7 @@ namespace KinoSoft.FormsOrder
         {
             LogicOrder logOr = new LogicOrder();
 
-            var arrayDisk1 = new Collection<DiskOrder>();
-
+            
 
 
             logOr.AddOrder(Convert.ToDateTime(Data.Text), Convert.ToDateTime(Data2.Text), arrayDisk, idClient, idOrder, costDiskAll);
@@ -164,9 +163,17 @@ namespace KinoSoft.FormsOrder
                     CostOrder.Text = Convert.ToString(costDiskAll);
 
                     dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;//изменение цвета выбронного поля
-                    arrayDisk.Add(idDisk);
+                    bool check = false;
+                    for (int i=0; i<arrayDisk.Count; i++)
+                        if (Convert.ToInt32(arrayDisk[i]) == idDisk)
+                        {
+                            check = true;
+                            break;
+                        }
+                    if (check == false)
+                        arrayDisk.Add(idDisk);
 
-                    MessageBox.Show(Convert.ToString(arrayDisk[0]));
+                    //MessageBox.Show(Convert.ToString(arrayDisk[0]));
                     break;
                 case TablesOrder.Client:
                     if (idClient == Convert.ToInt32(dataGridView1[3, dataGridView1.CurrentCell.RowIndex].Value))
@@ -233,9 +240,35 @@ namespace KinoSoft.FormsOrder
 
         private void textButton_Click(object sender, EventArgs e)
         {
+            //My.DiskOrders.Add(new DiskOrder
+            //{
+            //    Id = 11,
+            //    Disk = My.Disks.Where(k => k.Id == 1).FirstOrDefault(),
+            //    DiskId = 1,
+            //    Order = My.Orders.Where(k=>k.Id == 1).FirstOrDefault(),
+            //    OrderId = 1
+            //});
+            //My.SaveChanges();
             //dataGridView1.DataSource = My.Orders.ToList<Order>();
-            var diskorder = My.DiskOrders.ToList();
-            dataGridView1.DataSource = diskorder;
+            //MessageBox.Show(Convert.ToString(arrayDisk.Count));
+            //dataGridView1.DataSource = My.DiskOrders.ToList<DiskOrder>();
+            //List<Order> orders = My.Orders.Select(c => new
+            //{
+            //    client = c.Client,
+            //    disks = c.Disks.Select(o =>new
+            //    {
+            //        name = o.Disk.Name
+            //    })
+            //}).AsEnumerable().Select(k => new Order
+            //{
+            //    Client = k.client,
+            //    Disks = k.disks.Select(o => new Disk
+            //    {
+            //        Name = o.name,
+            //    }).ToList()
+            //}).ToList();
+            //dataGridView1.DataSource = orders;
+            
         }
     }
 }
