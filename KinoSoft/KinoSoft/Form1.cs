@@ -70,6 +70,7 @@ namespace KinoSoft
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",
                     "Сообщение",
+
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1,
@@ -332,7 +333,7 @@ namespace KinoSoft
             asd.Show();
         }
 
-        private void Report_Click(object sender, EventArgs e)
+        private void reportToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             report.Save();
         }
