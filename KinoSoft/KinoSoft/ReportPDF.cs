@@ -7,6 +7,8 @@ using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 namespace KinoSoft
 {
@@ -23,6 +25,19 @@ namespace KinoSoft
 
             doc.Add(new Paragraph("Text Text Text", font));
             doc.Close();
+        }
+
+        public void SendMail()
+        {
+            MailAddress from = new MailAddress("somemail@gmail.com", "Tom");
+            MailAddress to = new MailAddress("somemail@yandex.ru");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Тест";
+            m.Attachments.Add(new Attachment("report.pdf"));
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("somemail@gmail.com", "mypassword");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
         }
     }
 }
