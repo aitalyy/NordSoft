@@ -79,6 +79,7 @@ namespace KinoSoft.Forms
             {
                 int proId = Convert.ToInt32(producerstr[i]);
                 MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
+                producers.Add(MPro);
             }
             //--------------------------------------------------------------------------------------------- //Актёр(-ы) фильма
             var actors = new Collection<KinoSoft.MovieActor>();
@@ -86,13 +87,23 @@ namespace KinoSoft.Forms
             for (int i = 0; i < producerstr.Length; i++)
             {
                 int actId = Convert.ToInt32(actorsstr[i]);
-                MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == actId).FirstOrDefault();
+                MovieActor MAct = My.MovieActors.Where(k => k.Id == actId).FirstOrDefault();
+                actors.Add(MAct);
             }
             //--------------------------------------------------------------------------------------------- //Страна(-ы), в котором(-ых) снимали фильм
-            // Пока не знаю как сделать //
+            var countrys = new Collection<KinoSoft.MovieCountry>();
+            string[] countrystr = Country.Text.Split(';');
+            for (int i = 0; i < countrystr.Length; i++)
+            {
+                int couId = Convert.ToInt32(countrystr[i]);
+                MovieCountry MCou = My.MovieCountry.Where(k => k.Id == couId).FirstOrDefault();
+                countrys.Add(MCou);
+            }
+            //--------------------------------------------------------------------------------------------- // Описание фильма
+            string opisanie = Opisanie.Text;
             //--------------------------------------------------------------------------------------------- //Функция добавления фильма
             LogicMovie LM = new LogicMovie();
-            LM.AddMovie(name, god, MCat, /*,country*/ producers, actors, genre);
+            LM.AddMovie(name, god, MCat, countrys, producers, actors, genre, opisanie);
             this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Функция выбора даты (Часть 1: Открытие и выбор)
@@ -144,9 +155,11 @@ namespace KinoSoft.Forms
                 Category.Items.Add(item.Category.ToString());
             }
             //--------------------------------------------------------------------------------------------- //Заполнение строки с режиссёрами из дочернего окна
-            Producer.Text += LogicMovie.ProducerAdd.FIO + "; ";
+            Producer.Text += LogicMovie.ProducerAdd.FIO + ", ";
             //--------------------------------------------------------------------------------------------- //Заполнение строки с актёрами из дочернего окна
-            Actors.Text += LogicMovie.ActorAdd.FIO + "; ";
+            Actors.Text += LogicMovie.ActorAdd.FIO + ", ";
+            //--------------------------------------------------------------------------------------------- //Заполнение строки с странами из дочернего окна
+            Country.Text += LogicMovie.CountryAdd.Name + ", ";
         }
         //--------------------------------------------------------------------------------------------- /Открывает форму с категориями 
         private void button6_Click(object sender, EventArgs e)
@@ -154,9 +167,12 @@ namespace KinoSoft.Forms
             Forms.AddCategory asd = new Forms.AddCategory();
             asd.ShowDialog();
         }
-        //--------------------------------------------------------------------------------------------- /Бесполезен, как и Я
+        //--------------------------------------------------------------------------------------------- /Открывает форму с странами 
         private void button7_Click(object sender, EventArgs e)
-        { }
+        {
+            Forms.AddCountry asd = new Forms.AddCountry();
+            asd.ShowDialog();
+        }
         //--------------------------------------------------------------------------------------------- /Открывает форму с режиссерами
         private void button8_Click(object sender, EventArgs e)
         {

@@ -16,8 +16,12 @@ namespace KinoSoft.Forms
         {
             public static int FIO { get; set; }
         }
+        public class CountryAdd
+        {
+            public static int Name { get; set; }
+        }
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, MovieCategory category,/* MovieCountry country */ICollection<KinoSoft.MovieProducer> producer, ICollection<KinoSoft.MovieActor> actor, ICollection<KinoSoft.MovieGenre> genre)
+        public void AddMovie(string name, DateTime god, MovieCategory category, ICollection<KinoSoft.MovieCountry> country ,ICollection<KinoSoft.MovieProducer> producer, ICollection<KinoSoft.MovieActor> actor, ICollection<KinoSoft.MovieGenre> genre, string opisanie)
         {
             Movie movie = new Movie
             {
@@ -26,8 +30,9 @@ namespace KinoSoft.Forms
                 Producers = producer,
                 Date = god,
                 Category = category,
-                //Contries = country,
-                Actors = actor           
+                Contries = country,
+                Actors = actor,
+                Description = opisanie
             };
 
             My.Movies.Add(movie);
@@ -69,6 +74,17 @@ namespace KinoSoft.Forms
         {
             Producer producer = My.Producers.Where(k => k.Id == id).FirstOrDefault();
             My.Producers.Remove(producer);
+            My.SaveChanges();
+        }
+        public void addCountry(string name)
+        {
+            My.Countrys.Add(new Country { CountryName = name });
+            My.SaveChanges();
+        }
+        public void RemoveCountry(int id)
+        {
+            Country country = My.Countrys.Where(k => k.Id == id).FirstOrDefault();
+            My.Countrys.Remove(country);
             My.SaveChanges();
         }
     }
