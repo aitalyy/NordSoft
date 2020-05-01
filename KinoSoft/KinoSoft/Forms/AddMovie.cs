@@ -74,7 +74,7 @@ namespace KinoSoft.Forms
             MovieCategory MCat = My.MovieCategory.Where(k => k.Category == category).FirstOrDefault();
             //--------------------------------------------------------------------------------------------- //Режиссёр(-ы) фильма
             var producers = new Collection<KinoSoft.MovieProducer>();
-            string[] producerstr = Producer.Text.Split(';');
+            string[] producerstr = Producer.Text.Split(' ');
             for (int i = 0; i < producerstr.Length; i++)
             {
                 int proId = Convert.ToInt32(producerstr[i]);
@@ -83,7 +83,7 @@ namespace KinoSoft.Forms
             }
             //--------------------------------------------------------------------------------------------- //Актёр(-ы) фильма
             var actors = new Collection<KinoSoft.MovieActor>();
-            string[] actorsstr = Actors.Text.Split(';');
+            string[] actorsstr = Actors.Text.Split(' ');
             for (int i = 0; i < producerstr.Length; i++)
             {
                 int actId = Convert.ToInt32(actorsstr[i]);
@@ -92,7 +92,7 @@ namespace KinoSoft.Forms
             }
             //--------------------------------------------------------------------------------------------- //Страна(-ы), в котором(-ых) снимали фильм
             var countrys = new Collection<KinoSoft.MovieCountry>();
-            string[] countrystr = Country.Text.Split(';');
+            string[] countrystr = Country.Text.Split(' ');
             for (int i = 0; i < countrystr.Length; i++)
             {
                 int couId = Convert.ToInt32(countrystr[i]);
@@ -155,11 +155,17 @@ namespace KinoSoft.Forms
                 Category.Items.Add(item.Category.ToString());
             }
             //--------------------------------------------------------------------------------------------- //Заполнение строки с режиссёрами из дочернего окна
-            Producer.Text += LogicMovie.ProducerAdd.FIO + ", ";
+            Producer.Text += LogicMovie.ProducerAdd.FIO + ' ';
+            if (Producer.Text == "0 ") Producer.Clear();
+            Producer.Text = new string(Producer.Text.Distinct().ToArray());
             //--------------------------------------------------------------------------------------------- //Заполнение строки с актёрами из дочернего окна
-            Actors.Text += LogicMovie.ActorAdd.FIO + ", ";
+            Actors.Text += LogicMovie.ActorAdd.FIO + ' ';
+            if (Actors.Text == "0 ") Actors.Clear();
+            Actors.Text = new string(Actors.Text.Distinct().ToArray());
             //--------------------------------------------------------------------------------------------- //Заполнение строки с странами из дочернего окна
-            Country.Text += LogicMovie.CountryAdd.Name + ", ";
+            Country.Text += LogicMovie.CountryAdd.Name + ' ';
+            if (Country.Text == "0 ") Country.Clear();
+            Country.Text = new string(Country.Text.Distinct().ToArray());
         }
         //--------------------------------------------------------------------------------------------- /Открывает форму с категориями 
         private void button6_Click(object sender, EventArgs e)

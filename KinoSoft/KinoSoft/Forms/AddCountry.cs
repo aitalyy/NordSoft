@@ -54,15 +54,15 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- /Функция обновления таблицы
         public void update()
         {
-            dataGridView1.DataSource = My.Genres.ToList();
+            dataGridView1.DataSource = My.Countrys.ToList();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {   
-                //--------------------------------------------------------------------------------------------- //Заполнение полей ФИО
-                textBox1.Text = Convert.ToString(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
-                //--------------------------------------------------------------------------------------------- //Отправка id родительскому окну
-                LogicMovie.CountryAdd.Name = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value);
+        {
+            //--------------------------------------------------------------------------------------------- //Заполнение поля названия
+            //textBox1.Text = Convert.ToString(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
+            //--------------------------------------------------------------------------------------------- //Отправка id родительскому окну
+            //LogicMovie.CountryAdd.Name = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value);
         }
     }
 }
