@@ -19,6 +19,19 @@ namespace KinoSoft.FormsOrder
         {
             Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
             var arrayDisk1 = new Collection<DiskOrder>();
+            
+            Order order = new Order
+            {
+                Client = client,
+                ClientId = idClient,
+                Date = date,
+                EndDate = endDate,
+                Status = OrderStatus.Open,
+                Cost = cost,
+                Disks = arrayDisk1
+            };
+            My.Orders.Add(order);
+            My.SaveChanges();
 
             for (int i = 0; i < arrayDisk.Count; i++)
             {
@@ -33,26 +46,10 @@ namespace KinoSoft.FormsOrder
                 };
                 My.DiskOrders.Add(diskOrder);
                 arrayDisk1.Add(diskOrder);
-                My.SaveChanges();
             }
 
-            My.Orders.Add(new Order
-            {
-                Client = client,
-                ClientId = idClient,
-                Date = date,
-                EndDate = endDate,
-                Status = OrderStatus.Open,
-                Cost = cost,
-                Disks = arrayDisk1
-            });
-
+            order.Disks = arrayDisk1;
             My.SaveChanges();
-
-            
-
-            
-            
         }
 
         public void GetListOrder(DataGridView asd)

@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoSoft.FormsSearch;
+using KinoSoft.FormsDisk;
 
 namespace KinoSoft.Forms
 {
     public partial class AddDisk : Form
     {
         Contex My = new Contex();
-        Tables table;
+
         public AddDisk()
         {
             InitializeComponent();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -59,12 +61,13 @@ namespace KinoSoft.Forms
 
         private void AddDisk_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Disks.ToList<Disk>();
+            button3_Click(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Disks.ToList<Disk>();
+            if (ArrayMoviesDisk.movies != null)
+                dataGridView1.DataSource = ArrayMoviesDisk.movies;
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,11 +77,15 @@ namespace KinoSoft.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Disk disk = My.Disks.Where(k => k.Name == textBox1.Text).FirstOrDefault();
-            Id_all.id_all = disk.Id;
-            table = Tables.Movie;
-            SearchForm formP = new SearchForm(table);
-            formP.Show();
+            //Disk disk = My.Disks.Where(k => k.Name == textBox1.Text).FirstOrDefault();
+            //Id_all.id_all = disk.Id;
+            //table = Tables.Movie;
+            //SearchForm formP = new SearchForm(table);
+            //formP.Show();
+
+            AddMovieDisk addMovieDisk = new AddMovieDisk();
+            addMovieDisk.Show();
+            button3_Click(sender, e);
         }
     }
 }
