@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace KinoSoft
 {
@@ -16,39 +18,49 @@ namespace KinoSoft
 
     class LogicDisk
     {
-        Contex My = new Contex();
         public void AddDisk(string name, string format, int copy, int cost)
         {
-            Disk disk = new Disk
+            using (Contex db = new Contex())
             {
-                Name = name,
-                cost = cost,
-                format = format,
-                copy = copy
-            };
-
-            My.Disks.Add(disk);
-            My.SaveChanges();
-
-            for(int i=0; i < ArrayMoviesDisk.movies.Count; i++)
-            {
-                Movie movie = ArrayMoviesDisk.movies[i];
-                int movieId = movie.Id;
-                int diskId = disk.Id;
-                My.SaveChanges();
-                MovieDisk movieDisk = new MovieDisk
+                Disk disk = new Disk
                 {
-                    Movie = movie,
-                    MovieId = movieId,
-                    Disk = disk,
-                    DiskId = diskId
+                    Name = name,
+                    cost = cost,
+                    format = format,
+                    copy = copy
                 };
-                My.SaveChanges();
-                My.MovieDisks.Add(movieDisk);
-                My.SaveChanges();
+
+                db.Disks.Add(disk);
+                db.SaveChanges();
+
+                using (Contex My = new Contex())
+                {
+                    for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
+                    {
+                        //var movie = ArrayMoviesDisk.movies[i];
+                        int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
+                        //int movieId = movie.Id;
+                        Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                        int diskId = disk.Id;
+                        MovieDisk movieDisk = new MovieDisk
+                        {
+                            Movie = movie,
+                            MovieId = movieId,
+                            Disk = disk,
+                            DiskId = diskId
+                        };
+                        My.MovieDisks.Add(movieDisk);
+                    }
+                    My.SaveChanges();
+                }
+
+
 
             }
-            My.SaveChanges();
+
+
+            
+            
         }
     }
 }

@@ -14,7 +14,6 @@ namespace KinoSoft.Forms
 {
     public partial class AddDisk : Form
     {
-        Contex My = new Contex();
 
         public AddDisk()
         {
