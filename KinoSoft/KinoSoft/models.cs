@@ -111,7 +111,6 @@ namespace KinoSoft
         {
             [Key]
             public int Id { get; set; }
-            [StringLength(1000)]
             public string Name { get; set; }
             public int cost { get; set; }
             public string format { get; set; }

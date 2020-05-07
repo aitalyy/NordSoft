@@ -17,39 +17,47 @@ namespace KinoSoft.FormsOrder
 
         public void AddOrder(DateTime date, DateTime endDate, ArrayList arrayDisk, int idClient, int idOrder, int cost)
         {
-            Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
-            var arrayDisk1 = new Collection<DiskOrder>();
-            
-            Order order = new Order
+            using(Contex My = new Contex())
             {
-                Client = client,
-                ClientId = idClient,
-                Date = date,
-                EndDate = endDate,
-                Status = OrderStatus.Open,
-                Cost = cost,
-                Disks = arrayDisk1
-            };
-            My.Orders.Add(order);
-            My.SaveChanges();
+                Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
+                //var arrayDisk1 = new Collection<DiskOrder>();
 
-            for (int i = 0; i < arrayDisk.Count; i++)
-            {
-                int diskId = Convert.ToInt32(arrayDisk[i]);
-                Disk disk = My.Disks.Where(k => k.Id == diskId).FirstOrDefault();
-                DiskOrder diskOrder = new DiskOrder//add DiskOrder
+                Order order = new Order
                 {
-                    Disk = disk,
-                    DiskId = diskId,
-                    Order = My.Orders.Where(k => k.Id == idOrder).FirstOrDefault(),
-                    OrderId = idOrder,
+                    Client = client,
+                    ClientId = idClient,
+                    Date = date,
+                    EndDate = endDate,
+                    Status = OrderStatus.Open,
+                    Cost = cost,
+                    //Disks = arrayDisk1
                 };
-                My.DiskOrders.Add(diskOrder);
-                arrayDisk1.Add(diskOrder);
-            }
+                My.Orders.Add(order);
 
-            order.Disks = arrayDisk1;
-            My.SaveChanges();
+
+                using(Contex db = new Contex())
+                {
+                    for (int i = 0; i < arrayDisk.Count; i++)
+                    {
+                        int diskId = Convert.ToInt32(arrayDisk[i]);
+                        Disk disk = db.Disks.Where(k => k.Id == diskId).FirstOrDefault();
+                        int orderId = order.Id;
+                        DiskOrder diskOrder = new DiskOrder//add DiskOrder
+                        {
+                            Disk = disk,
+                            DiskId = diskId,
+                            Order = order,
+                            OrderId = orderId,
+                        };
+                        db.DiskOrders.Add(diskOrder);
+                        //arrayDisk1.Add(diskOrder);
+                    }
+                    //order.Disks = arrayDisk1;
+                    db.SaveChanges();
+                }
+                
+            }
+            
         }
 
         public void GetListOrder(DataGridView asd)
