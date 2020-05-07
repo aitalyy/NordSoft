@@ -67,6 +67,8 @@ namespace KinoSoft.Forms
         {
             if (ArrayMoviesDisk.movies != null)
                 dataGridView1.DataSource = ArrayMoviesDisk.movies;
+            //Contex my = new Contex();
+            //dataGridView1.DataSource = my.MovieDisks.ToList<MovieDisk>();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -74,6 +74,7 @@
             this.removeButton.TabIndex = 4;
             this.removeButton.Text = "🠕";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // label1
             // 

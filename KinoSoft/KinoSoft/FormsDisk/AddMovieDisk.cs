@@ -36,9 +36,11 @@ namespace KinoSoft.FormsDisk
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int idMov = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);
-            
-            list.Add(idMov);
-            listmovie.Add(My.Movies.Where(k => k.Id == idMov).FirstOrDefault());
+            if (checkAdd(idMov) == false)
+            {
+                list.Add(idMov);
+                listmovie.Add(My.Movies.Where(k => k.Id == idMov).FirstOrDefault());
+            }
             update();
         }
 
@@ -53,13 +55,39 @@ namespace KinoSoft.FormsDisk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            update();
         }
 
         private void update()
         {
             dataGridView2.DataSource = null;
             dataGridView2.DataSource = listmovie;
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count == 0)
+                return;
+            int idMov = Convert.ToInt32(dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value);
+            for (int i = 0; i < listmovie.Count; i++)
+                if (Convert.ToInt32(list[i]) == idMov)
+                {
+                    list.RemoveAt(i);
+                    listmovie.RemoveAt(i);
+                }
+            update();
+        }
+        
+        private bool checkAdd(int id)
+        {
+            for(int i=0; i<list.Count; i++)
+            {
+                if (Convert.ToInt32(list[i]) == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

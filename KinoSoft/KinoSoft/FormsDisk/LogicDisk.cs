@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft
 {
@@ -31,7 +32,6 @@ namespace KinoSoft
                 };
 
                 db.Disks.Add(disk);
-                db.SaveChanges();
 
                 using (Contex My = new Contex())
                 {
@@ -53,14 +53,8 @@ namespace KinoSoft
                     }
                     My.SaveChanges();
                 }
-
-
-
+                
             }
-
-
-            
-            
         }
     }
 }
