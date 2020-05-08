@@ -74,17 +74,26 @@ namespace KinoSoft.Forms
             MovieCategory MCat = My.MovieCategory.Where(k => k.Category == category).FirstOrDefault();
             //--------------------------------------------------------------------------------------------- //Режиссёр(-ы) фильма
             var producers = new Collection<KinoSoft.MovieProducer>();
-            string[] producerstr = Producer.Text.Split(' ');
-            for (int i = 0; i < producerstr.Length; i++)
+            if (Producer.Text.Length < 3)
             {
-                int proId = Convert.ToInt32(producerstr[i]);
+                int proId = Convert.ToInt32(Producer.Text);
                 MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
                 producers.Add(MPro);
+            }
+            else
+            {
+                string[] producerstr = Producer.Text.Split(' ');
+                for (int i = 0; i < producerstr.Length; i++)
+                {
+                    int proId = Convert.ToInt32(producerstr[i]);
+                    MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
+                    producers.Add(MPro);
+                }
             }
             //--------------------------------------------------------------------------------------------- //Актёр(-ы) фильма
             var actors = new Collection<KinoSoft.MovieActor>();
             string[] actorsstr = Actors.Text.Split(' ');
-            for (int i = 0; i < producerstr.Length; i++)
+            for (int i = 0; i < actorsstr.Length; i++)
             {
                 int actId = Convert.ToInt32(actorsstr[i]);
                 MovieActor MAct = My.MovieActors.Where(k => k.Id == actId).FirstOrDefault();
@@ -92,12 +101,21 @@ namespace KinoSoft.Forms
             }
             //--------------------------------------------------------------------------------------------- //Страна(-ы), в котором(-ых) снимали фильм
             var countrys = new Collection<KinoSoft.MovieCountry>();
-            string[] countrystr = Country.Text.Split(' ');
-            for (int i = 0; i < countrystr.Length; i++)
+            if (Country.Text.Length < 3)
             {
-                int couId = Convert.ToInt32(countrystr[i]);
+                int couId = Convert.ToInt32(Country.Text);
                 MovieCountry MCou = My.MovieCountry.Where(k => k.Id == couId).FirstOrDefault();
                 countrys.Add(MCou);
+            }
+            else
+            {
+                string[] countrystr = Country.Text.Split(' ');
+                for (int i = 0; i < countrystr.Length; i++)
+                {
+                    int couId = Convert.ToInt32(countrystr[i]);
+                    MovieCountry MCou = My.MovieCountry.Where(k => k.Id == couId).FirstOrDefault();
+                    countrys.Add(MCou);
+                }
             }
             //--------------------------------------------------------------------------------------------- // Описание фильма
             string opisanie = Opisanie.Text;
