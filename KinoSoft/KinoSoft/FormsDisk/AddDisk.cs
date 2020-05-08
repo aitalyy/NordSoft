@@ -88,5 +88,12 @@ namespace KinoSoft.Forms
             addMovieDisk.Show();
             button3_Click(sender, e);
         }
+
+        private void AddDisk_Activated(object sender, EventArgs e)
+        {
+            AddMovieDisk addMovieDisk = new AddMovieDisk();
+            if (addMovieDisk.Visible == false)
+                button3_Click(sender, e);
+        }
     }
 }
