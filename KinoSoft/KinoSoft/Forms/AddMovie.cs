@@ -209,5 +209,23 @@ namespace KinoSoft.Forms
             Forms.AddActor asd = new Forms.AddActor();
             asd.Show();
         }
+
+        private void Country_Click(object sender, EventArgs e)
+        {
+            Forms.AddCountry asd = new Forms.AddCountry();
+            asd.ShowDialog();
+        }
+
+        private void Producer_Click(object sender, EventArgs e)
+        {
+            Forms.AddProducer asd = new Forms.AddProducer();
+            asd.Show();
+        }
+
+        private void Actors_Click(object sender, EventArgs e)
+        {
+            Forms.AddActor asd = new Forms.AddActor();
+            asd.Show();
+        }
     }
 }

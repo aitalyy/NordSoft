@@ -46,6 +46,12 @@ namespace KinoSoft.Forms
             });
             My.SaveChanges();
         }
+        public void RemoveGenre(int id)
+        {
+            Genre genre = My.Genres.Where(k => k.Id == id).FirstOrDefault();
+            My.Genres.Remove(genre);
+            My.SaveChanges();
+        }
         public void addCategory(string name)
         {
             My.MovieCategory.Add(new KinoSoft.MovieCategory
@@ -54,15 +60,15 @@ namespace KinoSoft.Forms
             });
             My.SaveChanges();
         }
-        public void RemoveGenre(int id)
-        {
-            Genre genre = My.Genres.Where(k => k.Id == id).FirstOrDefault();
-            My.Genres.Remove(genre);
-            My.SaveChanges();
-        }
         public void addProducer(string name, string family, string ot4)
         {
             My.Producers.Add(new Producer { FirstName = name, SecondName = family, LastName = ot4 });
+            My.SaveChanges();
+        }
+        public void RemoveProducer(int id)
+        {
+            Producer producer = My.Producers.Where(k => k.Id == id).FirstOrDefault();
+            My.Producers.Remove(producer);
             My.SaveChanges();
         }
         public void addActor(string name, string family, string ot4)
@@ -70,10 +76,10 @@ namespace KinoSoft.Forms
             My.Actors.Add(new Actor { FirstName = name, SecondName = family, LastName = ot4 });
             My.SaveChanges();
         }
-        public void RemoveProducer(int id)
+        public void RemoveActor(int id)
         {
-            Producer producer = My.Producers.Where(k => k.Id == id).FirstOrDefault();
-            My.Producers.Remove(producer);
+            Actor actor = My.Actors.Where(k => k.Id == id).FirstOrDefault();
+            My.Actors.Remove(actor);
             My.SaveChanges();
         }
         public void addCountry(string name)

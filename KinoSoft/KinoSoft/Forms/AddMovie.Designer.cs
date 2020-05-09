@@ -119,6 +119,7 @@ namespace KinoSoft.Forms
             this.Actors.Name = "Actors";
             this.Actors.Size = new System.Drawing.Size(321, 25);
             this.Actors.TabIndex = 13;
+            this.Actors.Click += new System.EventHandler(this.Actors_Click);
             // 
             // label5
             // 
@@ -136,6 +137,7 @@ namespace KinoSoft.Forms
             this.Country.Name = "Country";
             this.Country.Size = new System.Drawing.Size(321, 25);
             this.Country.TabIndex = 15;
+            this.Country.Click += new System.EventHandler(this.Country_Click);
             // 
             // label3
             // 
@@ -153,6 +155,7 @@ namespace KinoSoft.Forms
             this.Producer.Name = "Producer";
             this.Producer.Size = new System.Drawing.Size(321, 25);
             this.Producer.TabIndex = 17;
+            this.Producer.Click += new System.EventHandler(this.Producer_Click);
             // 
             // label4
             // 
@@ -313,7 +316,7 @@ namespace KinoSoft.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 498);
+            this.ClientSize = new System.Drawing.Size(459, 498);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -341,6 +344,7 @@ namespace KinoSoft.Forms
             this.Controls.Add(this.button1);
             this.Controls.Add(this.MovieName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddMovie";
             this.Text = "Добавление фильма";
             this.Activated += new System.EventHandler(this.AddMovie_Activated);
