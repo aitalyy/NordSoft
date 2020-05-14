@@ -38,7 +38,7 @@ namespace KinoSoft
                     //var movie = ArrayMoviesDisk.movies[i];
                     int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
                     //int movieId = movie.Id;
-                    Movie movie = db.Movies.Where(k => k.Id == movieId).FirstOrDefault()
+                    Movie movie = db.Movies.Where(k => k.Id == movieId).FirstOrDefault();
                     int diskId = disk.Id;
                     MovieDisk movieDisk = new MovieDisk
                     {
