@@ -335,7 +335,7 @@ namespace KinoSoft
 
         private void reportToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            report.Save();
+
         }
     }
 }
