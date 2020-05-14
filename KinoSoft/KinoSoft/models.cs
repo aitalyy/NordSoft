@@ -24,17 +24,15 @@ namespace KinoSoft
             public string Description { get; set; }
             
             public DateTime Date { get; set; }
-
-            public int CategoryId { get; set; }
-            [ForeignKey("CategoryId")]
-            public virtual MovieCategory Category { get; set; }
+        
+            public string Category { get; set; }
             
         }
         public class MovieCategory
         {
             [Key]
             public int Id { get; set; }
-            public string Category { get; set; }   
+            public string Category { get; set; }
         }
         public class MovieActor
         {
