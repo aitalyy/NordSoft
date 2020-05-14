@@ -29,7 +29,7 @@ namespace KinoSoft.Forms
                 Genres = genre,
                 Producers = producer,
                 Date = god,
-                Category = category,
+                //Category = category,
                 Contries = country,
                 Actors = actor,
                 Description = opisanie
