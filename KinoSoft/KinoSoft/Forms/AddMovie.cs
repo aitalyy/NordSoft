@@ -173,17 +173,17 @@ namespace KinoSoft.Forms
                 Category.Items.Add(item.Category.ToString());
             }
             //--------------------------------------------------------------------------------------------- //Заполнение строки с режиссёрами из дочернего окна
-            Producer.Text += LogicMovie.ProducerAdd.FIO + ' ';
-            if (Producer.Text == "0 ") Producer.Clear();
-            Producer.Text = new string(Producer.Text.Distinct().ToArray());
+            //Producer.Text += LogicMovie.ProducerAdd.FIO + ' ';
+            //if (Producer.Text == "0 ") Producer.Clear();
+            //Producer.Text = new string(Producer.Text.Distinct().ToArray());
             //--------------------------------------------------------------------------------------------- //Заполнение строки с актёрами из дочернего окна
-            Actors.Text += LogicMovie.ActorAdd.FIO + ' ';
-            if (Actors.Text == "0 ") Actors.Clear();
-            Actors.Text = new string(Actors.Text.Distinct().ToArray());
+            //Actors.Text += LogicMovie.ActorAdd.FIO + ' ';
+            //if (Actors.Text == "0 ") Actors.Clear();
+            //Actors.Text = new string(Actors.Text.Distinct().ToArray());
             //--------------------------------------------------------------------------------------------- //Заполнение строки с странами из дочернего окна
-            Country.Text += LogicMovie.CountryAdd.Name + ' ';
-            if (Country.Text == "0 ") Country.Clear();
-            Country.Text = new string(Country.Text.Distinct().ToArray());
+            //Country.Text += LogicMovie.CountryAdd.Name + ' ';
+            //if (Country.Text == "0 ") Country.Clear();
+            //Country.Text = new string(Country.Text.Distinct().ToArray());
         }
         //--------------------------------------------------------------------------------------------- /Открывает форму с категориями 
         private void button6_Click(object sender, EventArgs e)
