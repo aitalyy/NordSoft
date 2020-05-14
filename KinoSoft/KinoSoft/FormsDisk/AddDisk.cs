@@ -46,6 +46,17 @@ namespace KinoSoft.Forms
             int cost = Convert.ToInt32(textBox3.Text);
             LogicDisk LD = new LogicDisk();
             LD.AddDisk(name, format, copy, cost);
+            //using (Contex db = new Contex())
+            //{
+            //    MovieDisk movieDisk1 = db.MovieDisks.OrderByDescending(k => k.Id).FirstOrDefault();
+            //    for(int i=0; i<ArrayMoviesDisk.arrayList.Count; i++)
+            //    {
+            //        int movID = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
+            //        Movie movie = db.Movies.Where(k => k.Id == movID).FirstOrDefault();
+            //        movieDisk1.Movie = movie;
+            //    }
+            //    db.SaveChanges();
+            //};
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

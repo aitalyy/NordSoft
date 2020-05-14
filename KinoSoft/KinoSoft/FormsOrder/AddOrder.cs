@@ -268,10 +268,17 @@ namespace KinoSoft.FormsOrder
             //    }).ToList()
             //}).ToList();
             //dataGridView1.DataSource = orders;
+
+
             int asdqwe = Convert.ToInt32(arrayDisk[0]);
             Disk qwe = My.Disks.Where(k => k.Id == asdqwe).FirstOrDefault();
             dataGridView1.DataSource = qwe.Movies.ToList<MovieDisk>();
-            
+            //ICollection<MovieDisk> zxc = qwe.Movies;
+            //MessageBox.Show(Convert.ToString(zxc.Where(k => k.Movie.Name == "asd").FirstOrDefault()));
+
+            //dataGridView1.DataSource = My.MovieCategory.ToList<MovieCategory>();
+
+
         }
     }
 }
