@@ -61,6 +61,7 @@ namespace KinoSoft
                         int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
                         //int movieId = movie.Id;
                         Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+
                         int diskId = disk.Id;
                         MovieDisk movieDisk = new MovieDisk
                         {
@@ -69,7 +70,6 @@ namespace KinoSoft
                             DiskId = diskId,
                             Disk = disk,
                         };
-                        movie.Disks.Add(movieDisk);
                         My.MovieDisks.Add(movieDisk);
                     }
                     My.SaveChanges();
