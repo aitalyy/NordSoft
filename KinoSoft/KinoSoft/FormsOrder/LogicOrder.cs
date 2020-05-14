@@ -24,6 +24,7 @@ namespace KinoSoft.FormsOrder
 
                 Order order = new Order
                 {
+                    Id = idOrder,
                     Client = client,
                     ClientId = idClient,
                     Date = date,
@@ -34,8 +35,7 @@ namespace KinoSoft.FormsOrder
                 };
                 My.Orders.Add(order);
 
-
-                using(Contex db = new Contex())
+                using (Contex db = new Contex())
                 {
                     for (int i = 0; i < arrayDisk.Count; i++)
                     {
@@ -46,7 +46,8 @@ namespace KinoSoft.FormsOrder
                         {
                             Disk = disk,
                             DiskId = diskId,
-                            Order = order,
+                            //Order = order,
+                            Order = My.Orders.Where(k => k.Id == orderId).FirstOrDefault(),
                             OrderId = orderId,
                         };
                         db.DiskOrders.Add(diskOrder);
@@ -55,6 +56,7 @@ namespace KinoSoft.FormsOrder
                     //order.Disks = arrayDisk1;
                     db.SaveChanges();
                 }
+                My.SaveChanges();
                 
             }
             

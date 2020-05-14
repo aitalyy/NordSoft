@@ -28,7 +28,8 @@ namespace KinoSoft
                     Name = name,
                     cost = cost,
                     format = format,
-                    copy = copy
+                    copy = copy,
+                    
                 };
 
                 db.Disks.Add(disk);
@@ -53,7 +54,6 @@ namespace KinoSoft
                     }
                     My.SaveChanges();
                 }
-                
             }
         }
     }
