@@ -12,9 +12,17 @@ namespace KinoSoft
 {
     public partial class ReportForm : Form
     {
+        private ReportPDF report = new ReportPDF();
+
         public ReportForm()
         {
             InitializeComponent();
+            typeReport.DataSource = Enum.GetValues(typeof(TypeReport));
+        }
+
+        private void typeReport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

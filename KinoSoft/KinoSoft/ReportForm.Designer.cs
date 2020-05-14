@@ -58,6 +58,7 @@
             this.typeReport.Name = "typeReport";
             this.typeReport.Size = new System.Drawing.Size(413, 21);
             this.typeReport.TabIndex = 2;
+            this.typeReport.SelectedIndexChanged += new System.EventHandler(this.typeReport_SelectedIndexChanged);
             // 
             // ReportForm
             // 

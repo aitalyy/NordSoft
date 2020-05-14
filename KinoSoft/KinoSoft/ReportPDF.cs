@@ -9,12 +9,31 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using System.ComponentModel;
 
 namespace KinoSoft
 {
+    public enum TypeReport
+    {
+        [Description("Отчет")]
+        Report
+    }
+
     class ReportPDF
     {
-        public void Save()
+        public void Save(TypeReport type)
+        {
+            switch (type)
+            {
+                case TypeReport.Report:
+                    CreateReport1();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void CreateReport1()
         {
             iTextSharp.text.Document doc = new iTextSharp.text.Document();
             PdfWriter.GetInstance(doc, new FileStream("report.pdf", FileMode.Create));
