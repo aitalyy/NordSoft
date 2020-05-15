@@ -21,6 +21,7 @@ namespace KinoSoft
     {
         public void AddDisk(string name, string format, int copy, int cost)
         {
+            Disk diskGl;
             using (Contex db = new Contex())
             {
                 Disk disk = new Disk
@@ -31,31 +32,33 @@ namespace KinoSoft
                     copy = copy,
                     
                 };
-
+                diskGl = disk;
                 db.Disks.Add(disk);
-                db.Configuration.AutoDetectChangesEnabled = false;
-                db.Configuration.ValidateOnSaveEnabled = false;
+                db.SaveChanges();
+            }
+            using (Contex My = new Contex())
+            {
+                System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
                 for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
                 {
                     //var movie = ArrayMoviesDisk.movies[i];
                     int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
                     //int movieId = movie.Id;
-                    
-                    Movie movie = db.Movies.Where(k => k.Id == movieId).FirstOrDefault();
-                    int diskId = disk.Id;
+
+                    Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                    int diskId = diskGl.Id;
+
                     MovieDisk movieDisk = new MovieDisk
                     {
                         MovieId = movieId,
                         Movie = movie,
                         DiskId = diskId,
-                        Disk = disk,
+                        Disk = diskGl,
                     };
-                    db.MovieDisks.Add(movieDisk);
-                    
+                    My.MovieDisks.Add(movieDisk);
+
                 }
-                db.SaveChanges();
-                db.Configuration.AutoDetectChangesEnabled = true;
-                db.Configuration.ValidateOnSaveEnabled = true;
+                My.SaveChanges();
             }
         }
     }
