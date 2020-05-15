@@ -33,11 +33,14 @@ namespace KinoSoft
                 };
 
                 db.Disks.Add(disk);
+                db.Configuration.AutoDetectChangesEnabled = false;
+                db.Configuration.ValidateOnSaveEnabled = false;
                 for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
                 {
                     //var movie = ArrayMoviesDisk.movies[i];
                     int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
                     //int movieId = movie.Id;
+                    
                     Movie movie = db.Movies.Where(k => k.Id == movieId).FirstOrDefault();
                     int diskId = disk.Id;
                     MovieDisk movieDisk = new MovieDisk
@@ -48,8 +51,11 @@ namespace KinoSoft
                         Disk = disk,
                     };
                     db.MovieDisks.Add(movieDisk);
+                    
                 }
                 db.SaveChanges();
+                db.Configuration.AutoDetectChangesEnabled = true;
+                db.Configuration.ValidateOnSaveEnabled = true;
             }
         }
     }
