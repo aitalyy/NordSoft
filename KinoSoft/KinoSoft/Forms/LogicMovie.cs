@@ -1,27 +1,35 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft.Forms
 {
+    public class ProducerAdd
+    {
+        public static ArrayList arrayListP;
+        public static List<Producer> id;
+    }
+    public class ActorAdd
+    {
+        public static ArrayList arrayListA;
+        public static List<Actor> id;
+    }
+    public class CountryAdd
+    {
+        public static ArrayList arrayListC;
+        public static List<Country> id;
+    }
     class LogicMovie
     {
-        public class ProducerAdd
-        {
-            public static int FIO { get; set; }
-        }
-        public class ActorAdd
-        {
-            public static int FIO { get; set; }
-        }
-        public class CountryAdd
-        {
-            public static int Name { get; set; }
-        }
         Contex My = new Contex();
-        public void AddMovie(string name, DateTime god, MovieCategory category, ICollection<KinoSoft.MovieCountry> country ,ICollection<KinoSoft.MovieProducer> producer, ICollection<KinoSoft.MovieActor> actor, ICollection<KinoSoft.MovieGenre> genre, string opisanie)
+        public void AddMovie(string name, DateTime god, string category, ICollection<KinoSoft.MovieCountry> country ,ICollection<KinoSoft.MovieProducer> producer, ICollection<KinoSoft.MovieActor> actor, ICollection<KinoSoft.MovieGenre> genre, string opisanie)
         {
             Movie movie = new Movie
             {
@@ -29,7 +37,7 @@ namespace KinoSoft.Forms
                 Genres = genre,
                 Producers = producer,
                 Date = god,
-                //Category = category,
+                Category = category,
                 Contries = country,
                 Actors = actor,
                 Description = opisanie

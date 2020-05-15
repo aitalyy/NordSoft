@@ -71,7 +71,6 @@ namespace KinoSoft.Forms
             DateTime god = Convert.ToDateTime(Data.Text);
             //--------------------------------------------------------------------------------------------- //Категория фильма
             string category = Category.Text;
-            MovieCategory MCat = My.MovieCategory.Where(k => k.Category == category).FirstOrDefault();
             //--------------------------------------------------------------------------------------------- //Режиссёр(-ы) фильма
             var producers = new Collection<KinoSoft.MovieProducer>();
             if (Producer.Text.Length < 3)
@@ -121,7 +120,7 @@ namespace KinoSoft.Forms
             string opisanie = Opisanie.Text;
             //--------------------------------------------------------------------------------------------- //Функция добавления фильма
             LogicMovie LM = new LogicMovie();
-            LM.AddMovie(name, god, MCat, countrys, producers, actors, genre, opisanie);
+            LM.AddMovie(name, god, category, countrys, producers, actors, genre, opisanie);
             this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Функция выбора даты (Часть 1: Открытие и выбор)
