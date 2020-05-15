@@ -62,7 +62,15 @@ namespace KinoSoft.Forms
         public void update()
         {
             dataGridView1.DataSource = My.Actors.ToList();
+            this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView1.Columns[1].Visible = false;
+            this.dataGridView1.Columns[5].Visible = false;
+            this.dataGridView1.Columns[6].Visible = false;
             dataGridView2.DataSource = listactor.ToList();
+            this.dataGridView2.Columns[0].Visible = false;
+            this.dataGridView2.Columns[1].Visible = false;
+            this.dataGridView2.Columns[5].Visible = false;
+            this.dataGridView2.Columns[6].Visible = false;
         }
         //--------------------------------------------------------------------------------------------- /Пустышка
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -83,24 +91,6 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- /Пустышка
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
-        }
-        //--------------------------------------------------------------------------------------------- /Поиск актёров
-        private void button4_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-            {
-                dataGridView1.Rows[i].Selected = false;
-                for (int j = 0; j < dataGridView1.ColumnCount; j++)
-                    if (dataGridView1.Rows[i].Cells[j].Value != null)
-                    {
-                        if (dataGridView1.Rows[i].Cells[2].Value.ToString().Contains(textBox1.Text)&&
-                            dataGridView1.Rows[i].Cells[3].Value.ToString().Contains(textBox3.Text)&&
-                            dataGridView1.Rows[i].Cells[4].Value.ToString().Contains(textBox2.Text))
-                        {
-                            dataGridView1.CurrentCell = dataGridView1[0, i];
-                        }
-                    }         
-            }
 
         }
         //--------------------------------------------------------------------------------------------- /Функция выбора строки, которая будет отправлена в родительское окно
@@ -134,6 +124,54 @@ namespace KinoSoft.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             //--------------------------------------------------------------------------------------------- //coming soon
+        }
+        //--------------------------------------------------------------------------------------------- /Поиск по имени
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[2].Value.ToString().Contains(textBox1.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
+        //--------------------------------------------------------------------------------------------- /Поиск по Фамилии
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[4].Value.ToString().Contains(textBox2.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
+        //--------------------------------------------------------------------------------------------- /Поиск по отчеству/матчеству
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[3].Value.ToString().Contains(textBox3.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
         }
     }
 }

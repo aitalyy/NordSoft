@@ -24,7 +24,7 @@ namespace KinoSoft.Forms
         public AddCountry()
         {
             InitializeComponent();
-            dataGridView1.DataSource = My.Countrys.ToList();
+            update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка закрытия
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +62,11 @@ namespace KinoSoft.Forms
         public void update()
         {
             dataGridView1.DataSource = My.Countrys.ToList();
+            this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView1.Columns[2].Visible = false;
             dataGridView2.DataSource = listcount.ToList();
+            this.dataGridView2.Columns[0].Visible = false;
+            this.dataGridView2.Columns[2].Visible = false;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -97,7 +101,7 @@ namespace KinoSoft.Forms
             }
             update();
         }
-        //--------------------------------------------------------------------------------------------- /Убрать выбранного актёра
+        //--------------------------------------------------------------------------------------------- /Убрать выбранную страну
         private void button7_Click(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count == 0)
@@ -111,21 +115,21 @@ namespace KinoSoft.Forms
                 }
             update();
         }
-        //--------------------------------------------------------------------------------------------- /Поиск
-        private void button4_Click(object sender, EventArgs e)
+        //--------------------------------------------------------------------------------------------- /Поиск страны
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                dataGridView1.Rows[i].Selected = false;
-                for (int j = 0; j < dataGridView1.ColumnCount; j++)
-                    if (dataGridView1.Rows[i].Cells[j].Value != null)
-                    {
-                        if (dataGridView1.Rows[i].Cells[1].Value.ToString().Contains(textBox1.Text))
-                        {
-                            dataGridView1.CurrentCell = dataGridView1[0, i];
-                        }
-                    }
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[1].Value.ToString().Contains(textBox1.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
             }
-            }
+        }
     }
 }
