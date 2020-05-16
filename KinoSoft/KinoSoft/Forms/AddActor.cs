@@ -24,6 +24,8 @@ namespace KinoSoft.Forms
         public AddActor()
         {
             InitializeComponent();
+            if (ActorAdd.id != null)
+                listactor = ActorAdd.id;
             update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка закрытия

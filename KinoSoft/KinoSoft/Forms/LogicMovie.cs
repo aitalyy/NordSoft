@@ -13,17 +13,14 @@ namespace KinoSoft.Forms
 {
     public class ProducerAdd
     {
-        public static ArrayList arrayListP;
         public static List<Producer> id;
     }
     public class ActorAdd
     {
-        public static ArrayList arrayListA;
         public static List<Actor> id;
     }
     public class CountryAdd
     {
-        public static ArrayList arrayListC;
         public static List<Country> id;
     }
     class LogicMovie

@@ -24,6 +24,8 @@ namespace KinoSoft.Forms
         public AddCountry()
         {
             InitializeComponent();
+            if (CountryAdd.id != null)
+                listcount = CountryAdd.id;
             update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка закрытия
@@ -130,6 +132,12 @@ namespace KinoSoft.Forms
                     row.Visible = false;
                 }
             }
+        }
+        //--------------------------------------------------------------------------------------------- /Отправление данных в родительское окно
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CountryAdd.id = listcount;
+            this.Close();
         }
     }
 }

@@ -24,6 +24,8 @@ namespace KinoSoft.Forms
         public AddProducer()
         {
             InitializeComponent();
+            if (ProducerAdd.id != null)
+                listprod = ProducerAdd.id;
             update();
         }
         //--------------------------------------------------------------------------------------------- /Функция проверки выбранных объектов
@@ -126,7 +128,8 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- /Отправка на родительское окно
         private void button5_Click(object sender, EventArgs e)
         {
-            //--------------------------------------------------------------------------------------------- //coming soon
+            ProducerAdd.id = listprod;
+            this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Поиск по имени
         private void textBox1_TextChanged(object sender, EventArgs e)

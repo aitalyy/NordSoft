@@ -60,7 +60,7 @@ namespace KinoSoft.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 17);
+            this.label1.Location = new System.Drawing.Point(25, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 0;
@@ -114,17 +114,19 @@ namespace KinoSoft.Forms
             // 
             // Actors
             // 
-            this.Actors.Location = new System.Drawing.Point(131, 248);
+            this.Actors.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Actors.Location = new System.Drawing.Point(131, 234);
             this.Actors.Multiline = true;
             this.Actors.Name = "Actors";
-            this.Actors.Size = new System.Drawing.Size(321, 25);
+            this.Actors.ReadOnly = true;
+            this.Actors.Size = new System.Drawing.Size(321, 40);
             this.Actors.TabIndex = 13;
             this.Actors.Click += new System.EventHandler(this.Actors_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(92, 51);
+            this.label5.Location = new System.Drawing.Point(89, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 12;
@@ -132,17 +134,19 @@ namespace KinoSoft.Forms
             // 
             // Country
             // 
-            this.Country.Location = new System.Drawing.Point(131, 186);
+            this.Country.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Country.Location = new System.Drawing.Point(131, 188);
             this.Country.Multiline = true;
             this.Country.Name = "Country";
-            this.Country.Size = new System.Drawing.Size(321, 25);
+            this.Country.ReadOnly = true;
+            this.Country.Size = new System.Drawing.Size(321, 40);
             this.Country.TabIndex = 15;
             this.Country.Click += new System.EventHandler(this.Country_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 282);
+            this.label3.Location = new System.Drawing.Point(68, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 14;
@@ -150,17 +154,19 @@ namespace KinoSoft.Forms
             // 
             // Producer
             // 
-            this.Producer.Location = new System.Drawing.Point(131, 217);
+            this.Producer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Producer.Location = new System.Drawing.Point(131, 280);
             this.Producer.Multiline = true;
             this.Producer.Name = "Producer";
-            this.Producer.Size = new System.Drawing.Size(321, 25);
+            this.Producer.ReadOnly = true;
+            this.Producer.Size = new System.Drawing.Size(321, 40);
             this.Producer.TabIndex = 17;
             this.Producer.Click += new System.EventHandler(this.Producer_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 124);
+            this.label4.Location = new System.Drawing.Point(54, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 16;
@@ -168,16 +174,16 @@ namespace KinoSoft.Forms
             // 
             // Opisanie
             // 
-            this.Opisanie.Location = new System.Drawing.Point(131, 279);
+            this.Opisanie.Location = new System.Drawing.Point(131, 326);
             this.Opisanie.Multiline = true;
             this.Opisanie.Name = "Opisanie";
-            this.Opisanie.Size = new System.Drawing.Size(321, 155);
+            this.Opisanie.Size = new System.Drawing.Size(321, 108);
             this.Opisanie.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 157);
+            this.label6.Location = new System.Drawing.Point(3, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 13);
             this.label6.TabIndex = 18;
@@ -186,7 +192,7 @@ namespace KinoSoft.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(86, 191);
+            this.label7.Location = new System.Drawing.Point(82, 188);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 20;
@@ -204,7 +210,7 @@ namespace KinoSoft.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 253);
+            this.label8.Location = new System.Drawing.Point(26, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 13);
             this.label8.TabIndex = 24;
@@ -213,7 +219,7 @@ namespace KinoSoft.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(71, 222);
+            this.label9.Location = new System.Drawing.Point(67, 234);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 25;
@@ -246,7 +252,7 @@ namespace KinoSoft.Forms
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(131, 146);
+            this.monthCalendar1.Location = new System.Drawing.Point(131, 145);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 28;
             this.monthCalendar1.Visible = false;
@@ -254,7 +260,7 @@ namespace KinoSoft.Forms
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(212, 448);
+            this.button4.Location = new System.Drawing.Point(335, 448);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 38);
             this.button4.TabIndex = 29;
@@ -316,7 +322,7 @@ namespace KinoSoft.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 498);
+            this.ClientSize = new System.Drawing.Size(459, 498);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
