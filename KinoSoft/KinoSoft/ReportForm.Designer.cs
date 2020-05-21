@@ -31,6 +31,7 @@
             this.reportButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.typeReport = new System.Windows.Forms.ComboBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // reportButton
@@ -41,6 +42,7 @@
             this.reportButton.TabIndex = 0;
             this.reportButton.Text = "Отчет";
             this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
             // cancelButton
             // 
@@ -60,11 +62,19 @@
             this.typeReport.TabIndex = 2;
             this.typeReport.SelectedIndexChanged += new System.EventHandler(this.typeReport_SelectedIndexChanged);
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(12, 45);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(437, 300);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.typeReport);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.reportButton);
@@ -79,5 +89,6 @@
         private System.Windows.Forms.Button reportButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ComboBox typeReport;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
