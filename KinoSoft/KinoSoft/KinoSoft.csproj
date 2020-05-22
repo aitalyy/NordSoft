@@ -167,12 +167,6 @@
     </Compile>
     <Compile Include="FormsDisk\LogicDisk.cs" />
     <Compile Include="Forms\LogicMovie.cs" />
-    <Compile Include="Forms\MonthCalendar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MonthCalendar.Designer.cs">
-      <DependentUpon>MonthCalendar.cs</DependentUpon>
-    </Compile>
     <Compile Include="LogicForm.cs" />
     <Compile Include="Migrations\202004170506485_First1.cs" />
     <Compile Include="Migrations\202004170506485_First1.Designer.cs">
@@ -259,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProducer.resx">
       <DependentUpon>AddProducer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MonthCalendar.resx">
-      <DependentUpon>MonthCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004170506485_First1.resx">
       <DependentUpon>202004170506485_First1.cs</DependentUpon>
