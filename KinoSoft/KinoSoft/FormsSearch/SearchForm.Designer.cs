@@ -116,6 +116,7 @@
             this.Controls.Add(this.dataAll);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SearchForm";
             this.Text = "SearchForm";
             this.Load += new System.EventHandler(this.SearchForm_Load);

@@ -127,6 +127,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddMovieDisk";
             this.Text = "AddMovieDisk";
             this.Load += new System.EventHandler(this.AddMovieDisk_Load);

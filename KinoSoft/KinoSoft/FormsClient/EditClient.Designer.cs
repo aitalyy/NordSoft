@@ -271,6 +271,7 @@
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditClient";
             this.Text = "EditClient";
             this.Load += new System.EventHandler(this.EditClient_Load);

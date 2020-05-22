@@ -193,6 +193,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddProducer";
             this.Text = "AddProducer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

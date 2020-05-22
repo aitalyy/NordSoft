@@ -102,6 +102,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormRole";
             this.Text = "Role";
             this.Load += new System.EventHandler(this.Role_Load);

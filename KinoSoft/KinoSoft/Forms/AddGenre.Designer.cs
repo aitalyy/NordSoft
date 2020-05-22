@@ -93,6 +93,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddGenre";
             this.Text = "AddGenre";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
