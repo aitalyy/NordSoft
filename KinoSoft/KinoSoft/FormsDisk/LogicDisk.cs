@@ -44,12 +44,13 @@ namespace KinoSoft
                         //int movieId = movie.Id;
 
                         Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                        Movie movie1 = movie;
                         int diskId = diskGl.Id;
 
                         MovieDisk movieDisk = new MovieDisk
                         {
                             MovieId = movieId,
-                            Movie = movie,
+                            Movie = movie1,
                             DiskId = diskId,
                             Disk = diskGl,
                         };
