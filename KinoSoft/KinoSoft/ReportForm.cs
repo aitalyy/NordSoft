@@ -13,8 +13,8 @@ namespace KinoSoft
     public partial class ReportForm : Form
     {
         private ReportPDF report = new ReportPDF();
-        private string startDate;
-        private string endDate;
+        private DateTime startDate;
+        private DateTime endDate;
 
         public ReportForm()
         {
@@ -35,8 +35,8 @@ namespace KinoSoft
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            startDate = e.Start.ToShortDateString();
-            endDate = e.End.ToShortDateString();
+            startDate = e.Start;
+            endDate = e.End;
         }
     }
 }

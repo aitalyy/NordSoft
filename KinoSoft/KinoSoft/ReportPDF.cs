@@ -21,7 +21,10 @@ namespace KinoSoft
 
     class ReportPDF
     {
-        public void Save(TypeReport type, string startDate, string endDate)
+
+        Contex db = new Contex();
+
+        public void Save(TypeReport type, DateTime startDate, DateTime endDate)
         {
             switch (type)
             {
@@ -33,7 +36,7 @@ namespace KinoSoft
             }
         }
 
-        public void CreateReport1(string startDate, string endDate)
+        public void CreateReport1(DateTime startDate, DateTime endDate)
         {
             iTextSharp.text.Document doc = new iTextSharp.text.Document();
             PdfWriter.GetInstance(doc, new FileStream("report.pdf", FileMode.Create));
@@ -42,7 +45,11 @@ namespace KinoSoft
             BaseFont baseFont = BaseFont.CreateFont("C:/Windows/Fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
 
-            doc.Add(new Paragraph("Text Text Text", font));
+            var result = db.Orders.Where(c => (c.Date > startDate && c.Date < endDate));
+            foreach (Order order in result)
+            {
+                doc.Add(new Paragraph(order.Cost.ToString(), font));
+            }
             doc.Close();
         }
 
