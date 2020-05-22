@@ -34,32 +34,32 @@ namespace KinoSoft
                 };
                 diskGl = disk;
                 db.Disks.Add(disk);
-                db.SaveChanges();
-            }
-            using (Contex My = new Contex())
-            {
-                System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
-                for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
+                using (Contex My = new Contex())
                 {
-                    //var movie = ArrayMoviesDisk.movies[i];
-                    int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
-                    //int movieId = movie.Id;
-
-                    Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
-                    int diskId = diskGl.Id;
-
-                    MovieDisk movieDisk = new MovieDisk
+                    System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
+                    for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
                     {
-                        MovieId = movieId,
-                        Movie = movie,
-                        DiskId = diskId,
-                        Disk = diskGl,
-                    };
-                    My.MovieDisks.Add(movieDisk);
+                        //var movie = ArrayMoviesDisk.movies[i];
+                        int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
+                        //int movieId = movie.Id;
 
+                        Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                        int diskId = diskGl.Id;
+
+                        MovieDisk movieDisk = new MovieDisk
+                        {
+                            MovieId = movieId,
+                            Movie = movie,
+                            DiskId = diskId,
+                            Disk = diskGl,
+                        };
+                        My.MovieDisks.Add(movieDisk);
+
+                    }
+                    My.SaveChanges();
                 }
-                My.SaveChanges();
             }
+            
         }
     }
 }

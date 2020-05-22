@@ -57,6 +57,10 @@ namespace KinoSoft.Forms
             //    }
             //    db.SaveChanges();
             //};
+            AddDisk addDisk = new AddDisk();
+            addDisk.Visible = false;
+            ArrayMoviesDisk.arrayList.Clear();
+            ArrayMoviesDisk.movies.Clear();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

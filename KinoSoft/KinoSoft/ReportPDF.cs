@@ -21,19 +21,19 @@ namespace KinoSoft
 
     class ReportPDF
     {
-        public void Save(TypeReport type)
+        public void Save(TypeReport type, string startDate, string endDate)
         {
             switch (type)
             {
                 case TypeReport.Report:
-                    CreateReport1();
+                    CreateReport1(startDate, endDate);
                     break;
                 default:
                     break;
             }
         }
 
-        public void CreateReport1()
+        public void CreateReport1(string startDate, string endDate)
         {
             iTextSharp.text.Document doc = new iTextSharp.text.Document();
             PdfWriter.GetInstance(doc, new FileStream("report.pdf", FileMode.Create));
