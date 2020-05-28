@@ -79,11 +79,17 @@ namespace KinoSoft.Forms
             dataGridView1.DataSource = My.Producers.ToList();
             this.dataGridView1.Columns[0].Visible = false;
             this.dataGridView1.Columns[1].Visible = false;
+            this.dataGridView1.Columns[2].HeaderText = "Имя";
+            this.dataGridView1.Columns[3].HeaderText = "Фамилия";
+            this.dataGridView1.Columns[4].HeaderText = "Отчество";
             this.dataGridView1.Columns[5].Visible = false;
             this.dataGridView1.Columns[6].Visible = false;
             dataGridView2.DataSource = listprod.ToList();
-            this.dataGridView2.Columns[1].Visible = false;
             this.dataGridView2.Columns[0].Visible = false;
+            this.dataGridView2.Columns[1].Visible = false;
+            this.dataGridView2.Columns[2].HeaderText = "Имя";
+            this.dataGridView2.Columns[3].HeaderText = "Фамилия";
+            this.dataGridView2.Columns[4].HeaderText = "Отчество";
             this.dataGridView2.Columns[5].Visible = false;
             this.dataGridView2.Columns[6].Visible = false;
         }

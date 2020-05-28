@@ -65,9 +65,11 @@ namespace KinoSoft.Forms
         {
             dataGridView1.DataSource = My.Countrys.ToList();
             this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView1.Columns[1].HeaderText = "Страна";
             this.dataGridView1.Columns[2].Visible = false;
             dataGridView2.DataSource = listcount.ToList();
             this.dataGridView2.Columns[0].Visible = false;
+            this.dataGridView2.Columns[1].HeaderText = "Страна";
             this.dataGridView2.Columns[2].Visible = false;
         }
 

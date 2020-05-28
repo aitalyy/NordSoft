@@ -71,7 +71,7 @@ namespace KinoSoft
 
             public int GenreId { get; set; }
             [ForeignKey("GenreId")]
-            public Genre Genre { get; set; }
+            public Genre Genre { get; set; }  
         }
         public class MovieDisk
         {
@@ -172,6 +172,10 @@ namespace KinoSoft
             public int Id { get; set; }
             public string Name { get; set; }
             public virtual ICollection<MovieGenre> Movies { get; set; }
+            public override string ToString()
+            {
+                return Name.ToString();
+            }
         }
         public class Actor : Person
         {
@@ -215,5 +219,9 @@ namespace KinoSoft
             public int Id { get; set; }
             public string CountryName { get; set; }
             public virtual ICollection<MovieCountry> Movies { get; set; }
+            public override string ToString()
+            {
+                return CountryName.ToString();
+            }
         }
 }
