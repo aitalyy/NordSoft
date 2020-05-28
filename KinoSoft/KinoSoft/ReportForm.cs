@@ -13,14 +13,11 @@ namespace KinoSoft
     public partial class ReportForm : Form
     {
         private ReportPDF report = new ReportPDF();
-        private DateTime startDate;
-        private DateTime endDate;
 
         public ReportForm()
         {
             InitializeComponent();
             this.typeReport.DataSource = Enum.GetValues(typeof(TypeReport));
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
         }
 
         private void typeReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -30,13 +27,12 @@ namespace KinoSoft
 
         private void reportButton_Click(object sender, EventArgs e)
         {
-            report.Save((TypeReport) typeReport.SelectedItem, startDate, endDate);
+            report.Save((TypeReport) typeReport.SelectedItem, dateStart.Value, dateEnd.Value);
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void dateStart_ValueChanged(object sender, EventArgs e)
         {
-            startDate = e.Start;
-            endDate = e.End;
+
         }
     }
 }

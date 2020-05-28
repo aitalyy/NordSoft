@@ -31,7 +31,8 @@
             this.reportButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.typeReport = new System.Windows.Forms.ComboBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // reportButton
@@ -62,19 +63,28 @@
             this.typeReport.TabIndex = 2;
             this.typeReport.SelectedIndexChanged += new System.EventHandler(this.typeReport_SelectedIndexChanged);
             // 
-            // monthCalendar1
+            // dateStart
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 45);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.dateStart.Location = new System.Drawing.Point(12, 39);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(200, 20);
+            this.dateStart.TabIndex = 4;
+            this.dateStart.ValueChanged += new System.EventHandler(this.dateStart_ValueChanged);
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.Location = new System.Drawing.Point(225, 39);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateEnd.TabIndex = 5;
             // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(437, 300);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.dateEnd);
+            this.Controls.Add(this.dateStart);
             this.Controls.Add(this.typeReport);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.reportButton);
@@ -89,6 +99,7 @@
         private System.Windows.Forms.Button reportButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ComboBox typeReport;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.DateTimePicker dateStart;
+        private System.Windows.Forms.DateTimePicker dateEnd;
     }
 }

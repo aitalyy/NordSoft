@@ -335,7 +335,8 @@ namespace KinoSoft
 
         private void reportToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            ReportForm report = new ReportForm();
+            report.Show();
         }
     }
 }

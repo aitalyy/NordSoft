@@ -45,6 +45,8 @@ namespace KinoSoft
             BaseFont baseFont = BaseFont.CreateFont("C:/Windows/Fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
 
+            doc.Add(new Paragraph("ОТЧЕТ", font));
+
             var result = db.Orders.Where(c => (c.Date > startDate && c.Date < endDate));
             foreach (Order order in result)
             {
