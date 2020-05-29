@@ -36,13 +36,15 @@ namespace KinoSoft
                 db.Disks.Add(disk);
                 using (Contex My = new Contex())
                 {
-                    System.Diagnostics.Debugger.NotifyOfCrossThreadDependency();
                     for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
                     {
                         //var movie = ArrayMoviesDisk.movies[i];
                         int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
                         //int movieId = movie.Id;
-
+                        //Movie movie2 = My.Movies.Include(s => s.).First
+                        //MessageBox.Show(movie2.Name);
+                        Movie movie2 = My.Movies.Include(z => z.Disks).First(s => s.Id == movieId);
+                        MessageBox.Show(movie2.Name);
                         Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
                         Movie movie1 = movie;
                         int diskId = diskGl.Id;
@@ -50,11 +52,10 @@ namespace KinoSoft
                         MovieDisk movieDisk = new MovieDisk
                         {
                             MovieId = movieId,
-                            Movie = movie1,
+                            Movie = movie2,
                             DiskId = diskId,
                             Disk = diskGl,
                         };
-                        movieDisk.Movie = movie;
                         My.MovieDisks.Add(movieDisk);
                     }
                     My.SaveChanges();

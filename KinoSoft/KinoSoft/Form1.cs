@@ -242,8 +242,24 @@ namespace KinoSoft
                     //    UpdateTable();
                     //}
                     break;
+                case Tables.Order:
+                    if (result == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in dataAll.SelectedRows)
+                        {
+                            Order order = row.DataBoundItem as Order;
+                            if (order == null)
+                                continue;
+                            Order dborder = My.Orders.Find(order.Id);
+                            My.Orders.Remove(dborder);
+                        }
+                        My.SaveChanges();
+                        UpdateTable();
+                    }
+                    break;
                 default:
                 break;
+                
             }
         }
 
