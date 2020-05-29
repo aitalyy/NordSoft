@@ -240,45 +240,9 @@ namespace KinoSoft.FormsOrder
 
         private void textButton_Click(object sender, EventArgs e)
         {
-            //My.DiskOrders.Add(new DiskOrder
-            //{
-            //    Id = 11,
-            //    Disk = My.Disks.Where(k => k.Id == 1).FirstOrDefault(),
-            //    DiskId = 1,
-            //    Order = My.Orders.Where(k=>k.Id == 1).FirstOrDefault(),
-            //    OrderId = 1
-            //});
-            //My.SaveChanges();
-            //dataGridView1.DataSource = My.Orders.ToList<Order>();
-            //MessageBox.Show(Convert.ToString(arrayDisk.Count));
-            //dataGridView1.DataSource = My.DiskOrders.ToList<DiskOrder>();
-            //List<Order> orders = My.Orders.Select(c => new
-            //{
-            //    client = c.Client,
-            //    disks = c.Disks.Select(o =>new
-            //    {
-            //        name = o.Disk.Name
-            //    })
-            //}).AsEnumerable().Select(k => new Order
-            //{
-            //    Client = k.client,
-            //    Disks = k.disks.Select(o => new Disk
-            //    {
-            //        Name = o.name,
-            //    }).ToList()
-            //}).ToList();
-            //dataGridView1.DataSource = orders;
-
-
             int asdqwe = Convert.ToInt32(arrayDisk[0]);
             Disk qwe = My.Disks.Where(k => k.Id == asdqwe).FirstOrDefault();
             dataGridView1.DataSource = qwe.Movies.ToList<MovieDisk>();
-            //ICollection<MovieDisk> zxc = qwe.Movies;
-            //MessageBox.Show(Convert.ToString(zxc.Where(k => k.Movie.Name == "asd").FirstOrDefault()));
-
-            //dataGridView1.DataSource = My.MovieCategory.ToList<MovieCategory>();
-
-
         }
     }
 }

@@ -54,8 +54,8 @@ namespace KinoSoft
                             DiskId = diskId,
                             Disk = diskGl,
                         };
+                        movieDisk.Movie = movie;
                         My.MovieDisks.Add(movieDisk);
-
                     }
                     My.SaveChanges();
                 }

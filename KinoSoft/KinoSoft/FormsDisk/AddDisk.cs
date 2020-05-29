@@ -46,21 +46,8 @@ namespace KinoSoft.Forms
             int cost = Convert.ToInt32(textBox3.Text);
             LogicDisk LD = new LogicDisk();
             LD.AddDisk(name, format, copy, cost);
-            //using (Contex db = new Contex())
-            //{
-            //    MovieDisk movieDisk1 = db.MovieDisks.OrderByDescending(k => k.Id).FirstOrDefault();
-            //    for(int i=0; i<ArrayMoviesDisk.arrayList.Count; i++)
-            //    {
-            //        int movID = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
-            //        Movie movie = db.Movies.Where(k => k.Id == movID).FirstOrDefault();
-            //        movieDisk1.Movie = movie;
-            //    }
-            //    db.SaveChanges();
-            //};
-            AddDisk addDisk = new AddDisk();
-            addDisk.Visible = false;
-            //ArrayMoviesDisk.arrayList.Clear();
-            //ArrayMoviesDisk.movies.Clear();
+            MessageBox.Show("Диск успешно добавлен!");
+            Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,8 +69,6 @@ namespace KinoSoft.Forms
         {
             if (ArrayMoviesDisk.movies != null)
                 dataGridView1.DataSource = ArrayMoviesDisk.movies;
-            //Contex my = new Contex();
-            //dataGridView1.DataSource = my.MovieDisks.ToList<MovieDisk>();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,12 +78,6 @@ namespace KinoSoft.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //Disk disk = My.Disks.Where(k => k.Name == textBox1.Text).FirstOrDefault();
-            //Id_all.id_all = disk.Id;
-            //table = Tables.Movie;
-            //SearchForm formP = new SearchForm(table);
-            //formP.Show();
-
             AddMovieDisk addMovieDisk = new AddMovieDisk();
             addMovieDisk.Show();
             button3_Click(sender, e);

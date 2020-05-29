@@ -20,7 +20,6 @@ namespace KinoSoft.FormsOrder
             using(Contex My = new Contex())
             {
                 Client client = My.Clients.Where(k => k.Id == idClient).FirstOrDefault();
-                //var arrayDisk1 = new Collection<DiskOrder>();
 
                 Order order = new Order
                 {
@@ -51,9 +50,7 @@ namespace KinoSoft.FormsOrder
                             OrderId = orderId,
                         };
                         db.DiskOrders.Add(diskOrder);
-                        //arrayDisk1.Add(diskOrder);
                     }
-                    //order.Disks = arrayDisk1;
                     db.SaveChanges();
                 }
                 My.SaveChanges();
