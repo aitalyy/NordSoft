@@ -98,21 +98,23 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(258, 142);
+            this.button7.Location = new System.Drawing.Point(258, 143);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(29, 23);
             this.button7.TabIndex = 31;
             this.button7.Text = "◀";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(258, 113);
+            this.button6.Location = new System.Drawing.Point(258, 114);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(29, 23);
             this.button6.TabIndex = 30;
             this.button6.Text = "▶";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -122,6 +124,7 @@
             this.button5.TabIndex = 33;
             this.button5.Text = "Принять";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // AddGenre
             // 

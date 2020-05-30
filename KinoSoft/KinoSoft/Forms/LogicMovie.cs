@@ -23,6 +23,10 @@ namespace KinoSoft.Forms
     {
         public static List<Country> id;
     }
+    public class GenreAdd
+    {
+        public static List<Genre> id;
+    }
     class LogicMovie
     {
         Contex My = new Contex();
