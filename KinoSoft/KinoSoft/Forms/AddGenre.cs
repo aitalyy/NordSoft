@@ -21,7 +21,9 @@ namespace KinoSoft.Forms
         public AddGenre()
         {
             InitializeComponent();
-            dataGridView1.DataSource = My.Genres.ToList();
+            if (GenreAdd.id != null)
+                listcount = GenreAdd.id;
+            update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка добавления
         private void button2_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace KinoSoft.Forms
             this.dataGridView2.Columns[1].HeaderText = "Жанр";
             this.dataGridView2.Columns[2].Visible = false;
         }
-
+        //--------------------------------------------------------------------------------------------- /Поиск жанра
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -90,13 +92,13 @@ namespace KinoSoft.Forms
                 }
             }
         }
-
+        //--------------------------------------------------------------------------------------------- /Закрытие
         private void button5_Click(object sender, EventArgs e)
         {
             GenreAdd.id = listcount;
             this.Close();
         }
-
+        //--------------------------------------------------------------------------------------------- /Добавление жанра в лист
         private void button6_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
@@ -109,7 +111,7 @@ namespace KinoSoft.Forms
             }
             update();
         }
-
+        //--------------------------------------------------------------------------------------------- /Функция проверки выбора
         private bool checkAdd(int id)
         {
             for (int i = 0; i < list.Count; i++)
@@ -121,7 +123,7 @@ namespace KinoSoft.Forms
             }
             return false;
         }
-
+        //--------------------------------------------------------------------------------------------- /Удаление из листа жанров
         private void button7_Click(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count == 0)

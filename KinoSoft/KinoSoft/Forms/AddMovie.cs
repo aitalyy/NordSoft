@@ -58,6 +58,7 @@ namespace KinoSoft.Forms
                 ProducerAdd.id = null;
                 ActorAdd.id = null;
                 CountryAdd.id = null;
+                GenreAdd.id = null;
                 Close();
             }
         }
@@ -65,13 +66,14 @@ namespace KinoSoft.Forms
         private void button2_Click(object sender, EventArgs e) 
         {
             //--------------------------------------------------------------------------------------------- //Жанр фильма
-            var genre = new Collection<MovieGenre>();
-            foreach (var item in Genre.CheckedItems)
-            {
-                string Genres = item.ToString();
-                MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
-                genre.Add(genre1);
-            }
+            var genre = new Collection<KinoSoft.MovieGenre>();
+            if (GenreAdd.id != null)
+                foreach (Genre c in GenreAdd.id)
+                {
+                    int genId = c.Id;
+                    MovieGenre MGen = My.MovieGenre.Where(k => k.Id == genId).FirstOrDefault();
+                    genre.Add(MGen);
+                }
             //--------------------------------------------------------------------------------------------- //Название фильма
             string name = MovieName.Text;
             //--------------------------------------------------------------------------------------------- //Дата выпуска фильма
@@ -114,6 +116,7 @@ namespace KinoSoft.Forms
             ProducerAdd.id = null;
             ActorAdd.id = null;
             CountryAdd.id = null;
+            GenreAdd.id = null;
             this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Функция выбора даты (Часть 1: Открытие и выбор)
@@ -132,13 +135,14 @@ namespace KinoSoft.Forms
         private void button4_Click(object sender, EventArgs e) 
         {
             //--------------------------------------------------------------------------------------------- //Жанр фильма
-            var genre = new Collection<MovieGenre>();
-            foreach (var item in Genre.CheckedItems)
-            {
-                string Genres = item.ToString();
-                MovieGenre genre1 = My.MovieGenre.Where(k => k.Genre.Name == Genres).FirstOrDefault();
-                genre.Add(genre1);
-            }
+            var genre = new Collection<KinoSoft.MovieGenre>();
+            if (GenreAdd.id != null)
+                foreach (Genre c in GenreAdd.id)
+                {
+                    int genId = c.Id;
+                    MovieGenre MGen = My.MovieGenre.Where(k => k.Id == genId).FirstOrDefault();
+                    genre.Add(MGen);
+                }
             //--------------------------------------------------------------------------------------------- //Название фильма
             string name = MovieName.Text;
             //--------------------------------------------------------------------------------------------- //Дата выпуска фильма
@@ -188,6 +192,7 @@ namespace KinoSoft.Forms
             ProducerAdd.id = null;
             ActorAdd.id = null;
             CountryAdd.id = null;
+            GenreAdd.id = null;
             this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Открывает форму с жанрами
@@ -203,13 +208,6 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- /Обновление некоторых штучек-дрючек
         private void AddMovie_Activated(object sender, EventArgs e)
         {
-            //--------------------------------------------------------------------------------------------- //Обновление списка жанров
-            Genre.Items.Clear();
-            var genres = My.Genres.ToList();
-            foreach (var item in genres)
-            {
-                Genre.Items.Add(item.Name.ToString());
-            }
             //--------------------------------------------------------------------------------------------- //Обновление списка категорий 
             Category.Items.Clear();
             var category = My.MovieCategory.ToList();
@@ -244,6 +242,15 @@ namespace KinoSoft.Forms
                     Country.Text += c.CountryName + ", ";
                 }
             }
+            //--------------------------------------------------------------------------------------------- //Заполнение строки с жанрами из дочернего окна
+            if (GenreAdd.id != null)
+            {
+                textBox1.Clear();
+                foreach (Genre c in GenreAdd.id)
+                {
+                    textBox1.Text += c.Name + ", ";
+                }
+            }
         }
         //--------------------------------------------------------------------------------------------- /Открывает форму с категориями 
         private void button6_Click(object sender, EventArgs e)
@@ -269,22 +276,28 @@ namespace KinoSoft.Forms
             Forms.AddActor asd = new Forms.AddActor();
             asd.Show();
         }
-
+        //--------------------------------------------------------------------------------------------- /Отркывает форму с странами
         private void Country_Click(object sender, EventArgs e)
         {
             Forms.AddCountry asd = new Forms.AddCountry();
             asd.ShowDialog();
         }
-
+        //--------------------------------------------------------------------------------------------- /Отркывает форму с режиссёрами
         private void Producer_Click(object sender, EventArgs e)
         {
             Forms.AddProducer asd = new Forms.AddProducer();
             asd.Show();
         }
-
+        //--------------------------------------------------------------------------------------------- /Отркывает форму с актёрами
         private void Actors_Click(object sender, EventArgs e)
         {
             Forms.AddActor asd = new Forms.AddActor();
+            asd.Show();
+        }
+        //--------------------------------------------------------------------------------------------- /Отркывает форму с жанрами
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            Forms.AddGenre asd = new Forms.AddGenre();
             asd.Show();
         }
     }
