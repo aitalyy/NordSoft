@@ -56,8 +56,6 @@
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.MovieCategory", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.MovieDate", t => t.DateId, cascadeDelete: true)
-                .ForeignKey("dbo.MovieDescription", t => t.DescriptionId, cascadeDelete: true)
                 .Index(t => t.DescriptionId)
                 .Index(t => t.DateId)
                 .Index(t => t.CategoryId);
@@ -147,7 +145,6 @@
                     OrderId = c.Int(nullable: false),
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Movie", t => t.DiskId, cascadeDelete: true)
                 .ForeignKey("dbo.Order", t => t.OrderId, cascadeDelete: true)
                 .ForeignKey("dbo.Disk", t => t.DiskId, cascadeDelete: true)
                 .Index(t => t.DiskId)

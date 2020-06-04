@@ -27,6 +27,10 @@ namespace KinoSoft
         
             public string Category { get; set; }
             
+            public override String ToString()
+            {
+                return Name;
+            }
         }
         public class MovieCategory
         {
@@ -80,11 +84,11 @@ namespace KinoSoft
 
             public int MovieId { get; set; }
             [ForeignKey("MovieId")]
-            public Movie Movie { get; set; }
+            public virtual Movie Movie { get; set; }
 
             public int DiskId { get; set; }
             [ForeignKey("DiskId")]
-            public Disk Disk { get; set; }
+            public virtual Disk Disk { get; set; }
         }
         public class MovieCountry
         {
@@ -123,11 +127,11 @@ namespace KinoSoft
 
             public int DiskId { get; set; }
             [ForeignKey("DiskId")]
-            public Disk Disk { get; set; }
+            public virtual Disk Disk { get; set; }
 
             public int OrderId { get; set; }
             [ForeignKey("OrderId")]
-            public Order Order { get; set; }
+            public virtual Order Order { get; set; }
         }
         public class Person 
         {
@@ -163,7 +167,7 @@ namespace KinoSoft
             public virtual ICollection<DiskOrder> Disks { get; set; }
             public int ClientId{get;set;}
             [ForeignKey("ClientId")]
-            public Client Client{get;set;}
+            public virtual Client Client{get;set;}
             public int Cost { get; set; }
         }
         public class Genre

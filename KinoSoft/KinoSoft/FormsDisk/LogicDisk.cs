@@ -32,10 +32,11 @@ namespace KinoSoft
                     copy = copy,
                     
                 };
-                diskGl = disk;
+                //diskGl = disk;
                 db.Disks.Add(disk);
-                using (Contex My = new Contex())
-                {
+                db.SaveChanges();
+                /*using (Contex My = new Contex())
+                {*/
                     for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
                     {
                         //var movie = ArrayMoviesDisk.movies[i];
@@ -43,23 +44,21 @@ namespace KinoSoft
                         //int movieId = movie.Id;
                         //Movie movie2 = My.Movies.Include(s => s.).First
                         //MessageBox.Show(movie2.Name);
-                        Movie movie2 = My.Movies.Include(z => z.Disks).First(s => s.Id == movieId);
+                        Movie movie2 = db.Movies.First(s => s.Id == movieId);
                         MessageBox.Show(movie2.Name);
-                        Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
-                        Movie movie1 = movie;
-                        int diskId = diskGl.Id;
+                        //Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                        //Movie movie1 = movie;
+                        int diskId = disk.Id;
 
                         MovieDisk movieDisk = new MovieDisk
                         {
                             MovieId = movieId,
-                            Movie = movie2,
                             DiskId = diskId,
-                            Disk = diskGl,
                         };
-                        My.MovieDisks.Add(movieDisk);
+                        db.MovieDisks.Add(movieDisk);
                     }
-                    My.SaveChanges();
-                }
+                    db.SaveChanges();
+                //}
             }
             
         }
