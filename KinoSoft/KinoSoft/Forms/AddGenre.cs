@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Collections.ObjectModel;
 
 namespace KinoSoft.Forms
 {
@@ -14,11 +15,15 @@ namespace KinoSoft.Forms
     {
         Contex My = new Contex();
         LogicMovie logMovie = new LogicMovie();
+        ArrayList list = new ArrayList();
+        List<Genre> listcount = new List<Genre>();
         //--------------------------------------------------------------------------------------------- /Инициализация
         public AddGenre()
         {
             InitializeComponent();
-            dataGridView1.DataSource = My.Genres.ToList();
+            if (GenreAdd.id != null)
+                listcount = GenreAdd.id;
+            update();
         }
         //--------------------------------------------------------------------------------------------- /Кнопка добавления
         private void button2_Click(object sender, EventArgs e)
@@ -63,11 +68,74 @@ namespace KinoSoft.Forms
         public void update()
         {
             dataGridView1.DataSource = My.Genres.ToList();
+            this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView1.Columns[1].HeaderText = "Жанр";
+            this.dataGridView1.Columns[2].Visible = false;
+            dataGridView2.DataSource = listcount.ToList();
+            this.dataGridView2.Columns[0].Visible = false;
+            this.dataGridView2.Columns[1].HeaderText = "Жанр";
+            this.dataGridView2.Columns[2].Visible = false;
         }
-
+        //--------------------------------------------------------------------------------------------- /Поиск жанра
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[1].Value.ToString().Contains(textBox1.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
+        //--------------------------------------------------------------------------------------------- /Закрытие
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GenreAdd.id = listcount;
+            this.Close();
+        }
+        //--------------------------------------------------------------------------------------------- /Добавление жанра в лист
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            int idCount = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);
+            if (checkAdd(idCount) == false)
+            {
+                list.Add(idCount);
+                listcount.Add(My.Genres.Where(k => k.Id == idCount).FirstOrDefault());
+            }
+            update();
+        }
+        //--------------------------------------------------------------------------------------------- /Функция проверки выбора
+        private bool checkAdd(int id)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (Convert.ToInt32(list[i]) == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //--------------------------------------------------------------------------------------------- /Удаление из листа жанров
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count == 0)
+                return;
+            int idCount = Convert.ToInt32(dataGridView2[0, dataGridView2.CurrentCell.RowIndex].Value);
+            for (int i = 0; i < listcount.Count; i++)
+                if (Convert.ToInt32(list[i]) == idCount)
+                {
+                    list.RemoveAt(i);
+                    listcount.RemoveAt(i);
+                }
+            update();
         }
     }
 }
