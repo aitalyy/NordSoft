@@ -322,12 +322,8 @@ namespace KinoSoft.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(613, 498);
-=======
             this.ClientSize = new System.Drawing.Size(459, 463);
             this.Controls.Add(this.textBox1);
->>>>>>> f2c9d0f329c33359bfaa5b72ec1f5b26d289e365
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
