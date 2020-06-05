@@ -130,6 +130,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddMovieDisk";
             this.Text = "AddMovieDisk";
+            this.Activated += new System.EventHandler(this.AddMovieDisk_Activated);
             this.Load += new System.EventHandler(this.AddMovieDisk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

@@ -28,7 +28,7 @@ namespace KinoSoft.FormsDisk
 
         private void AddMovieDisk_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = My.Movies.ToList<Movie>();
+            
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace KinoSoft.FormsDisk
         
         private bool checkAdd(int id)
         {
-            for(int i=0; i<list.Count; i++)
+            for (int i = 0; i < list.Count; i++) 
             {
                 if (Convert.ToInt32(list[i]) == id)
                 {
@@ -88,6 +88,17 @@ namespace KinoSoft.FormsDisk
                 }
             }
             return false;
+        }
+
+        private void AddMovieDisk_Activated(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = My.Movies.ToList<Movie>();
+            if (ArrayMoviesDisk.movies != null)
+            {
+                dataGridView2.DataSource = ArrayMoviesDisk.movies.ToList();
+                list = ArrayMoviesDisk.arrayList;
+                listmovie = ArrayMoviesDisk.movies;
+            }
         }
     }
 }

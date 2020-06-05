@@ -42,30 +42,40 @@ namespace KinoSoft
                 db.SaveChanges();
                 /*using (Contex My = new Contex())
                 {*/
-                    for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
+                for (int i = 0; i < ArrayMoviesDisk.movies.Count; i++)
+                {
+                    //var movie = ArrayMoviesDisk.movies[i];
+                    int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
+                    //int movieId = movie.Id;
+                    //Movie movie2 = My.Movies.Include(s => s.).First
+                    //MessageBox.Show(movie2.Name);
+                    Movie movie2 = db.Movies.First(s => s.Id == movieId);
+                    //Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
+                    //Movie movie1 = movie;
+                    int diskId = disk.Id;
+                    MovieDisk movieDisk = new MovieDisk
                     {
-                        //var movie = ArrayMoviesDisk.movies[i];
-                        int movieId = Convert.ToInt32(ArrayMoviesDisk.arrayList[i]);
-                        //int movieId = movie.Id;
-                        //Movie movie2 = My.Movies.Include(s => s.).First
-                        //MessageBox.Show(movie2.Name);
-                        Movie movie2 = db.Movies.First(s => s.Id == movieId);
-                        MessageBox.Show(movie2.Name);
-                        //Movie movie = My.Movies.Where(k => k.Id == movieId).FirstOrDefault();
-                        //Movie movie1 = movie;
-                        int diskId = disk.Id;
-
-                        MovieDisk movieDisk = new MovieDisk
-                        {
-                            MovieId = movieId,
-                            DiskId = diskId,
-                        };
-                        db.MovieDisks.Add(movieDisk);
-                    }
-                    db.SaveChanges();
+                        MovieId = movieId,
+                        DiskId = diskId,
+                    };
+                    db.MovieDisks.Add(movieDisk);
+                }
+                db.SaveChanges();
                 //}
             }
             
+        }
+
+        public void EditDiskMet(Disk disk, string name, string format, int copy, int cost)
+        {
+            disk.Name = name;
+            disk.format = format;
+            disk.cost = cost;
+            List<MovieDisk> movies = disk.Movies.ToList<MovieDisk>();
+            for(int i = 0; i < movies.Count; i++)
+            {
+                
+            }
         }
     }
 }

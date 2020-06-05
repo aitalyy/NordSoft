@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoSoft.FormsSearch;
 using KinoSoft.FormsDisk;
+using System.Collections;
 
 namespace KinoSoft.Forms
 {
     public partial class AddDisk : Form
     {
         LogicDisk LD = new LogicDisk();
+        Contex My = new Contex();
 
         public AddDisk()
         {
@@ -66,16 +68,24 @@ namespace KinoSoft.Forms
             button3_Click(sender, e);
             if (EditMovieDisk.check == true)
             {
+                button2.Text = "Изменить";
                 Disk disk = EditMovieDisk.disk;
                 textBox1.Text = disk.Name;
                 comboBox1.Text = disk.format;
                 textBox2.Text = Convert.ToString(disk.copy);
                 textBox3.Text = Convert.ToString(disk.cost);
                 dataGridView1.DataSource = disk.Movies.ToList();
-                for(int i=0; i< dataGridView1.ColumnCount; i++)
+                ArrayList arrayList = new ArrayList();
+                List<Movie> movies = new List<Movie>();
+                for (int i = 0; i < disk.Movies.Count; i++)
                 {
-                    ArrayMoviesDisk.arrayList.Add(dataGridView1[0, i].Value);
+                    int idMovie = Convert.ToInt32(dataGridView1[0, i].Value);
+                    arrayList.Add(idMovie);
+                    movies.Add(My.Movies.Where(k => k.Id == idMovie).FirstOrDefault());
                 }
+                ArrayMoviesDisk.arrayList = arrayList;
+                ArrayMoviesDisk.movies = movies;
+                LD.EditDiskMet(disk, textBox1.Text, comboBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
             }
         }
 
