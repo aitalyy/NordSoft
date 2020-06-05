@@ -90,6 +90,7 @@
             this.Controls.Add(this.reportButton);
             this.Name = "ReportForm";
             this.Text = "ReportForm";
+            this.Load += new System.EventHandler(this.ReportForm_Load);
             this.ResumeLayout(false);
 
         }

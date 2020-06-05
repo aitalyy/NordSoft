@@ -59,7 +59,7 @@ namespace KinoSoft
                     dataAll.DataSource = My.Movies.ToList<Movie>();
                     break;
                 case Tables.Order:
-                    dataAll.DataSource = My.Orders.ToList<Order>();
+                    //dataAll.DataSource = My.Orders.ToList<Order>();
                     break;
                 case Tables.Employee:
                     dataAll.DataSource = My.Employees.ToList<Employee>();

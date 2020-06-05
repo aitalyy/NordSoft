@@ -21,7 +21,6 @@ namespace KinoSoft
 
     class ReportPDF
     {
-
         Contex db = new Contex();
 
         public void Save(TypeReport type, DateTime startDate, DateTime endDate)
