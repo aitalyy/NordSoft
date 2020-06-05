@@ -147,7 +147,15 @@ namespace KinoSoft
                     int idEmployee = Convert.ToInt16(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
                     EditEmployee.idEmployee = idEmployee;
                     addEmployee.Show();
-                    break;  
+                    break;
+                case Tables.Disk:
+                    EditMovieDisk.check = true;
+                    int idDisk = Convert.ToInt16(dataAll[0, dataAll.CurrentCell.RowIndex].Value);
+                    Disk disk = My.Disks.Where(k => k.Id == idDisk).FirstOrDefault();
+                    EditMovieDisk.disk = disk;
+                    Forms.AddDisk addDIsk = new Forms.AddDisk();
+                    addDIsk.Show();
+                    break;
                 default:
                     DialogResult result = MessageBox.Show(
                     "В процессе разработки!",

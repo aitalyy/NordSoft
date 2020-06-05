@@ -17,11 +17,16 @@ namespace KinoSoft
         public static List<Movie> movies;
     }
 
+    public class EditMovieDisk
+    {
+        public static Disk disk;
+        public static bool check = false;
+    }
+
     class LogicDisk
     {
         public void AddDisk(string name, string format, int copy, int cost)
         {
-            Disk diskGl;
             using (Contex db = new Contex())
             {
                 Disk disk = new Disk
