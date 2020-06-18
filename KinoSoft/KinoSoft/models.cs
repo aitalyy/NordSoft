@@ -148,7 +148,7 @@ namespace KinoSoft
 
         public override String ToString()
         {
-            return LastName.Substring(0, 1) + FirstName;
+            return FirstName.Substring(0, 1) + ". " + SecondName.Substring(0, 1) + ". " + FirstName;
         }
     }
     //BOBA
