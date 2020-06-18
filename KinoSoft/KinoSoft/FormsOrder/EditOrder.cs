@@ -91,5 +91,17 @@ namespace KinoSoft.FormsOrder
             RemDiskBut.Visible = true;
             table = TablesOrder.Disk;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+                DialogResult result = MessageBox.Show(
+            "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+            "Сообщение",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.ServiceNotification);
+                if (result == DialogResult.Yes) Close();
+        }
     }
 }

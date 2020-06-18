@@ -244,5 +244,17 @@ namespace KinoSoft.FormsOrder
             Disk qwe = My.Disks.Where(k => k.Id == asdqwe).FirstOrDefault();
             dataGridView1.DataSource = qwe.Movies.ToList<MovieDisk>();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+        "Сообщение",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Information,
+        MessageBoxDefaultButton.Button1,
+        MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.Yes) Close();
+        }
     }
 }
