@@ -33,12 +33,33 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- Заполнение полей данными редактируемого фильма
         private void FillFields()
         {
-            MovieName.Text = this.movie.Name;
-            foreach (MovieGenre genre in this.movie.Genres)
+            MovieName.Text = movie.Name;
+
+            foreach (MovieGenre genre in movie.Genres)
             {
-                textBox1.Text += genre.Genre.Name + ", ";
+                textBox1.Text += genre.Genre.Name + "; ";
             }
 
+            Data.Text = movie.Date.ToString();
+
+            Category.Text = movie.Category;
+
+            foreach (MovieCountry country in movie.Contries)
+            {
+                Country.Text += country.Country.CountryName + "; ";
+            }
+
+            foreach (MovieActor actor in movie.Actors)
+            {
+                Actors.Text += actor.Actor.SecondName + " " + actor.Actor.FirstName + " " + actor.Actor.LastName + "; ";
+            }
+
+            foreach (MovieProducer producer in movie.Producers)
+            {
+                Producer.Text += producer.Producer.SecondName + " " + producer.Producer.FirstName + " " + producer.Producer.LastName + "; ";
+            }
+
+            Opisanie.Text = movie.Description;
         }
         //--------------------------------------------------------------------------------------------- /Добавление фильма
         private void button2_Click(object sender, EventArgs e) 
