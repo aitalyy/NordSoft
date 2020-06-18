@@ -207,21 +207,30 @@ namespace KinoSoft.FormsOrder
             buttonDisk.Visible = true;
             RemDiskBut.Visible = true;
             table = TablesOrder.Disk;
+            RemDiskBut.Text = "Удалить из списка";
         }
 
         private void RemDiskBut_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
-            int idDisk = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);//айди диска
-
-            int CostDisk = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
-            costDiskAll -= CostDisk;
-            CostOrder.Text = Convert.ToString(costDiskAll);
-
-            dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-
-            arrayDisk.Remove(idDisk);
+            switch (table)
+            {
+                case TablesOrder.Client:
+                    dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+                    break;
+                case TablesOrder.Disk:
+                    int idDisk = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentCell.RowIndex].Value);//айди диска
+                    int CostDisk = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentCell.RowIndex].Value);
+                    costDiskAll -= CostDisk;
+                    CostOrder.Text = Convert.ToString(costDiskAll);
+                    dataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+                    arrayDisk.Remove(idDisk);
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         private void ClientSelect_Click(object sender, EventArgs e)
@@ -234,8 +243,9 @@ namespace KinoSoft.FormsOrder
             dataGridView1.DataSource = My.Clients.ToList<Client>();
             textDatagrid.Text = "Список клиентов";
             buttonDisk.Visible = true;
-            RemDiskBut.Visible = false;
+            RemDiskBut.Visible = true;
             table = TablesOrder.Client;
+            RemDiskBut.Text = "Удалить";
         }
 
         private void textButton_Click(object sender, EventArgs e)

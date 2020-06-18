@@ -162,6 +162,10 @@ namespace KinoSoft
         /*public int PersonId { get; set; }
         [ForeignKey("PersonId")]
         public Person Person { get; set; }*/
+        public override String ToString()
+        {
+            return series + " " + number;
+        }
     }
     public class Order
     {
