@@ -87,7 +87,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 465);
+            this.label6.Location = new System.Drawing.Point(33, 517);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 14;
@@ -151,16 +151,17 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(570, 528);
+            this.button5.Location = new System.Drawing.Point(570, 512);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 22;
             this.button5.Text = "Отмена";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(686, 528);
+            this.button6.Location = new System.Drawing.Point(651, 512);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 23;
@@ -211,7 +212,7 @@
             // 
             // CostOrder
             // 
-            this.CostOrder.Location = new System.Drawing.Point(137, 462);
+            this.CostOrder.Location = new System.Drawing.Point(139, 514);
             this.CostOrder.Name = "CostOrder";
             this.CostOrder.Size = new System.Drawing.Size(90, 20);
             this.CostOrder.TabIndex = 38;
