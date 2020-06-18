@@ -15,7 +15,7 @@ namespace KinoSoft.Forms
     {
         private Contex My = new Contex();
         private Movie movie = null;
-        //--------------------------------------------------------------------------------------------- Инициализация (Тоже не знаю почему принимает Movie)
+        //--------------------------------------------------------------------------------------------- Инициализация
         public AddMovie(Movie movie)
         {
             InitializeComponent();
@@ -26,41 +26,19 @@ namespace KinoSoft.Forms
             }
             else
             button2.Visible = false;
-            FillFields(movie);
             this.movie = My.Movies.Find(movie.Id);
-
-            
-        }
-        //--------------------------------------------------------------------------------------------- Я (Вова) не знаю откуда это, наверное кто-то добавил
-        private void FillFields(Movie movie)
-        {
-            MovieName.Text = movie.Name;
-            // ...
-        }
-        //--------------------------------------------------------------------------------------------- Забытая всеми функция 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            FillFields();
 
         }
-        //--------------------------------------------------------------------------------------------- Кнопка закрытия
-        private void button1_Click(object sender, EventArgs e)
+        //--------------------------------------------------------------------------------------------- Заполнение полей данными редактируемого фильма
+        private void FillFields()
         {
-            DialogResult result = MessageBox.Show(
-                    "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
-                    "Сообщение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.ServiceNotification);
-            if (result == DialogResult.Yes)
+            MovieName.Text = this.movie.Name;
+            foreach (MovieGenre genre in this.movie.Genres)
             {
-                //--------------------------------------------------------------------------------------------- // Обнуление
-                ProducerAdd.id = null;
-                ActorAdd.id = null;
-                CountryAdd.id = null;
-                GenreAdd.id = null;
-                Close();
+                textBox1.Text += genre.Genre.Name + ", ";
             }
+
         }
         //--------------------------------------------------------------------------------------------- /Добавление фильма
         private void button2_Click(object sender, EventArgs e) 
@@ -179,14 +157,14 @@ namespace KinoSoft.Forms
             //--------------------------------------------------------------------------------------------- // Описание фильма
             string opisanie = Opisanie.Text;
             //--------------------------------------------------------------------------------------------- // Обновление данных
-            movie.Actors = actors;
-            movie.Category = category;
-            movie.Contries = countrys;
-            movie.Date = god;
-            movie.Description = opisanie;
-            movie.Genres = genre;
-            movie.Name = name;
-            movie.Producers = producers;
+            this.movie.Actors = actors;
+            this.movie.Category = category;
+            this.movie.Contries = countrys;
+            this.movie.Date = god;
+            this.movie.Description = opisanie;
+            this.movie.Genres = genre;
+            this.movie.Name = name;
+            this.movie.Producers = producers;
             My.SaveChanges();
             //--------------------------------------------------------------------------------------------- // Обнуление
             ProducerAdd.id = null;
@@ -299,6 +277,31 @@ namespace KinoSoft.Forms
         {
             Forms.AddGenre asd = new Forms.AddGenre();
             asd.Show();
+        }
+        //--------------------------------------------------------------------------------------------- Кнопка закрытия
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                    "Если вы закроете, то введённые данные будут сброшены. Вы уверены в этом?",
+                    "Сообщение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.ServiceNotification);
+            if (result == DialogResult.Yes)
+            {
+                //--------------------------------------------------------------------------------------------- // Обнуление
+                ProducerAdd.id = null;
+                ActorAdd.id = null;
+                CountryAdd.id = null;
+                GenreAdd.id = null;
+                Close();
+            }
+        }
+        //--------------------------------------------------------------------------------------------- Забытая всеми функция 
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
