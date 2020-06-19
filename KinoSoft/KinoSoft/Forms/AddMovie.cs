@@ -68,59 +68,148 @@ namespace KinoSoft.Forms
         //--------------------------------------------------------------------------------------------- /Добавление фильма
         private void button2_Click(object sender, EventArgs e) 
         {
+            Movie movie = new Movie
+            {
+                Name = null,
+                Genres = null,
+                Date = DateTime.Now,
+                Category = null,
+                Actors = null,
+                Producers = null,
+                Contries = null,
+                Description = null
+            };
+            My.Movies.Add(movie);
+            My.SaveChanges();
             //--------------------------------------------------------------------------------------------- //Жанр фильма
-            var genre = new Collection<KinoSoft.MovieGenre>();
+            var genres = new Collection<KinoSoft.MovieGenre>();
             if (GenreAdd.id != null)
-                foreach (Genre c in GenreAdd.id)
+                foreach (Genre genre in GenreAdd.id)
                 {
-                    int genId = c.Id;
-                    MovieGenre MGen = My.MovieGenre.Where(k => k.Id == genId).FirstOrDefault();
-                    genre.Add(MGen);
+                    MovieGenre mGenre = new MovieGenre
+                    {
+                        MovieId = movie.Id,
+                        GenreId = genre.Id
+                    };
+                    My.MovieGenre.Add(mGenre);
+                    genres.Add(mGenre);
                 }
             //--------------------------------------------------------------------------------------------- //Название фильма
             string name = MovieName.Text;
             //--------------------------------------------------------------------------------------------- //Дата выпуска фильма
-            DateTime god = Convert.ToDateTime(Data.Text);
+            DateTime date = Convert.ToDateTime(Data.Text);
             //--------------------------------------------------------------------------------------------- //Категория фильма
             string category = Category.Text;
             //--------------------------------------------------------------------------------------------- //Режиссёр(-ы) фильма
             var producers = new Collection<KinoSoft.MovieProducer>();
             if (ProducerAdd.id != null)
-                foreach (Producer c in ProducerAdd.id)
+                foreach (Producer producer in ProducerAdd.id)
                 {
-                    int proId = c.Id ;
-                    MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
-                    producers.Add(MPro);
+                    MovieProducer mProducer = new MovieProducer
+                    {
+                        MovieId = movie.Id,
+                        ProducerId = producer.Id
+                    };
+                    My.MoviMovieProducere.Add(mProducer);
+                    producers.Add(mProducer);
                 }
             //--------------------------------------------------------------------------------------------- //Актёр(-ы) фильма
             var actors = new Collection<KinoSoft.MovieActor>();
             if (ActorAdd.id != null)
-                foreach (Actor c in ActorAdd.id)
+                foreach (Actor actor in ActorAdd.id)
                 {
-                    int actId = c.Id;
-                    MovieActor MAct = My.MovieActors.Where(k => k.Id == actId).FirstOrDefault();
-                    actors.Add(MAct);
+                    MovieActor mActor = new MovieActor
+                    {
+                        MovieId = movie.Id,
+                        ActorId = actor.Id
+                    };
+                    My.MovieActors.Add(mActor);
+                    actors.Add(mActor);
                 }
             //--------------------------------------------------------------------------------------------- //Страна(-ы), в котором(-ых) снимали фильм
             var countrys = new Collection<KinoSoft.MovieCountry>();
             if (CountryAdd.id != null)
-                foreach (Country c in CountryAdd.id)
+                foreach (Country country in CountryAdd.id)
                 {
-                    int couId = c.Id;
-                    MovieCountry MCou = My.MovieCountry.Where(k => k.Id == couId).FirstOrDefault();
-                    countrys.Add(MCou);
+                    MovieCountry mCountry = new MovieCountry
+                    {
+                        MovieId = movie.Id,
+                        CountryId = country.Id
+                    };
+                    My.MovieCountry.Add(mCountry);
+                    countrys.Add(mCountry);
                 }
             //--------------------------------------------------------------------------------------------- // Описание фильма
             string opisanie = Opisanie.Text;
-            //--------------------------------------------------------------------------------------------- //Функция добавления фильма
-            LogicMovie LM = new LogicMovie();
-            LM.AddMovie(name, god, category, countrys, producers, actors, genre, opisanie);
-            //--------------------------------------------------------------------------------------------- //Обнуление
+
+            movie.Name = name;
+            movie.Genres = genres;
+            movie.Date = date;
+            movie.Category = category;
+            movie.Actors = actors;
+            movie.Producers = producers;
+            movie.Contries = countrys;
+            movie.Description = opisanie;
+            My.SaveChanges();
+
             ProducerAdd.id = null;
             ActorAdd.id = null;
             CountryAdd.id = null;
             GenreAdd.id = null;
             this.Close();
+            ////--------------------------------------------------------------------------------------------- //Жанр фильма
+            //var genre = new Collection<KinoSoft.MovieGenre>();
+            //if (GenreAdd.id != null)
+            //    foreach (Genre c in GenreAdd.id)
+            //    {
+            //        int genId = c.Id;
+            //        MovieGenre mGen = My.MovieGenre.Where(k => k.Id == genId).FirstOrDefault();
+            //        mGenres.Add(mGen);
+            //    }
+            ////--------------------------------------------------------------------------------------------- //Название фильма
+            //string name = MovieName.Text;
+            ////--------------------------------------------------------------------------------------------- //Дата выпуска фильма
+            //DateTime god = Convert.ToDateTime(Data.Text);
+            ////--------------------------------------------------------------------------------------------- //Категория фильма
+            //string category = Category.Text;
+            ////--------------------------------------------------------------------------------------------- //Режиссёр(-ы) фильма
+            //var producers = new Collection<KinoSoft.MovieProducer>();
+            //if (ProducerAdd.id != null)
+            //    foreach (Producer c in ProducerAdd.id)
+            //    {
+            //        int proId = c.Id ;
+            //        MovieProducer MPro = My.MoviMovieProducere.Where(k => k.Id == proId).FirstOrDefault();
+            //        producers.Add(MPro);
+            //    }
+            ////--------------------------------------------------------------------------------------------- //Актёр(-ы) фильма
+            //var actors = new Collection<KinoSoft.MovieActor>();
+            //if (ActorAdd.id != null)
+            //    foreach (Actor c in ActorAdd.id)
+            //    {
+            //        int actId = c.Id;
+            //        MovieActor MAct = My.MovieActors.Where(k => k.Id == actId).FirstOrDefault();
+            //        actors.Add(MAct);
+            //    }
+            ////--------------------------------------------------------------------------------------------- //Страна(-ы), в котором(-ых) снимали фильм
+            //var countrys = new Collection<KinoSoft.MovieCountry>();
+            //if (CountryAdd.id != null)
+            //    foreach (Country c in CountryAdd.id)
+            //    {
+            //        int couId = c.Id;
+            //        MovieCountry MCou = My.MovieCountry.Where(k => k.Id == couId).FirstOrDefault();
+            //        countrys.Add(MCou);
+            //    }
+            ////--------------------------------------------------------------------------------------------- // Описание фильма
+            //string opisanie = Opisanie.Text;
+            ////--------------------------------------------------------------------------------------------- //Функция добавления фильма
+            //LogicMovie LM = new LogicMovie();
+            //LM.AddMovie(name, god, category, countrys, producers, actors, genre, opisanie);
+            ////--------------------------------------------------------------------------------------------- //Обнуление
+            //ProducerAdd.id = null;
+            //ActorAdd.id = null;
+            //CountryAdd.id = null;
+            //GenreAdd.id = null;
+            //this.Close();
         }
         //--------------------------------------------------------------------------------------------- /Функция выбора даты (Часть 1: Открытие и выбор)
         private void button3_Click(object sender, EventArgs e)
