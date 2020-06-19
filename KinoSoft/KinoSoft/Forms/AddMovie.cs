@@ -25,22 +25,32 @@ namespace KinoSoft.Forms
                 return;
             }
             else
-            button2.Visible = false;
-            this.movie = My.Movies.Find(movie.Id);
-            FillFields();
-
+            {
+                button2.Visible = false;
+                this.movie = My.Movies.Find(movie.Id);
+                FillFields();
+            }
         }
         //--------------------------------------------------------------------------------------------- Заполнение полей данными редактируемого фильма
         private void FillFields()
         {
+            List<Genre> listgenre = new List<Genre>();
+
             MovieName.Text = movie.Name;
 
-            foreach (MovieGenre genre in movie.Genres)
+            foreach (MovieGenre c in movie.Genres)
             {
-                textBox1.Text += genre.Genre.Name + "; ";
+                int idGenre = c.Id;
+                textBox1.Text = c.Genre.Name;
+                listgenre.Add(My.Genres.Where(k => k.Id == idGenre).FirstOrDefault());
+            }
+            GenreAdd.id = listgenre;
+            foreach (Genre c in GenreAdd.id)
+            {
+                textBox1.Text += c.Name + ", ";
             }
 
-            Data.Text = movie.Date.ToString();
+            Data.Text = movie.Date.Day.ToString() + "." + movie.Date.Month.ToString() + "." + movie.Date.Year.ToString();
 
             Category.Text = movie.Category;
 
@@ -60,6 +70,7 @@ namespace KinoSoft.Forms
             }
 
             Opisanie.Text = movie.Description;
+            
         }
         //--------------------------------------------------------------------------------------------- /Добавление фильма
         private void button2_Click(object sender, EventArgs e) 
