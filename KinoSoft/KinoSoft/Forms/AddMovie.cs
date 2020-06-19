@@ -37,12 +37,16 @@ namespace KinoSoft.Forms
             List<Genre> listgenre = new List<Genre>();
 
             MovieName.Text = movie.Name;
-
             foreach (MovieGenre c in movie.Genres)
             {
-                textBox1.Text += c.Genre.Name + "; ";
+                int idGenre = c.Genre.Id;
+                listgenre.Add(My.Genres.Where(k => k.Id == idGenre).FirstOrDefault());
             }
-
+            GenreAdd.id = listgenre;
+            foreach (Genre c in GenreAdd.id)
+            {
+                textBox2.Text += c.Name + ", ";
+            }
             Data.Text = movie.Date.Day.ToString() + "." + movie.Date.Month.ToString() + "." + movie.Date.Year.ToString();
 
             Category.Text = movie.Category;

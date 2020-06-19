@@ -55,6 +55,7 @@ namespace KinoSoft.Forms
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -318,11 +319,20 @@ namespace KinoSoft.Forms
             this.textBox1.TabIndex = 35;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(458, 12);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(321, 40);
+            this.textBox2.TabIndex = 36;
+            // 
             // AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 463);
+            this.ClientSize = new System.Drawing.Size(615, 463);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -389,5 +399,6 @@ namespace KinoSoft.Forms
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
