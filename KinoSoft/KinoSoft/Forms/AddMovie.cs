@@ -40,14 +40,7 @@ namespace KinoSoft.Forms
 
             foreach (MovieGenre c in movie.Genres)
             {
-                int idGenre = c.Id;
-                textBox1.Text = c.Genre.Name;
-                listgenre.Add(My.Genres.Where(k => k.Id == idGenre).FirstOrDefault());
-            }
-            GenreAdd.id = listgenre;
-            foreach (Genre c in GenreAdd.id)
-            {
-                textBox1.Text += c.Name + ", ";
+                textBox1.Text += c.Genre.Name + "; ";
             }
 
             Data.Text = movie.Date.Day.ToString() + "." + movie.Date.Month.ToString() + "." + movie.Date.Year.ToString();

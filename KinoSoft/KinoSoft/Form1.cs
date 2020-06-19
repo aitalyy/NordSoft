@@ -361,5 +361,10 @@ namespace KinoSoft
             ReportForm report = new ReportForm();
             report.Show();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
